@@ -1,4 +1,18 @@
-import React, { useState, useRef } from "react";
+import { SocialMediaList } from "@/components/common/common";
+import {
+  EditSingleLead,
+  deleteListOfTags,
+  setDetailActiveTab,
+  setSelectedDataIds
+} from "@/hooks/UseCreateFormData";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
+import MailOutlineSharpIcon from "@mui/icons-material/MailOutlineSharp";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
+import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import {
   Avatar,
   Box,
@@ -8,140 +22,86 @@ import {
   InputLabel,
   Link,
   MenuItem,
-  MenuList,
   Select,
   Stack,
   TextField,
   Tooltip,
   Typography,
-  styled,
+  styled
 } from "@mui/material";
-import Tabs, { tabsClasses } from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import {
-  AvatarContainer,
-  CompanyAvatar,
-  CompanyCircle,
-  ContentInnerInfo,
-  ContentStack,
-  DetailLeftContent,
-  DetailStatus,
-  Detailleft,
-  HeadingBg,
-  LeadInfo,
-  MainHeading,
-  ProfileContainer,
-  SuccessStatus,
-  OverViewFields,
-  OuverViewCoulms,
-  OverViewTxt,
-  DetalFieldContainer,
-  TopActivityArea,
-  ActivityCol,
-  ActivityProgress,
-  OverviewHead,
-  ActivityColBoth,
-  UserProgressBar,
-  PagevisitArea,
-  PageVisitCol,
-  InsightColmn,
-  LinerProgressbar,
-  SelectOption,
-  ToolTipBox,
-  TooltipStyle,
-  DetailStatusSelect,
-  UserInfoPopover,
-  StyledInfoPopover,
-  PopOverContainer,
-  PopOverInner,
-  IconContainer,
-  MainAccountInfo,
-  InfoGreyBar,
-  UseDes,
-  ListingData,
-  AssignedAccount,
-  ReassignName,
-  AssigneInfo,
-  DiviceInfo,
-  BuyerDetalFieldContainer,
-  CancelIcon,
-  ThreeDotsButton,
-  PersonDetailPopover,
-  SocialLinksContainer,
-  SocialLinksbutton,
-  ActivityIcon,
-  PersonDetailTags,
-  TagSearchBox,
-  PreTagBoxList,
-  TagPaperView,
-  PopperStyle,
-  DetailStatusTop,
-  SuccessStatusTop,
-  SocialMediaFields,
-  SocialMediaFInn,
-  SocialInffo,
-  SocialIconLabel,
-  SocialIconValue,
-  MAddMorebtn,
-  AddButtonArea,
-  SocialContactsAddMore,
-  TagStylePopover,
-  TagInnerDiv,
-  OutLinedButton,
-} from "../style";
-import Image from "next/image";
-import LocationCityOutlinedIcon from "@mui/icons-material/LocationCityOutlined";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
-import SaveAsOutlinedIcon from "@mui/icons-material/SaveAsOutlined";
-import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
-import LinearProgress, {
-  LinearProgressProps,
-} from "@mui/material/LinearProgress";
+import Chip from "@mui/material/Chip";
+import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { TooltipProps } from "@mui/material/Tooltip";
+import { LicenseInfo } from "@mui/x-license-pro";
+import moment from "moment";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import DoneAllIcon from "@mui/icons-material/DoneAll";
-import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useAppDispatch } from "redux/store";
-import { useRouter } from "next/router";
-import { LicenseInfo } from "@mui/x-license-pro";
-import LeadOwner from "../PageLayout/common/LeadOwner";
-import { SocialMediaList, apiClient } from "@/components/common/common";
-import moment from "moment";
-import MailOutlineSharpIcon from "@mui/icons-material/MailOutlineSharp";
-import Popover from "@mui/material/Popover";
-import Button from "@mui/material/Button";
-import SwitchAccessShortcutOutlinedIcon from "@mui/icons-material/SwitchAccessShortcutOutlined";
-import LinkOffOutlinedIcon from "@mui/icons-material/LinkOffOutlined";
-import Chip from "@mui/material/Chip";
-import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
-import { ListSocialIconTable, SocialLinksTooltipText } from "../View/style";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import Popper from "@mui/material/Popper";
-import PopupState, { bindToggle, bindPopper } from "material-ui-popup-state";
-import Fade from "@mui/material/Fade";
-import Paper from "@mui/material/Paper";
-import Collapse from "@material-ui/core/Collapse";
+import {
+  ActivityCol,
+  ActivityColBoth,
+  ActivityIcon,
+  ActivityProgress,
+  AddButtonArea,
+  AssignedAccount,
+  AvatarContainer,
+  CancelIcon,
+  CompanyAvatar,
+  CompanyCircle,
+  ContentInnerInfo,
+  ContentStack,
+  DetailLeftContent,
+  DetailStatus,
+  DetailStatusTop,
+  Detailleft,
+  HeadingBg,
+  IconContainer,
+  InfoGreyBar,
+  InsightColmn,
+  LeadInfo,
+  ListingData,
+  MAddMorebtn,
+  MainAccountInfo,
+  MainHeading,
+  OutLinedButton,
+  OuverViewCoulms,
+  OverViewFields,
+  OverViewTxt,
+  PagevisitArea,
+  PersonDetailTags,
+  PopOverContainer,
+  PopOverInner,
+  ProfileContainer,
+  SocialContactsAddMore,
+  SocialIconLabel,
+  SocialIconValue,
+  SocialInffo,
+  SocialLinksContainer,
+  SocialLinksbutton,
+  SocialMediaFInn,
+  SocialMediaFields,
+  StyledInfoPopover,
+  SuccessStatusTop,
+  TagInnerDiv,
+  TagStylePopover,
+  TopActivityArea,
+  UseDes,
+  UserInfoPopover
+} from "../style";
+import { SocialLinksTooltipText } from "../View/style";
+import TagsInput from "./TagsInput";
 LicenseInfo.setLicenseKey(
   "e25aea50a43f724c2a50c717a29c3f54Tz01MDc2NixFPTE2OTQ2OTY3MTk4MjUsUz1wcm8sTE09c3Vic2NyaXB0aW9uLEtWPTI="
 );
-import { TooltipProps } from "@mui/material/Tooltip";
-import {
-  EditSingleLead,
-  deleteListOfTags,
-  getAllListOfTags,
-  setDetailActiveTab,
-  setSelectedDataIds,
-} from "@/hooks/UseCreateFormData";
-import TagsInput from "./TagsInput";
 const ToBeStyledTooltip = ({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ tooltip: className }} />
 );
