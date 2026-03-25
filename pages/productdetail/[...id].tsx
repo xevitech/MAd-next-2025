@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-import HeaderPage from "@/components/common/include/headerPart";
-import FooterPage from "@/components/common/include/footerPart";
-import Head from "next/head";
 import { apiClient } from "@/components/common/common";
-import { useSelector } from "react-redux";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import EmptyPage from "@/components/common/EmptyPage";
+import FooterPage from "@/components/common/include/footerPart";
+import HeaderPage from "@/components/common/include/headerPart";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 // import ChatWindow from "@/components/Chat";
-import { BackToTopBox } from "@/components/ProductsListing/style";
-import { Box, Fab, styled } from "@mui/material";
 import ProductActions from "@/components/ProductDetail/ProductComponents/ProductActions";
+import { BackToTopBox } from "@/components/ProductsListing/style";
+import { Fab } from "@mui/material";
 
 const ProductDetailPage = dynamic(() => import("@/components/ProductDetail"), {
   ssr: false,

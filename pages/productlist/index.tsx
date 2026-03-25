@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
 import ProductList from "@/components/ProductsListing/ProductList";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import { BackToTopBox } from "@/components/ProductsListing/style";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { Fab } from "@mui/material";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { Fab } from "@mui/material";
-import { BackToTopBox } from "@/components/ProductsListing/style";
+import { useEffect, useState } from "react";
 // import ChatWindow from "@/components/Chat";
 const HeaderPage = dynamic(
   () => import("components/common/include/headerPart"),
