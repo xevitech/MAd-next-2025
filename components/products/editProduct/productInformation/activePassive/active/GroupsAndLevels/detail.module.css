@@ -1,0 +1,13 @@
+.MuiDialog-paperWidthSm{ width: 800px !important; max-width: 800px !important; padding:20px}
+.specification_table{border-collapse: collapse;}
+.specification_table tr th, .specification_table tr td{padding: 6px 10px; font-size: 13px;  }
+.specification_table tr:hover, .specification_table tr:hover th{background: rgba(0, 0, 0, 0.04) !important;}
+.specification_table tr{border-bottom:1px solid #dddddd;}
+.specification_table tr th{background-color: #F6F6F6; color: #000;text-align: left; vertical-align: middle; font-family: "Open Sans", sans-serif !important; font-weight: 600;}
+.main_content{font-weight: normal; font-size: 14px; color:#000; vertical-align: middle; padding:0 }
+.main_content tr { background: #d5d5d5; border: 1px solid #000; }
+.pop_btn {display: flex;justify-content: flex-end; margin: 1rem 0; border-top: 1px solid #ddd; padding: 16px 16px 0 0;}
+.cross_icon {position: absolute; right: 20px; top:14px; cursor: pointer;}
+/* .main_modal{ width:1200px !important; margin:0 auto; } */
+.modalcontainer{ padding:15px}
+.listheading{ margin:15px !important; border-bottom: 1px solid #D2D2D2; padding:0 0 10px !important}

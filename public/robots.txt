@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+Disallow: /cgi-bin/
+Disallow: /category/
+Disallow: "http://merchantad.xevitech.com/"
+Allow: "https://merchantad.xevitech.com/public/"
+Sitemap: https://www.merchantad.com//sitemap.xml/

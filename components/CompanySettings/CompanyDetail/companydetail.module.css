@@ -1,0 +1,341 @@
+.add_button {
+  position: relative;
+  top: 3px;
+  font-size: 11px !important;
+  right: 12px;
+}
+.boxcontainer {
+  background: #ffffff;
+  box-shadow: 0px 0px 0px rgba(159, 162, 191, 0.18),
+    0px 1px 0px rgba(159, 162, 191, 0.32);
+  border-radius: 6px;
+  padding: 16px;
+}
+.row_container {
+  padding-top: 16px;
+  border-bottom: 1px solid rgba(34, 51, 84, 0.1);
+  padding-bottom: 16px;
+  align-items: self-start;
+}
+.rd_border {
+  width: 98% !important;
+}
+.edit_field {
+  display: flex;
+}
+.full_width {
+  width: 100% !important;
+}
+.company_detail_tab button {
+  color: #747474;
+}
+.checkaddbox {
+  justify-content: space-around;
+  gap: 3px;
+  align-items: center;
+  position: relative;
+}
+.companyd_headedit {
+  position: absolute;
+  right: 0;
+}
+.empty_data {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  min-height: 300px;
+}
+
+.parentuserdetail {
+  padding: 10px;
+  display: flex;
+  gap: 10;
+}
+.userdetail {
+  align-items: center;
+  gap: 20;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+.closeiicon {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  font-size: 12px !important;
+}
+.editregionalbox {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 600px;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+.reginaleditdivider {
+  width: 100%;
+}
+.fieldvalue {
+  flex: 1 !important;
+}
+.companyd_logo {
+  margin: 0px 4px -4px;
+}
+.errormsg {
+  color: #d7282f;
+  font-size: 12px !important;
+}
+.labelcheck {
+  font-size: 14px;
+}
+.lablecheckItems {
+  font-size: 14px;
+}
+.labelform {
+  margin-left: -6px;
+}
+.businesspop {
+  padding: 3px 14px 4px !important;
+  text-transform: capitalize;
+  font-size: 14px !important;
+}
+
+/********** factory inventory detail css after makestyle ***********/
+.dividerfi {
+  margin: 0 11px 0 0;
+}
+.factoryfield {
+  width: 50%;
+}
+.edittextfeild {
+  width: 50%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+/********** End factory inventory detail css after makestyle ***********/
+
+/********** QA css after makestyle ***********/
+div .slidearea {
+  padding: 6px 0px 5px 0px !important;
+}
+/********** End QA css after makestyle ***********/
+
+/********** Research and development ***********/
+.outerdiv {
+  width: 100%;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+/********** End Research and development ***********/
+
+/********** Certificate tab styling ***********/
+div .nodata {
+  display: flex;
+  align-items: center;
+}
+div .deleteicon {
+  font-size: 16px;
+  cursor: pointer;
+  color: #d7282f;
+  top: 2px;
+  position: relative;
+  right: 2px;
+}
+div .alldelete {
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 5px 6px;
+  margin-left: 20px;
+  font-weight: 300;
+  color: #d7282f;
+  border: 1px solid #fff;
+}
+div .alldelete:hover {
+  border: 1px solid #e5e5e5;
+}
+/********** end Certificate tab styling ***********/
+
+/********** NewsLetter styling ***********/
+div .deleteicon {
+  font-size: 16px;
+  cursor: pointer;
+  color: #d7282f;
+  top: 2px;
+  position: relative;
+  right: 2px;
+}
+
+/********** social contact styling ***********/
+div .socialdiv {
+  width: 50% !important;
+  padding: 16px 8px !important;
+}
+div .actionicon {
+  font-size: 18px !important;
+  cursor: pointer;
+  color: #d7282f;
+}
+
+@media screen and (max-width: 1600px) {
+  /* div .actionicon{font-size:16px !important;} */
+}
+@media only screen and (max-width: 1700px) and (min-width: 900px) {
+  div .socialdiv {
+    width: 100% !important;
+    padding: 6px 8px !important;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .editregionalbox {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  /* .locationfield{  flex:1 !important} */
+  /******** QA css **********/
+  div .slidebtn {
+    font-size: 12px;
+    min-width: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .gridemailinput {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  div .certificatelist {
+    display: block !important;
+  }
+  div .certificatelist > div {
+    margin-bottom: 22px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .upload_col {
+    margin: 0 !important;
+  }
+  .row_container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .boxcontainer {
+    box-shadow: none;
+  }
+  .selct_country_col {
+    margin: 0;
+  }
+  .company_detail_tab button {
+    color: #747474;
+  }
+  .company_detail_tab {
+    margin: 0 0 0 8px;
+  }
+  div .slidebtn {
+    font-size: 10px;
+  }
+  .cdetailmediafield {
+    width: 100% !important;
+  }
+  div .certificatelist {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /********** factory inventory detail css after makestyle ***********/
+  .factoryfield {
+    width: 100%;
+  }
+  .locationfield {
+    flex: 1.7 !important;
+  }
+  /******** QA css **********/
+  div .slidebtn {
+    margin: 10px 0;
+  }
+  div .nospace {
+    margin: 0;
+  }
+  /********** services style **********/
+  div .addmorebtn {
+    padding: 0 !important;
+    height: 30px;
+  }
+  /* .boxcontainer{padding:0;} */
+}
+
+@media screen and (max-width: 600px) {
+  .editregionalbox {
+    width: 100%;
+    margin: 10px 0 0;
+  }
+  /* .rd_border{display:none} */
+  .companylogoimg {
+    width: 50px;
+    height: 50px;
+  }
+  .labelstyle {
+    margin: 4px 0 7px !important;
+  }
+  .qualityfieldcon {
+    width: 100% !important;
+    display: block;
+  }
+
+  /********** QA css after makestyle ***********/
+  /* .dividerColor{display:none} */
+  div .slidebtn {
+    font-size: 9px;
+  }
+  div .slidearea {
+    padding: 5px 0px 0 0px !important;
+  }
+  /********** End QA css after makestyle ***********/
+
+  /********** Research and development ***********/
+  /* div .dividerColor{  display:none;} */
+  div .rdfield {
+    flex: 2 1 0% !important;
+  }
+  /********** End Research and development ***********/
+
+  /********** social contact styling ***********/
+  div .socialdiv {
+    width: 100% !important;
+    padding: 6px 16px !important;
+    overflow: hidden;
+  }
+  .boxcontainer {
+    padding: 0;
+  }
+  .empty_data {
+    min-height: 230px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bottombtn {
+    height: 30px;
+    font-size: 10px !important;
+    min-width: 15px !important;
+    padding: 0 3px;
+    margin-bottom: 10px;
+  }
+  .empty_data {
+    display: flex;
+    min-height: 250px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .editregionalbox {
+    left: 0px;
+  }
+}

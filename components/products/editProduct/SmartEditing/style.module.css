@@ -1,0 +1,6 @@
+.red{color: green !important;}
+.mce-content-body body{padding:50px !important}
+.tox .tox-edit-area::before {
+    /* Add any styles you want to keep */
+    display: none; /* This will hide the element */
+}

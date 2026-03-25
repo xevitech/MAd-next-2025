@@ -1,0 +1,776 @@
+/**** Crm animtion ****/
+.containereffects {
+}
+
+.containereffects .card {
+  position: relative;
+  height: 100px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+  border-radius: 15px;
+}
+
+.containereffects .card:hover {
+  height: 40vh;
+  /* height:"300px"*/
+  -webkit-transition: 0.5s all;
+  -webkit-transition-delay: 1.5s;
+  -moz-transition: 0.5s all;
+  -moz-transition-delay: 1s;
+  -ms-transition: 0.5s all;
+  -ms-transition-delay: 15s;
+  -o-transition: 0.5s all;
+  -o-transition-delay: 1.5s;
+  transition: 0.5s all;
+  transition-delay: 1.5s;
+}
+
+.container .card .image {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  top: -40%;
+  left: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: width 2s, height 14s;
+}
+
+.containereffects .card .image img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.containereffects .card .content {
+  position: relative;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.containereffects .card:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.12s;
+}
+
+.innerhistorycon p:nth-of-type(-n + 3) {
+  display: inline;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.innerhistorycon div:nth-of-type(-n + 3) {
+  display: inline;
+}
+
+.innerhistorycon i {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+/**** End Crm animtion ****/
+
+/**** Common Check box color and spacing *****/
+.MainCheckbox .MuiFormControlLabel-root .MuiButtonBase-root.Mui-checked {
+  color: #d7282f;
+}
+
+.MainCheckbox .MuiSvgIcon-root {
+  color: #d7282f;
+  font-size: 16px;
+}
+
+.MainCheckbox .MuiDataGrid-columnSeparator {
+  display: none;
+}
+
+.MainCheckbox .MuiCheckbox-root {
+  position: relative;
+}
+
+.MainCheckbox .MuiCheckbox-root .MuiSvgIcon-root {
+  display: none;
+}
+
+.MainCheckbox .MuiCheckbox-root:before {
+  content: " ";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+}
+
+.MainCheckbox .MuiCheckbox-root:after {
+  content: " ";
+  display: block;
+  transform: rotate(45deg);
+  width: 4px;
+  height: 8px;
+  border-bottom: 2px solid #d7282f;
+  border-right: 2px solid #d7282f;
+  position: absolute;
+  top: 11px;
+  opacity: 0;
+}
+
+.MainCheckbox .MuiCheckbox-root.Mui-checked:after {
+  opacity: 1;
+}
+
+.MainCheckbox .MuiCheckbox-root:hover:before {
+  border-color: #b1b0b0;
+}
+
+.MainCheckbox .MuiCheckbox-root.Mui-checked:before {
+  border-color: #d7282f;
+}
+
+.MainCheckbox .MuiCheckbox-root.MuiTypography-root {
+  font-size: 14px;
+}
+
+.myCustomList::-webkit-scrollbar {
+  width: 4px;
+  background-color: #fff;
+}
+
+.myCustomList::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background-color: #dedede;
+}
+
+.Content-resourceContainer {
+  display: none !important;
+}
+
+/*****  Start Page layout (Edit style) *****/
+.leadinfoEditablefield {
+  min-width: 170px;
+  position: relative;
+  height: 30px;
+}
+
+/* .leadinfoEditablefield::before,
+.leadinfoEditablefield::after {border: solid transparent;content: " ";display: block;height: 0;position: absolute;pointer-events: none;
+width: 0;right: 100%;top:50%;}
+.leadEditablestyle::before,
+.leadEditablestyle::after {border: solid transparent;content: " ";display: block;height: 0;position: absolute;pointer-events: none;width: 0;
+right: 100%;top:65%;}
+.leadinfoEditablefield::before {border-right-color: rgba(0, 0, 0, 0.23);margin-top: -7px;border-width: 7px;}
+.leadinfoEditablefield::after {border-right-color: #ffffff; margin-top: -6px;border-width: 6px;margin-right: -1px;} */
+.leadinfoEditablefield .MuiOutlinedInput-root {
+  padding: 0 7px;
+  height: 30px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.leadinfoEditablefield
+  .MuiAutocomplete-root
+  .MuiTextField-root
+  .MuiOutlinedInput-root
+  > .MuiSvgIcon-root {
+  position: absolute;
+  right: 7px;
+  border-left: 1px solid #d2d2d2;
+  padding: 0 0 0 5px;
+  width: 22px;
+}
+
+.leadinfoEditablefield
+  .MuiAutocomplete-root
+  .MuiTextField-root
+  .MuiOutlinedInput-root
+  > .MuiSvgIcon-root:hover {
+  color: #d7282f;
+}
+
+.leadinfoEditablefield
+  .MuiAutocomplete-root
+  .MuiTextField-root
+  .MuiOutlinedInput-root
+  .MuiInputBase-input {
+  font-size: 12px;
+}
+
+/*****  Start Page layout (Edit style) *****/
+
+/***** Start Lead List (Filter) Style *****/
+div .filtermobile {
+  display: none;
+}
+
+.filtershowdesk {
+}
+
+div .persondetailmobile {
+  display: none;
+}
+
+/***** End Lead List (Filter) Style *****/
+
+.othermenu {
+  margin: 2px -25px 0;
+}
+
+.myCustomListtag {
+  height: 200px;
+  padding: 0 !important;
+}
+
+/* width */
+.myCustomListtag::-webkit-scrollbar {
+  height: 4px;
+  width: 6px;
+  border-radius: 6px;
+}
+
+/* Track */
+.myCustomListtag::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+.myCustomListtag::-webkit-scrollbar-thumb {
+  background: #d2d2d2;
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+.myCustomListtag ::-webkit-scrollbar-thumb:hover {
+  background: #d2d2d2;
+}
+
+.myCustomListtag::-webkit-scrollbar-thumb:horizontal {
+  background: #d2d2d2;
+  border-radius: 6px;
+}
+
+.colorpicbox .twitter-picker span div {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.colorpicbox .twitter-picker input {
+  display: none !important;
+}
+
+.tagbuttons {
+  position: absolute;
+  top: -36px;
+  right: 2%;
+  display: flex;
+}
+
+.tagbuttons .pickerbutton {
+  color: #d7282f;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 3px;
+}
+
+.tagbuttons .pickerbutton svg {
+  font-size: 16px;
+}
+
+.tagbuttons .pickerbutton:hover {
+}
+
+.colorpicbox .twitter-picker.pickerPanel input {
+  display: none;
+}
+
+.colorpicbox .twitter-picker {
+  padding-bottom: 40px !important;
+  width: 100% !important;
+  border-radius: 0 !important;
+  min-height: 80px;
+}
+
+.tagbuttonsouter {
+  position: relative;
+}
+
+.tagpickericon {
+  display: flex;
+  align-items: center;
+}
+
+.tagpickericon svg {
+  font-size: 16px;
+}
+
+.pickerPanel div:nth-of-type(-n + 3) > div {
+  display: none !important;
+}
+
+.whiteleadicon::before {
+  color: #fff !important;
+}
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 6px 22px;
+  transition: all 0.2s ease;
+}
+
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgba(255, 171, 157, 0.5);
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.cta span {
+  position: relative;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: capitalize;
+  vertical-align: middle;
+  color: #d7282f;
+}
+
+.cta svg {
+  position: relative;
+  top: 5px;
+  font-size: 20px;
+  fill: #d7282f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #d7282f;
+  stroke-width: 0.1;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+  width: 100%;
+  background: #ffab9d;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active {
+  transform: scale(0.96);
+}
+
+.datetimecommon .MuiFormControl-root {
+  min-width: 100% !important;
+}
+
+.datetimecommon .MuiStack-root {
+  overflow: hidden;
+}
+
+.datetimecommon svg {
+  font-size: 14px;
+}
+
+div .addListingcrm {
+  display: none;
+}
+
+.flagstyle {
+  margin: 1px 2px -5px 0;
+}
+
+.flagstyle svg {
+  font-size: 16px;
+  margin: -2px 0 -3px 0;
+}
+
+.sucessiconns {
+  width: 18px;
+  display: flex;
+  margin: 6px 0 0;
+}
+
+.sucessiconns .svg-success {
+  display: inline-block;
+  vertical-align: top;
+  height: 18px;
+  opacity: 1;
+  overflow: visible;
+}
+
+.datetimecommon .MuiInputBase-input {
+  padding-right: 0 !important;
+  font-size: 10px;
+}
+
+/* width */
+.MuiAutocomplete-listbox::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+  border-radius: 6px;
+}
+
+/* Track */
+.MuiAutocomplete-listbox::-webkit-scrollbar-track {
+  /* background: #fff; */
+  background: "transparent";
+}
+
+/* Handle */
+.MuiAutocomplete-listbox::-webkit-scrollbar-thumb {
+  background: #d2d2d2;
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+.MuiAutocomplete-listbox::-webkit-scrollbar-thumb:hover {
+  background: #6d6d6d;
+}
+
+.MuiAutocomplete-listbox::-webkit-scrollbar-thumb:horizontal {
+  background: #d2d2d2;
+  border-radius: 6px;
+}
+
+.MuiAutocomplete-listbox::-webkit-scrollbar-thumb:hover:horizontal {
+  background: #6d6d6d;
+}
+
+.crm-body .MuiTooltip-tooltip {
+  background-color: #fff !important;
+  color: #231f20 !important;
+  font-size: 12px !important;
+  border-radius: 3px !important;
+  padding: 8px !important;
+  border: 1px solid rgb(225, 225, 225);
+  font-family: Open Sans;
+}
+
+.crm-body .MuiTooltip-arrow {
+  color: #fff !important;
+}
+
+.crm-body .MuiTooltip-arrow::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid rgb(225, 225, 225);
+  transform: rotate(45deg);
+}
+
+/******* New styling of CRM *******/
+.colorpicbox .twitter-picker {
+  padding-bottom: 0 !important;
+  width: 100% !important;
+  border-radius: 0 !important;
+  min-height: 20px;
+  box-shadow: none !important;
+  margin: -11px 0px 0 -15px;
+  background: transparent !important;
+}
+
+@-webkit-keyframes success-tick {
+  0% {
+    stroke-dashoffset: 16px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 31px;
+    opacity: 1;
+  }
+}
+
+@keyframes success-tick {
+  0% {
+    stroke-dashoffset: 16px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 31px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes success-circle-outline {
+  0% {
+    stroke-dashoffset: 72px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes success-circle-outline {
+  0% {
+    stroke-dashoffset: 72px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes success-circle-fill {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes success-circle-fill {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.sucessiconns .svg-success .success-tick {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #81c038;
+  stroke-dasharray: 15px, 15px;
+  stroke-dashoffset: -14px;
+  -webkit-animation: success-tick 450ms ease 1400ms forwards;
+  animation: success-tick 450ms ease 1400ms forwards;
+  opacity: 0;
+}
+
+.sucessiconns .svg-success .success-circle-outline {
+  fill: none;
+  stroke-width: 2px;
+  stroke: #81c038;
+  stroke-dasharray: 72px, 72px;
+  stroke-dashoffset: 72px;
+  -webkit-animation: success-circle-outline 300ms ease-in-out 800ms forwards;
+  animation: success-circle-outline 300ms ease-in-out 800ms forwards;
+  opacity: 0;
+}
+
+.sucessiconns .svg-success .success-circle-fill {
+  fill: #fff;
+  stroke: none;
+  opacity: 0;
+  -webkit-animation: success-circle-fill 300ms ease-out 1100ms forwards;
+  animation: success-circle-fill 300ms ease-out 1100ms forwards;
+}
+
+/*** Tubs up down animations ***/
+.crmPageHeader {
+  z-index: 100 !important;
+}
+
+/***** Stepper css *****/
+.md-step {
+  display: table-cell;
+  position: relative;
+  padding: 24px;
+}
+
+.md-step:active {
+  border-radius: 15% / 75%;
+}
+
+.md-step:first-child:active {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.md-step:last-child:active {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.md-step:hover .md-step-circle {background-color: #e0e0e0;}
+.md-step:first-child .md-step-bar-left,
+.md-step:last-child .md-step-bar-right {display: none;}
+.md-step .md-step-circle {width: 45px;height: 45px;margin: 0 auto;background-color: #ededed;border-radius: 50%;text-align: center;line-height: normal;font-size: 16px;
+  font-weight: 600;color: #231f20;}
+.md-step.active .md-step-circle {background-color: #fff;border: 1px solid #d7282f;color: #d7282f;}
+.md-step.done .md-step-circle *,
+.md-step.editable .md-step-circle * {display: none;}
+.md-step.editable .md-step-circle {-moz-transform: scaleX(-1);-o-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);}
+.md-step-title {margin-top: 4px;font-size: 13px;font-weight: 600;}
+.md-step-title,.md-step-optional {text-align: center;color: rgba(0, 0, 0, 0.26);}
+.active .md-step-title {font-weight: 600;color: rgba(0, 0, 0, 0.87);}
+.active.editable .md-step-title {font-weight: 600;}
+.md-step .md-step-optional {font-size: 12px;}
+.md-step.active .md-step-optional {color: rgba(0, 0, 0, 0.54);}
+.md-step-bar-left,.md-step-bar-right {position: absolute;top: 54px;height: 1px;border-top: 1px solid #ddd;}
+.md-step.active .md-step-bar-left,.md-step-bar-right {position: absolute;top: 54px;height: 1px; /* border-top:1px solid green; */}
+.md-step-bar-right {right: 0;left: 56%;margin-left: 20px;}
+.md-step-bar-left {left: 0;right: 56%;margin-right: 20px;}
+.svg-success {display: inline-block;vertical-align: top;height: 32px;width: 40px;opacity: 1;overflow: visible;margin: -10px -11px 0;}
+@-webkit-keyframes success-tick {
+  0% {
+    stroke-dashoffset: 16px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 31px;
+    opacity: 1;
+  }
+}
+
+@keyframes success-tick {
+  0% {
+    stroke-dashoffset: 16px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 31px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes success-circle-outline {
+  0% {
+    stroke-dashoffset: 72px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes success-circle-outline {
+  0% {
+    stroke-dashoffset: 72px;
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes success-circle-fill {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes success-circle-fill {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.svg-success .success-tick {  fill: none;  stroke-width: 1px;  stroke: #ffffff;  stroke-dasharray: 15px, 15px;  stroke-dashoffset: -14px;  -webkit-animation: success-tick 450ms ease 1400ms forwards;  animation: success-tick 450ms ease 1400ms forwards;  opacity: 0;}
+
+.svg-success .success-circle-outline {  fill: none;  stroke-width: 1px;  stroke: #00af6a;  stroke-dasharray: 72px, 72px;  stroke-dashoffset: 72px;  -webkit-animation: success-circle-outline 300ms ease-in-out 800ms forwards;  animation: success-circle-outline 300ms ease-in-out 800ms forwards;  opacity: 0;}
+
+.svg-success .success-circle-fill {  fill: #00af6a;  stroke: none;  opacity: 0;  -webkit-animation: success-circle-fill 300ms ease-out 1100ms forwards;  animation: success-circle-fill 300ms ease-out 1100ms forwards;}
+
+.crm_pagelayout .MuiFormHelperText-root::before {  display: none !important;}
+.MuiTelInput-Menu .MuiPaper-root {max-height: 200px !important;  height: 200px !important;  overflow-y: auto !important;
+  &::-webkit-scrollbar {    width: 6px;  }  &::-webkit-scrollbar-track {    background-color: #f1f1f1;  }  &::-webkit-scrollbar-thumb {    background-color: #acabab;  }  &::-webkit-scrollbar-thumb:hover {    background-color: #6d6d6d;  }}
+.MuiTelInput-Menu .MuiPaper-root .MuiListItemIcon-root img {  border-radius: 2px;}
+.MuiTelInput-Menu .MuiPaper-root ul li .MuiListItemText-root {  flex: none;}
+.MuiTelInput-Menu .MuiPaper-root ul li .MuiListItemText-root span {  font-size: 13px;  color: #231f20;  font-weight: 400;}
+.MuiTelInput-Menu .MuiPaper-root ul li .MuiTypography-root {  font-size: 13px;  color: #808080;  font-weight: 400;}
+.MuiTelInput-Menu .MuiPaper-root ul li .MuiListItemIcon-root {  margin-right: 8px;  min-width: auto;}
+.NotesEditorr .ql-toolbar.ql-snow {  border: none !important;}
+.crm-body .Header-head .Header-line{  display: none;}
+.crm-body .Header-head .MuiButtonBase-root{  position: absolute;}
+.crm-body .Content-content .Content-relativeContainer svg {  font-size: 18px;height: 22px;width: 22px;}
+.crm-body .Content-content .Content-title {  font-size: 14px;}
+.crm-body .Content-content .Content-text {  font-size: 12px;}
+.crm-body .Content-content .Content-titleContainer { padding-bottom: 6px;}
+.crm-body .Content-content .MuiSvgIcon-root {font-size: 18px;}
+.crm-body .MuiPopover-root .Layout-popover {width: 250px;
+}
+/***** Start Media Quries for Responsive *****/
+@media screen and (max-width: 1600px) {
+  .cta:before {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  div .persondetailmobile i {
+    font-size: 10px !important;
+  }
+
+  div .persondetailmobile i:before {
+    color: #fff;
+  }
+
+  .leadinfoEditablefield {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  div .filterdesktop {
+    display: none;
+  }
+
+  div .filtermobile {
+    display: inline-flex;
+  }
+
+  .filtershowdesk {
+    display: none;
+  }
+
+  .filtershowmob {
+    display: block;
+  }
+
+  /* .leadinfoEditablefield .MuiOutlinedInput-root {height: 30px;margin: 4px 0;} */
+}
+
+@media screen and (max-width: 600px) {
+  .crm_pagelayout {
+    background: #f4f6fa;
+    padding-bottom: 1px;
+  }
+
+  .crm-body {
+    background: #f4f6fa;
+  }
+  .crm-body .crm-hidesearch{
+    display: none;
+  }
+}
+
+/***** End Media Quries for Responsive *****/

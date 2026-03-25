@@ -1,0 +1,8 @@
+.sellersubaccount{  font-family: "Open Sans", sans-serif !important;}
+div .delete_selected{ font-weight: 400; display: flex; }
+.act_status{ height: 25px; text-transform: capitalize !important; min-width: 100px !important;}
+
+
+@media screen and (max-width: 768px) {
+div .delete_selected {margin: 3px 0 10px;}
+}

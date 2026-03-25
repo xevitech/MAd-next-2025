@@ -1,0 +1,168 @@
+div .back_btn {
+  background: #fff;
+  color: #fff;
+  height: 35px;
+  border: 1px solid #d7282fcc;
+  color: #d7282fcc;
+}
+div .back_btn:hover {
+  background: #d7282fcc;
+  color: #fff;
+}
+.arrow {
+  margin: 3px;
+}
+div .link_active {
+  font-weight: 600;
+}
+div .link_name {
+  font-family: "Open Sans";transition: all ease .3s;
+}
+div .link_name:hover {
+  color:#d7282f !important;transition: all ease .3s;
+}
+
+div .darkoutline_btn {
+  background: #fff !important;
+  opacity: 85%;
+  height: 32px;
+  border: 1px solid #6c6c6c !important;
+  border-radius: 6px;
+  margin: 10px 0 5px;
+  color: #231f20 !important;
+}
+div .darkoutline_btn:hover {
+  background: #231f20 !important;
+  color: #fff !important;
+}
+
+div .redbatch {
+  background: #ffebec !important;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: #d7282f;
+  display: none;
+}
+div .redbatch:hover {
+  background: #d7282f !important;
+  color: #fff;
+}
+div .redoutline_btn {
+  background: #fff !important;
+  height: 32px;
+  border: 1px solid #d7282f !important;
+  border-radius: 6px;
+  color: #d7282f !important;
+  opacity: 85%;
+}
+div .redoutline_btn:hover {
+  background: #d7282f !important;
+  color: #fff !important;
+}
+.option_other {
+  background: #fff;
+}
+.ActionLInks{
+  width: 100%;
+  padding: 12px 0;
+}
+
+.ActionLInks:hover{
+  background-color: #fbd1d3;
+}
+div .save_seller {
+  background: #fff !important;
+  height: 32px;
+  border: 1px solid #d7282f !important;
+  border-radius: 6px;
+  color: #d7282f !important;
+  opacity: 85%;
+  padding: 0 5px;
+  font-size: 12px;
+  width:'auto',
+}
+div .save_seller:hover {
+  background: #d7282f !important;
+  color: #fff !important;
+}
+.sellbtn {
+  padding: 10px;
+}
+.RightbarToggle {
+  transition: all ease 0.5s;
+  position: relative;
+}
+
+.RightToggle1 {
+  transition: all ease 0.5s;
+  position: relative;
+}
+
+@media screen and (max-width: 1700px) {
+  div .redbatch {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .qyalitytxt{
+    font-size: 11px !important;
+  }
+  .qyalityfield{
+    width: 40px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1261px) {
+  div .redbatch {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .RightToggle {
+    position: fixed;
+    right: -350px;
+    z-index: 9999;
+    padding: 0px !important;
+    top: 121px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+    width: 350px !important;
+    max-width: 350px !important;
+    
+  }
+
+  .RightbarToggle1 {
+    position: fixed;
+    right: 0px;
+    width: 350px !important;
+    max-width: 350px !important;
+    z-index: 9999;
+    padding: 0 !important;
+    top: 121px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.smalltxt {
+  font-size: 11px !important;
+}
+@media (min-width: 1536px) and (max-width: 1600px) {
+  .smalltxt{font-size: 10px !important;}
+}
+@media (min-width: 1200px) and (max-width: 1340px) {
+  .smalltxt{font-size: 9px !important;}
+}
+
+
+
+
+.cityname{color: #3E3E3E; font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 6px;}
+.compnyname{font-size: 14px !important; padding: 0 !important;color: #231F20;font-weight: 600,}
+
+/* product pricing */
+.qyalitytxt{font-size: 13px !important;color: #000000; padding-right:6px;}
+.qyalityfield{width: 50px;margin: 0px 10px !important}
+
+  .negotiablescreen{white-space: nowrap;}
+ 
+  @media screen and (max-width: 600px) {
+  .compnyname{font-size: 12px !important; }
+  }

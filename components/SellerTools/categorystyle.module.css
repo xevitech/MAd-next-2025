@@ -1,0 +1,32 @@
+
+.style_attribute_page__aVUQ9 .css-vjcddu-MuiFormControl-root-MuiTextField-root:hover { border: none !important;}
+/***** Scroller design ******/
+
+
+  .add_message{ text-align: center; margin: 0 auto; color: #7B7979}
+  div .no_dataicon{color: #ADADAD;width: 100%;margin-top: 50px;font-size:60px;}
+ .grid_column{ border: 1px solid #ccc; border-radius: 6px;}
+
+/***** Scroller design ******/
+/* width */
+.attribute_page ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Track */
+  .attribute_page ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #cccedd;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  .attribute_page ::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  
+.attribute_page ::-webkit-scrollbar-thumb:hover { background: #d9d9d9;}
+.deleteicon{font-size:20px !important;color: #D7282F}
+.customTextField {margin:10px 0 3px !important; width:100%;}

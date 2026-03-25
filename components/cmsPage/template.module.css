@@ -1,0 +1,300 @@
+.page_container{font-family:open sans; color:#333333;word-wrap: break-word; background: #fff;}
+
+
+/** Buttons css & hover effects **/
+div .red_color{ font-size: 17px; background-color: #D7282F;font-weight: 500;border-radius: 30px;padding: 8px 30px 8px 30px; margin-top:2rem;
+text-transform: capitalize;}
+
+div .red_color:hover{background-color: #04000F; animation-name: wobble-vertical;animation-duration: 1s;animation-timing-function: ease-in-out;animation-iteration-count: 1;}
+/* Wobble Vertical */
+@keyframes wobble-vertical {
+  16.65% {
+    transform: translateY(8px);
+  }
+  33.3% {
+    transform: translateY(-6px);
+  }
+  49.95% {
+    transform: translateY(4px);
+  }
+  66.6% {
+    transform: translateY(-2px);
+  }
+  83.25% {
+    transform: translateY(1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.red_color {display: inline-block;-webkit-tap-highlight-color: transparent; transform: translateZ(0);box-shadow: 0 0 1px transparent;}
+div .white_color{ font-size: 17px; background-color: #D7282F;font-weight: 500;border-radius: 30px;padding: 8px 30px 8px 30px; margin-top:2rem;
+text-transform: capitalize;}
+/** Buttons css & hover effects **/
+
+
+.banner{ text-align:center; height: 500px; position:relative;background:rgba(0,0,0,0.7);}
+.banner img{ width:100%; object-fit: cover; height: 100%;}
+.banner img.overlay {mix-blend-mode: overlay;}
+.banner_txt{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%) ; color: #FFF;}
+.banner_txt h1{font-size: 45px;font-weight: 500;}
+.banner_txt h2{ font-size: 36px;font-weight: 100;}
+.category_col{ background-color: #ffffffe0;margin-bottom: 4px;box-shadow: 0 5px 20px rgb(102 102 102 / 19%);padding: 30px 65px 35px 25px;border-radius:7px;
+position: relative;overflow: hidden;}
+.category_col h4{font-size: 18px;color: #000;font-weight: 600;}
+.sub_icon{display: flex;align-items: center;justify-content: center;width: 70px;height: 70px;overflow: hidden;position: relative;}
+.category_inn:before {width: 100px;height: 100px;left: 0;z-index: -2;background-color: rgba(237,28,36,.15);left: -13px;top: -13px;
+bottom: 0;border-radius: 50% 0 50% 50%;content: "";display: block;position: absolute;} 
+.category_inn {z-index: 1; position: absolute;top: 0;right: 0;transition: all 300ms linear 100ms;}
+.category_inn:after {width: 80px;height: 80px;z-index: -1;background-color: #D7282F;top: -5px;left: -2px;}
+.category_inn:after {content: "";display: block;position: absolute; bottom: 0;bottom: 0;border-radius: 50% 0 50% 50%;}
+.common_head{ border-left:1px solid #d7282f; padding: 0 0 0 16px; font-size: 1.4em;font-weight: 400;text-transform: uppercase;}
+div .common_heading2{ color: #D7282F !important; font-size: 24px;margin: 1rem 0 0 0;}
+
+
+/***** Service section *****/
+.service_sec{background: #fff;}
+.service_secinn {box-shadow: -31px -67px 40px -50px rgb(0 0 0 / 75%); background: #fff; position: relative; left: 0; right:0;width:85%;margin: 0 auto;
+top: -55px;}
+.heading{color: #313131;font-size: 26px;font-weight: 600;margin-bottom: 20px; line-height: 33px;}
+.service_left{ padding:50px 0 0;}
+.page_container p{font-size: 15px;font-weight:300;line-height:29px; font-family:open sans;}
+
+.bottom_content{ display: flex; justify-content: space-between;}
+.img_box{ width: 200px; margin: 0 auto;}
+.img_box img{ width:100px;}
+.service_right{ text-align: center; padding: 20px 0 0 40px;}
+.count{font-size: 4em;font-weight: 700; display: block; color:#d7282f}
+.bottom_content .count{ color:#04000f}
+.service_right P{color: #313131;font-size: 14px;font-weight: 400;}
+.structor_sec{background-image: url(http://merchantad.xevitech.com/public/pages/wp-content/uploads/2022/08/di-bg.jpg);background-position: bottom right;
+background-repeat: no-repeat; background-size: cover; padding-top: 27px; background-attachment: fixed;}
+.structor_sec h4{ border-left:1px solid #d7282f; padding: 0 0 0 16px;}
+
+.structor_left h4{ font-size: 1.4em;font-weight: 400; text-transform:uppercase;}
+.structor_left h3{  color:#14d89b;font-size: 25px;font-weight: 600; padding: 20px 0;}
+
+.structor_right{ padding:50px; background:rgba(0,0,0,0.4); color:#fff !important;margin: 4rem 0 0;}
+.structor_right h4{font-size: 1.4em;font-weight: 700; text-transform:uppercase; margin-bottom: 1rem;}
+.structor_right p{ font-size: 14px; line-height: 28px;}
+
+.structor_left .common_heading2 {margin-bottom: 2rem;}
+
+/***** Contact section *****/
+.contact_sec{padding:35px; background:#ed1c24; border-radius:6px; color:#fff; width: 88%;margin: 0 auto;  display: flex; position:relative;
+justify-content: space-between; top: 75px;}
+.contact_secinn{ position:relative;}
+.contact_sec h3{ font-size: 22px; font-weight: 600;}
+.contact_sec button{  background:#fff; color:#d7282f;}
+.contact_sec button:hover{ background: #D7282F; color:#fff;}
+
+.upper-section-card {display: flex; align-items: center; justify-content: space-between; }.FPipes {display: flex; align-items: center; background-color: #ffffffe0; margin-bottom: 4px; box-shadow: 0 5px 20px rgb(102 102 102 / 19%); padding: 10px; position: relative; border-radius: 7px; overflow: hidden;}.alignnone { height: 100px; width: 100%;}.title { font-size: 18px; color: #000; font-weight: 600;}.inner-icon-backlayer2 { background-color: red; height: 80px; width: 80px;}.counter-icon-backlayer1 { background-color: #000;  height: 100px; width: 100px;}a.nav-link {color: #d7282f; font-size: 19px; padding: 10px 20px;}.PBorder {border: 1px solid #d7282f;}a.nav-link.active { border-radius: 0px; background-color: #fff; color: #d7282f !important; border-color: #d7282f #d7282f #fff !important;}ul.nav.nav-tabs { border: none;}
+/***** Technical Salience Tabs section section *****/
+.pagetop_tab{ background: #fff;margin: 6rem 0 0 0px;}
+.tab_box{ margin: 2rem 0 0;}
+.tab_content p{ font-family:open sans;}
+.big_img_col{ position:absolute;}
+/* .big_img{right: -2%; width: 100%;top: 100px;position: relative;} */
+.big_img{right:0%; width: 100%;top: 100px;position: relative;}
+.tab_content ul{ padding:0 20px 0 0; list-style: none;}
+.tab_content ul li{font-weight: 300; font-family:open sans; font-size: 14px;line-height: 30px;}
+.tab_content ul li::before {content: "\2022";color: #ED1C24;font-weight: bold;display: inline-block; width: 1em;margin-left: -1em;  top: 4px; left: 10px;
+  position: relative; font-size: 30px;}
+div .technical_tab{ background: none;width: 50%;border: none !important; color:#04000f !important; font-size: 20px; text-transform: capitalize;}
+.technical_tab:after {content: "";position: absolute;right: 0;width: 1px;height: 2.4rem;top: 50%;transform: translateY(-50%);background-color: #d6d6d6;}
+.technical_tab:last-child::after { content: none;}
+.tech_tabbg{ background: #f5f6f8;border-radius: 10px; padding: 6px 0;}
+.imgbtmtxt{ margin-top: 6rem; text-align: center;}
+
+
+/***** Portfolio section *****/
+.page_sec{ padding:50px  0;}
+.portfolio{background: url(http://merchantad.xevitech.com/public/pages/wp-content/uploads/2022/06/pipes-and-fitting.jpg),linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+background-blend-mode: overlay;background-position: left center;
+background-repeat: no-repeat; background-size: cover;background-attachment: fixed;  color:#fff; background-color: #2B2B2B;
+opacity: 0.89; padding: 5rem 0;}
+.list_sec{ border: 1px solid #fff;transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin: 0px 15px 0px 0px; border-radius: 10px;
+padding:20px;  height: 100%;} 
+.list_sec h4 {font-size: 21px;text-transform: uppercase;font-weight: 700;}
+.list_sec ul{ padding:0; }
+.list_sec ul li{ list-style: none; position:relative; padding: 5px 0 0 26px;font-weight: 300;}
+.list_sec ul li:after {content: "";display: block;margin-right: 20px;height: 12px;width: 10px;border-radius: 50%;position: absolute;top: 9px;
+left: 0;background: #fff;}
+.list_sec_outer{ position:relative;  height: 100%;}
+.list_sec:hover:before {width: calc(100% - 80px);}
+.list_sec:before {content: '';position: absolute;left: 40px;top: 0;width: 0;height: 4px;background-color: #fe2622;transition: all 300ms ease-in-out;}
+
+
+/***** Pipeline & Water Systems Portfolio *****/
+.pws_portfolio{ background: #fff;}
+.comonbold_head{ color:#04000f; font-size: 28px;font-weight: 600;}
+div .pws_bg{ background: #010101;margin-right: 10px;border-radius: 30px;padding: 15px 40px;display: block;color: #fff;}
+
+.pws_row{ border-bottom:1px solid #313131; padding:7px 3px; font-size: 14px; color:#313131; padding:0}
+.pws_row th, .pws_row td{ font-family:open sans; border:none; padding:10px 2px;}
+.pws_row th{font-weight:600;}
+
+
+
+
+
+/***** Industry Wide Usage section *****/
+.industry_wide{background: url("http://merchantad.xevitech.com/public/pages/wp-content/uploads/2022/06/istockphoto-517340891-612x612-1.jpg"),linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+  background-blend-mode: overlay;background-position:center;background-repeat:no-repeat; background-size:cover;background-attachment: fixed;color:#fff;}
+.industry_wide .comonbold_head{ margin:1rem ;}
+.industry_list{ position:relative;}
+.industry_list ul{ padding:0;}
+.industry_list ul li{ list-style:none; position:relative;padding:5px 0 0 26px;font-weight: 300;}
+.industry_list ul li:after {content: "";display: block;margin-right: 20px;height: 12px;width: 10px;border-radius: 50%;position: absolute;top: 9px;
+  left: 0;background: #fe2622;}
+
+
+/***** Convenient Joints section *****/
+.convinient_sec .comonbold_head{ font-size: 22px; margin: 1rem 0 0 0;}
+div .accor_head{font-size:20px;font-weight:600; text-transform: uppercase;}
+.convinient_sec{ background: #fff;}
+div .acciordion_cont{ border:2px solid #0200331f;background-color: transparent !important;border-radius: 8px !important; box-shadow: none;padding: 0 10px; 
+margin:0;}
+.accordion_img{ width:300px; height: 230px;}
+.accordion_img img{width:100%; object-fit: cover;}
+div .acciordion_cont:before{ border: none !important;}
+
+
+/***** specification (leakage proof) section *****/
+
+.specification_sec{ background: url("http://merchantad.xevitech.com/public/pages/wp-content/uploads/2022/06/Image.jpg");background-position:center;
+background-repeat:no-repeat; background-size:cover;background-attachment: fixed;color:#333;}
+.structor_right_img{ width:430px; height: 450px; margin: 0 auto;}
+.structor_right_img img{ width:100%; border: 1px solid #FFA3A3;}
+.acciordion_cont{ margin-bottom:1rem !important;}
+div .spectab_color{ color:#d7282f !important;}
+div .css-1aquho2-MuiTabs-indicator{ border: none !important;}
+.specification_tabs{ color:#313131;}
+.specification_tabcontent{ border:1px solid #d7282f;}
+
+
+/***** *****/
+.wider_container{ width:90%; margin: 0 auto;}
+.post_col {height: 100%;padding: 0px 0px 85px;background: #fff;position: relative;-webkit-transform: translateY(0);-ms-transform: translateY(0);transform: translateY(0);
+-webkit-transition: -webkit-transform .3s ease-in-out;transition: -webkit-transform .3s ease-in-out;-o-transition: transform .3s ease-in-out;transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;box-shadow: .2rem .2rem 1.2rem 0 rgba(23,39,59,.1);}
+.post_col:hover {
+-webkit-box-shadow: .2rem .2rem 5rem 0 rgba(23,39,59,.15);box-shadow: .2rem .2rem 5rem 0 rgba(23,39,59,.15);-webkit-transform: translateY(-.4rem);
+-ms-transform: translateY(-.4rem);transform: translateY(-.4rem);}
+.post_img {height: 168px;width: 100%;overflow: hidden;position: relative;}
+.post_img img { object-fit:cover;width:100%;object-position:bottom;height: 100%; height: auto;max-width: 100%;border: none;border-radius:0px 0% 55px 100%;box-shadow: none;}
+.post_title{color:#ED1C24;font-size: 14px;font-weight: 600;margin: 7px 0;text-transform: uppercase;}
+.post_content{ padding:15px}
+div .post_button{ color: #d7282f; font-size: 16px;padding-left: 0; margin: 25px 0 0 0 ;}
+div .post_button:before {content: "";border: 2px solid #d7282f;opacity: .2;border-radius: 50%; width: 65px;height: 65px;position: absolute;z-index: -1;
+right: 0;background-color: transparent;transition: all .35s ease-in;}
+
+.btmservice_grid {transition: all .5s; width: 100%; padding:0 !important;box-shadow: 0 3px 20px #00000029; display: flex; justify-content: space-between;}
+.btmservice_left {cursor: pointer;transition: all .5s;padding:0;left: 0;top: 0;overflow: hidden;background: #333f48; width:30%;min-height: 180px;}
+.btmservice_left img{ width:100%; height: 100%;}
+.btmservice_right{ padding:20px; width:70%}
+.banner_txt{ width:55%;}
+.pws_tabs{ width:100%}
+.benifit_list{ margin-bottom: 100px;}
+
+/***** Hover images effect *****/
+.post_col img {-webkit-transform: scale(1);transform: scale(1);-webkit-transition: .6s ease-in-out;transition: .6s ease-in-out;}
+.post_col:hover img {-webkit-transform: scale(1.3);transform: scale(1.3);}
+.btmservice_grid img {margin-left: 30px;-webkit-transform: scale(1.5);transform: scale(1.5);-webkit-transition: .3s ease-in-out;transition: .3s ease-in-out;}
+.btmservice_grid:hover img {margin-left: 0;}
+
+/***** Fixed Bottom nav *****/
+.fixed_navbtm{ position:fixed;bottom:0;background:#fff;border: 1px solid #e9eef4;align-items: center; width:100%;box-shadow: 0 0 20px rgb(0 0 0 / 10%);}
+.btm_menu span{ color: #231f20;font-weight: 600; font-size:14px; font-family:open sans;}
+div .fixed_navbtm button {max-width: 100% !important; padding:0 15px !important;}
+.btm_menu:hover:before {width: calc(100% - 100px);}
+.btm_menu:before {content: '';position:absolute;left:0;bottom:0;right: 0;margin: 0 auto;width: 0;height: 4px;background-color: #d7282f;transition: all 300ms ease-in-out;}
+
+
+
+/******************** Media Quries start here *******************/
+@media screen and (max-width:1440px) { 
+.banner_txt{ width:75%;}
+.heading{font-size: 22px;}
+.count{font-size:3em;}
+.post_col{padding: 0px 0px 20px;}
+.page_container p {font-size: 14px;   line-height: 25px;} 
+.page_sec {padding: 25px 0;}
+
+
+}
+
+@media screen and (max-width:1280px) { 
+div .red_color{margin-top:1rem;}
+.banner_txt{ width:90%;}
+.service_right P{font-size: 14px;line-height: 24px;}
+div .common_heading2{font-size: 18px;}
+.page_container p{font-size: 14px;}
+.structor_left h4{ font-size: 16px;}
+.structor_right{ padding:25px;}
+.structor_right h4{font-size:16px;}
+.contact_sec{padding:25px; }
+.contact_sec h3{ font-size:18px;}
+.list_sec h4 {font-size:18px;}
+.list_sec ul li{ font-size:15px;}
+.comonbold_head{font-size: 24px;}
+.common_head{ font-size: 19px;}
+div .post_button{font-size: 14px;}
+div .post_button:before { width:40px;height:40px; right: -5px;}
+.post_col {padding: 0px 0px 10px}
+.banner_txt h1{font-size: 35px;}
+}
+
+@media screen and (max-width:980px) {
+.btm_menu span {font-size: 12px;} 
+.big_img_col {position: relative;}
+}
+
+
+@media screen and (max-width:767px) {
+.structor_right{ margin-top:25px;}
+.contact_sec{ width:100%; padding: 15px; top: 20px;}
+div .red_color{ font-size: 15px;padding: 8px 20px;}
+.btmservice_grid {display: block;}
+.btmservice_left {width:100%}
+.btmservice_right{ width:100%}
+.banner_txt{font-size: 25px;}
+.banner_txt h2 {font-size: 20px;}
+.banner_txt h1{font-size: 24px;}
+.structor_sec{background: url(http://merchantad.xevitech.com/public/pages/wp-content/uploads/2022/08/di-bg.jpg),linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0));
+    background-blend-mode: overlay;background-position: left center;
+    background-repeat: no-repeat; background-size: cover;background-attachment: fixed;  color:#fff; background-color: #2B2B2B;
+    opacity:1;}
+.tab_content img{ display:none;}
+div .pws_table {display: block;width: 42%;min-width: 100%;}
+.count{font-size:30px;}
+.img_boximg {width: 70px;}
+.bottom_content{margin: 20px 0 0;}
+.structor_right_img{width: 250px;height: 250px; margin-top: 2rem;}
+.banner_txt br { display:none;}
+.service_secinn {top:0; box-shadow: none; width:100%;}
+.heading {font-size: 17px;line-height: normal;margin-bottom: 10px;font-weight: 700; }
+.service_left {padding: 20px 0 0;}
+.bottom_content{display: block;}
+.service_right {padding: 20px 0 0 0; margin: 25px 0 0 0;}
+.img_box {margin: 20px auto 20px;}
+div .pws_bg{padding: 10px 28px;min-height: 10px;}
+.accordion_img {width: 250px;height: 250px;}
+.specification_tabs { overflow-x: scroll;}
+.page_sec{padding: 30px 0;}
+.comonbold_head{font-size: 18px;}
+.big_img_col{position: unset;}
+.imgbtmtxt {margin-top: 0rem;}
+.imgbtmtxt br{ display:none;}
+div .technical_tab {font-size: 16px;}
+.pagetop_tab{margin: 1rem 0 0 0px;}
+div .tech_tabbg button {padding: 0 !important;font-size: 14px;}
+.post_img img{ border-radius:0;}
+.fixed_navbtm { display:none;}
+}
+
+
+
+
+

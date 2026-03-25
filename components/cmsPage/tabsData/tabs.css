@@ -1,0 +1,38 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabs > section {
+  order: 999;
+  width: 100%;
+  display: none;
+}
+.tabs > input {
+  opacity: 0;
+  position: absolute;
+}
+.tabs > input[type="radio"]:checked + label {
+  background: yellow;
+}
+.tabs > input[type="radio"]:checked + label + section {
+  display: unset;
+}
+.tabs > label {
+  padding: 0.5em 1em;
+  background: #b4d5e4;
+  border-right: 1px solid #798f99;
+}
+.tabs > label:last-of-type {
+  border-right: none;
+}
+.tabs > input[type="radio"]:checked + label {
+  background: #798f99;
+}
+.tabs section {
+  border: 1px #798f99 solid;
+  border-top: 5px #798f99 solid;
+  padding: 1em;
+}
+.body {
+  padding: 2em;
+}

@@ -1,0 +1,8 @@
+.done_message{ font-weight: 600;font-size: 14px;  color: #231F20;}
+div .completepro_txt{ font-weight: 400;font-size: 13px;  color: #231F20; padding: 0 5px 0px 5px;border-right: 1px solid #E9E9E9;margin: 0 0;}
+.btn_outer{ width: 100%; margin: 20px 0 10px;display: flex;justify-content: center;gap: 20px;}
+
+@media (max-width: 900px) {
+    div .completepro_txt{border-right: 0;}
+    .btn_outer{ margin:10px 0 0px}
+}

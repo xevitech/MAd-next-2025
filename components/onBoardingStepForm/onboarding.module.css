@@ -1,0 +1,186 @@
+div .outline_btn {
+  background: transparent;
+  color: rgb(215, 40, 47);
+  box-shadow: none;
+  border: 1px solid rgb(215, 40, 47);
+  text-transform: capitalize;
+  padding: 2px 14px !important;
+  min-width: auto;
+  height: 34px !important;
+  line-height: normal;
+}
+div .outline_btn:hover {
+  background: #d7282f;
+  color: rgb(215, 40, 47);
+  color: #fff;
+}
+.onboarding_img {
+  width: 400px !important;
+  height: 360px;
+  margin-bottom: 0px;
+  object-fit: contain;
+}
+.content_sec {
+  padding: 0 0 0 2rem;
+}
+div .step_con {
+  padding: 20px 0px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.value_name {
+  padding: 5px 12px;
+}
+.step_two {
+  max-width: 460px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.step_2_img {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+.step_5_img {
+  width: 400px !important;
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+.step_five_con {
+  padding: 3px 0 0 0 !important;
+}
+.bg_img {
+  background: rgba(35, 31, 32, 0.75);
+}
+.add_btn {
+  position: relative;
+  text-transform: capitalize !important;
+  height: 35px;
+}
+div .next_btn {
+  min-width: auto;
+  height: 34px !important;
+  line-height: normal;
+  padding: 2px 14px !important;
+}
+.step_twocon {
+  bottom: 10px;
+  padding: 0 10px 0 10px;
+  background: transparent;
+  text-align: center;
+}
+.text {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  color: #231f20;
+}
+
+/************ New style ***********/
+.stepscontent {
+  display: flex;
+  align-self: center;
+  align-items: center;
+}
+.step_with_text img {
+  width: 350px !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1280px) {
+  .text {
+    font-size: 19px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .step_two {
+    max-width: 100%;
+    text-align: center;
+  }
+  .onboarding_img {
+    width: 250px !important;
+    /* height: 300px !important; */
+    height: 250px !important;
+    margin: 0 auto !important;
+    text-align: center;
+  }
+  div .step_con {
+    padding: 8px 0px 0;
+    font-size: 15px;
+  }
+  .text {
+    font-size: 15px !important;
+    margin-top: 0px !important;
+  }
+  .content_sec {
+    padding: 0;
+  }
+  .step_with_text img {width: 200px !important;}
+.value_name {padding: 5px 5px 5px 2px;}
+}
+
+@media screen and (max-width: 800px) {
+  .step_two {
+    display: block;
+    margin: 0 auto;
+  }
+  .content_sec {
+    padding: 0;
+    display: block !important;
+  }
+  div .step_con {
+    padding: 8px 0px 0;
+    font-size: 15px;
+  }
+  .step_twocon {
+    position: inherit !important;
+  }
+  .text {
+    font-size: 14px !important;
+    margin: 0 0 10px;
+  }
+  .onboarding_img {
+    height: auto !important;
+    margin: 0 auto !important;
+    text-align: center;
+  }
+  .bg_colr {
+    height: 30px !important;
+  }
+  .onboarding_img {
+    width: 170px !important;
+  }
+  /************ New style ***********/
+  .step_with_text {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .step_with_text img {
+    width:130px !important;
+  }
+  div .outline_btn {
+  font-size:12px;padding:2px 7px !important
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div .step_con {
+    font-size: 14px;
+  }
+  .step_with_text img {
+    width: 150px !important;
+  }
+  .onboarding_img {
+    width: 150px !important;
+  };
+  .stepscontent {
+    align-items: normal;
+  }
+}

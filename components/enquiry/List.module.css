@@ -1,0 +1,73 @@
+.contactbtn {
+    padding: 0 12px;
+    margin-left: 4px;
+    border: 0.5px solid #dcdcdc;
+    border-radius: 20px;
+    background-color: #dcdcdc;
+    color: black !important;
+  }
+  .contactbtnhead {
+    color: black;
+    text-transform: capitalize;
+  }
+  .specificationbtn {
+    text-transform: none;
+    margin: 0 0 10px !important;
+    color: black !important;
+    text-transform: capitalize !important;
+    padding-right:25px;
+  }
+  .specificationbtnone {
+      text-transform: none;
+      border: 1px solid #d2d2d2 !important;
+      margin: 0 0 10px !important;
+      color: black !important;
+      text-transform: capitalize !important;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+      margin-right:25px;
+    }
+  .specificationbtn:active {
+      text-transform: none;
+      border: 1px solid #d2d2d2 !important;
+      margin: 0 0 10px !important;
+      color: black !important;
+      text-transform: capitalize !important;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    }
+  
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 15px;
+  }
+  .contactinfobtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0 0 20px;
+  }
+  .actionbtn {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+  }
+  
+  /****************** New style for  contact list ***************/
+  .table_inner_layout {
+    padding: 20px;
+  }
+  
+  /****************** Start Media query here for responsive  ***************/
+  @media screen and (max-width: 768px) {
+    .contactinfobtn {
+      display: block;
+    }
+    .specificationbtn {
+      font-size: 11px !important;
+    }
+    .contactbtn {
+      padding: 0 6px;
+    }
+  }
+  

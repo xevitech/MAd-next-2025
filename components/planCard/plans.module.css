@@ -1,0 +1,308 @@
+.MainBestprice {
+  border: 1px solid #f4f4f4;
+  padding: 5px 0;
+  margin: 0;
+  padding-bottom: 30px;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.maskbox {
+  border-radius: 20px;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid gray;
+  border-radius: 20px;
+  width: 170px;
+  height: 40px;
+  font-weight: bold;
+  transition: all 0.2s 0.1s ease;
+  opacity: 0.8;
+}
+
+.mask {
+    width: 55%;
+    height: 100%;
+    border-radius: 50px;
+    position: absolute;
+    background-color: #d7282f;
+    transition: all 0.5s ease; color: #fff !important;
+
+}
+
+.headbox {
+  text-align: center;
+}
+
+.subheading {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 5px 0px 0px 0px;
+}
+
+.bestpriceheading {
+  font-weight: 700;
+  font-size: 36px;
+  margin: -5px 0px 15px 0px;
+}
+
+.bestpricespan {
+  color: #d7282f;
+}
+
+.CardGrid {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: #ffffff;
+  padding: 0 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  border-radius: 10px; height: 100%;
+  position: relative;
+  z-index: 1;
+  width: 282px;
+}
+
+.number {
+  font-weight: 600;
+  font-size: 48px;
+  margin: 10px 0px -25px 0px;
+  font-family: "Open Sans";
+  color: #333333;
+}
+
+.dollar {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.package {
+  font-size: 13px; text-transform: capitalize;
+  color: #000;
+  margin: 15px 0 20px;font-weight: 400;
+}
+
+.yearly {
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.MainGrid {
+  display: flex;
+  align-items: inherit;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+.popularimg {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  transform: translate(4%, 0);
+  right: 0;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+}
+
+/*** PLANC COLORS ***/
+
+.PlanCGreenB {
+  background-color: #231f20 !important;
+  color: #ffffff !important;
+}
+
+.PlanCGreenB:hover {
+  background-color: #231f20e0 !important;
+}
+
+.PlanCGreenT {
+  color: #231f20 !important;
+  font-size: 22px; font-family: "Open Sans";
+}
+
+
+div .PlanCGreenBr {border: 1px solid #231f20e0 ; 
+}
+
+.PlanMgentaB {
+  background: linear-gradient(90deg, rgba(192,194,195,1) 0%, rgba(242,242,242,1) 50%, rgba(206,207,208,1) 72%) !important;
+  color: #767070 !important;
+}
+
+.PlanMgentaB:hover {
+  background-color: #bfbfbfc2 !important;
+}
+
+.PlanMgentaT {
+  color: #767070 !important;
+  font-size: 22px;
+}
+
+.PlanMgentaBr {
+  border: 1px solid #767070 !important;
+}
+
+.PlanBlueB {
+  background-color: #C99E2F !important;
+  color: #ffffff !important;
+}
+
+.PlanBlueB:hover {
+  background-color: #c99e2fdb !important;
+}
+
+.PlanBlueT {
+  color: #C99E2F !important;
+  font-size: 22px;
+}
+
+.PlanBlueBr {
+  border: 1px solid #C99E2F !important;
+}
+
+.PlanPurpleB {
+  background-color: #0047AB !important;
+  color: #ffffff !important;
+}
+
+.PlanPurpleB:hover {
+  background-color: #0047abe0 !important;
+}
+
+.PlanPurpleT {
+  color: #0047AB !important;
+  font-size: 22px;
+}
+
+.PlanPurpleBr {
+  border: 1px solid #0047AB !important;
+}
+
+.PlanBrownB {
+  background-color: #9b3700 !important;
+  color: #ffffff !important;
+}
+
+.PlanBrownB:hover {
+  background-color: #c14604 !important;
+}
+
+.PlanBrownT {
+  color: #9b3700 !important;
+  font-size: 22px;
+}
+
+.PlanBrownBr {
+  border: 1px solid #9b3700 !important;
+}
+
+span.MuiSwitch-thumb.css-jsexje-MuiSwitch-thumb {
+  display: flex;
+  justify-content: space-between;
+}
+
+div .PlanBtn {
+  padding: 6px 0px;
+  width: 92%;
+  border-radius: 8px;
+  letter-spacing: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  font-family: "Open Sans";
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px; height: 45px;
+}
+
+.UpgradeBtn {
+  background-color: white;
+  margin-top: 20px;
+  padding: 2px 0px;
+  width: 90%;
+  box-shadow: 0px 0px 2px;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 10px;
+}
+.UpgradeBtn4Active {
+  background-color: #0aa133;
+  margin-top: 20px;
+  /* padding: 2px 0px; */
+  width: 90%;
+  box-shadow: 0px 0px 2px;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+
+/* Table css  */
+.mainbtn {
+  margin: "40px 0px";
+  border-radius: "26px";
+  font-size: "15px";
+  flex-direction: " row";
+  align-items: "center";
+  padding: "15px 20px";
+  height: "50px";
+  background: "#FFFFFF";
+  border: "1px solid #D7282F";
+  box-shadow: "0px 0px 30px rgba(215, 40, 47, 0.25)";
+  text-transform: "math-auto";
+  
+}
+
+/***** New style *****/
+.planbox{ display: flex;text-align:center;justify-content: center; margin:auto auto 15px;border-radius: 50px;background: #ffffff;
+border:1px solid #e3e3e3;position:relative;width:250px;height:40px;}
+div .plansection{margin-top: 0px; justify-content: center;}
+div .planvalue{ font-weight: 300; font-size: 13px;}
+div .ripplebtn{ text-transform: capitalize;font-weight: 600;}
+.complete_btn{ display:flex; justify-content:center; margin: 4rem 0 2rem;} 
+
+/***** Feature List table *****/
+.feaure_list_table{ border-radius: 16px;}
+div .featurepaper{ border-radius: 16px; box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;}
+div .container{ max-width:100%}
+div .tablecell{ border:none;border-left:1px solid white;border-right: 1px solid white; padding:14px 12px; font-family: "Open Sans"; transition:.6s ease; }
+div .UpgradeBtn{border-radius: 10px; font-size:16px; margin: 30px 0;     border-bottom: 3px solid !important;}
+div .UpgradeBtn4Active{border-radius: 10px; font-size:16px; margin: 30px 0;     border-bottom: 3px solid !important;}
+div .UpgradeBtn:hover{border-bottom: 2px solid !important; background: transparent;}
+div .UpgradeBtn4Active:hover{border-bottom: 2px solid !important; background: #0aa133;}
+div .card_txt{ font-size: 20px; font-weight: 600;line-height: normal;}
+
+/***** Start Media quries here *****/
+@media screen and (max-width: 1700px) {
+div .card_txt{ font-size: 16px;}
+div .tablecell{padding:14px 7px}
+.bestpriceheading{font-size: 35px;}
+.subheading {font-size: 22px;}
+div .plansection {margin-top: 0;}
+}
+
+@media screen and (max-width:899px) {
+.complete_btn {margin: 2rem 0 1rem;}
+.mainbtn {padding:9px 18px;height: 42px;}
+}
+
+
+@media screen and (max-width:767px) {
+div .UpgradeBtn { font-size: 14px;}
+div .UpgradeBtn4Active { font-size: 14px;}
+.bestpriceheading {font-size: 22px;}
+.subheading {font-size: 16px;}
+.planbox{ margin:auto auto 10px;}
+.bestpriceheading{margin: -5px 0px 10px 0px;}
+.planbox { width: 205px;height: 35px;}
+}
+@media screen and (max-width:600px) {
+  .MainBestprice {
+    padding: 5px 16px;
+  }
+  .headbox {
+    margin-bottom: 50px;
+  }
+}     

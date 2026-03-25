@@ -1,0 +1,20 @@
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    background-color: #a199b2;
+    color: #eeedf1;
+}
+.md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.marketing.text-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.productdetail_tab{}

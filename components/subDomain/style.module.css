@@ -1,0 +1,64 @@
+.InnerSection{ width: 85%;}
+.SellerMain Button.RedButton { box-shadow: none;} 
+.SellerMain Button.GreyButton { box-shadow: none; font-weight: 600;text-transform: capitalize;}
+.SellerMain Button{width: 94px; height: 30px; border-radius: 4px;font-weight: 600;text-transform: capitalize;}
+.MainHeading { font-family: 'Open Sans' !important; font-weight: 600 !important; font-size: 30px !important; padding: 15px 0px;}
+.MainSubHeading { font-weight: 600 !important; font-size: 18px !important;}
+.ParaAlign { display: flex; }
+div .subText {color: #6D6D6D; font-size: 14px; font-weight: 600;}
+div .fieldname {color: #000; font-size: 14px; font-weight: 600;}
+div .divider{ margin:20px 0 10px}
+
+
+/* FIRST BOX */
+.FirstBox { width: 100%; height:auto;background:#FFFFFF; padding:0 !important}
+.FirstSubline { display: flex; justify-content: space-between;  flex-direction: row !important; margin: 13px 0px;}
+
+/* SECOND BOX */
+.SecondBox { width: 100%; height: auto; background: #FFFFFF; box-shadow: 0px 0px 0px rgba(159, 162, 191, 0.18), 0px 1px 0px rgba(159, 162, 191, 0.32); border-radius: 6px; }
+.InnerItems {width: 100%;  background: #F7F7F7; border-radius: 6px; display: flex; padding: 10px;}
+.CompName{ background: #FFFFFF; border: 1px solid #DDDDDD; border-radius: 6px;}
+.SellerMain .CompName { width:25%; }
+.InnerSec { margin: -10px;}
+
+/* THIRD BOX*/
+.ThirdBox { width: 100%; height: auto; background: #FFFFFF; box-shadow: 0px 0px 0px rgba(159, 162, 191, 0.18), 0px 1px 0px rgba(159, 162, 191, 0.32); border-radius: 6px; }
+.InputDomain input{ padding: 7px 10px; background: #FFFFFF; border-radius: 6px;}
+.SellerMain a { font-weight: 600; font-size: 14px; color: #6D6D6D; text-decoration: none;}
+.InputUsers .UserAvai{font-weight: 400; font-size: 12px; color: #000000;}
+.InputUsers .UserName {color: #373737; font-weight: 600; font-size: 14px; margin: 0 10px 0 0px;}
+.UserAvai img { margin: 0px 5px -3px 5px;}
+.InputUsers {display: flex;align-items: center; margin: 0 0 22px !important;}
+/* .InputDomain {margin: 10px;} */
+.SellerMain input#\:r1\: { padding: 10px;}
+.SellerMain .MuiAlert-message.css-1pxa9xg-MuiAlert-message { font-weight: 400; font-size: 13px;}
+
+div .alertbox{ border: 1px solid #A7E2FF; color:#007EBA; padding: 7px 7px !important;}
+div .dimainsubText{color: #434343;font-size: 14px; margin: 0 0 12px;word-break: break-all;}
+.outerdiv{ background:#fff; border: 1px solid #D2D2D2; box-shadow: 0px 9px 16px rgba(159, 162, 191, 0.18), 0px 2px 2px rgba(159, 162, 191, 0.32);
+border-radius: 6px; min-height: 500px; position:relative}
+.tabsrow{ margin:0 18px; }
+
+
+/***** Start Responsive Media here *****/
+@media screen and (max-width:899px) {
+.ParaAlign { display: block; }
+}
+@media screen and (max-width:767px) {
+.outerdiv{ width:95% !important; margin:2rem auto 1rem;}
+.InputUsers {display: block;}
+}
+
+@media screen and (max-width: 600px) {
+.FirstBox{ box-shadow:none; padding: 5px 5px !important;}
+.RedButton{padding:0}
+}
+
+@media screen and (max-width:480px) {
+.InnerItems{ display:block;padding:10px !important}
+div .fieldname {padding: 0;}
+.ParaAlign {display: block; padding:0}
+.InnerSection {width: 100%; margin:0}
+.SellerMain .CompName {width: 100%;}
+.subText{word-break: break-all;}
+}

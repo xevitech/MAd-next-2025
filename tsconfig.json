@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/auth/*": ["auth/*"],
+      "@/contextApi/*": ["contextApi/*"],
+      "@/utils/*": ["utils/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/*": ["./*"]
+    },
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    // "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "strict": false,
+    "downlevelIteration": true,
+    "types": ["node"]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/SellerTools/MyCategory.jsx", "components/SingleBlogDetail/style.tsx", "components/CRM/View", "components/ProductDetail/ProductComponents/Modal/EditableTable.tsx", "pages/api/auth/twitter/callback.ts", "components/ProductsListing/ProductItemOptimized.jsx"],
+  "exclude": ["node_modules"]
+}

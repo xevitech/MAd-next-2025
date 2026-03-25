@@ -1,0 +1,90 @@
+/* .upper-section-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.FPipes {
+  display: flex;
+  align-items: center;
+  background-color: #ffffffe0;
+  margin-bottom: 4px;
+  box-shadow: 0 5px 20px rgb(102 102 102 / 19%);
+  padding: 10px;
+  position: relative;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.alignnone {
+  height: 100px;
+  width: 100%;
+}
+.title {
+  font-size: 18px;
+  color: #000;
+  font-weight: 600;
+}
+.inner-icon-backlayer2 {
+  background-color: red;
+  height: 80px;
+  width: 80px;
+}
+.counter-icon-backlayer1 {
+  background-color: #000;
+   height: 100px;
+  width: 100px;
+}
+a.nav-link {
+  color: #d7282f;
+  font-size: 19px;
+  padding: 10px 20px;
+}
+.PBorder {
+  border: 1px solid #d7282f;
+}
+a.nav-link.active {
+  border-radius: 0px;
+  background-color: #fff;
+  color: #d7282f !important;
+  border-color: #d7282f #d7282f #fff !important;
+}
+ul.nav.nav-tabs {
+  border: none;
+} */
+
+/**********************ICON******************************/
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabs > section {
+  order: 999;
+  width: 100%;
+  display: none;
+}
+.tabs > input {
+  opacity: 0;
+  position: absolute;
+}
+.tabs > input[type="radio"]:checked + label {
+  background: yellow;
+}
+.tabs > input[type="radio"]:checked + label + section {
+  display: unset;
+}
+.tabs > label {
+  padding: 0.5em 1em;
+  background: #b4d5e4;
+  border-right: 1px solid #798f99;
+}
+.tabs > label:last-of-type {
+  border-right: none;
+}
+.tabs > input[type="radio"]:checked + label {
+  background: #798f99;
+}
+.tabs section {
+  border: 1px #798f99 solid;
+  border-top: 5px #798f99 solid;
+  padding: 1em;
+}
