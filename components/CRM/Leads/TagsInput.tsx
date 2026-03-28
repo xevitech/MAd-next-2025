@@ -1,18 +1,4 @@
-import React, { useEffect, useState } from "react";
-import {
-  Autocomplete,
-  Box,
-  Button,
-  Chip,
-  Paper,
-  TextField,
-  Tooltip,
-  Typography,
-  styled,
-} from "@mui/material";
-import { useAppDispatch } from "redux/store";
-import { useSelector } from "react-redux";
-import randomColor from "randomcolor";
+import DeleteDialog from "@/components/common/DeleteAlert/DeleteDialog";
 import {
   createListOfTags,
   deleteListOfTags,
@@ -22,41 +8,40 @@ import {
   setAddedTags,
   setCreateIndividualTag,
 } from "@/hooks/UseCreateFormData";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import ColorizeOutlinedIcon from "@mui/icons-material/ColorizeOutlined";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
+import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
+import WaterDropOutlinedIcon from "@mui/icons-material/WaterDropOutlined";
+import {
+  Autocomplete,
+  Chip,
+  Paper,
+  TextField,
+  Tooltip,
+  Typography
+} from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import {
-  TagAutocompleteOptions,
-  SearchAddTag,
-  OtherOptionmenu,
-  TagMenuActionList,
-  NoTagsCreated,
-  PaperOptionsStyle,
-  SavedTagsArea,
-} from "../style";
-import Menu, { MenuProps } from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { useRouter } from "next/router";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import DriveFileRenameOutlineOutlinedIcon from "@mui/icons-material/DriveFileRenameOutlineOutlined";
-import WaterDropOutlinedIcon from "@mui/icons-material/WaterDropOutlined";
-import DeleteDialog from "@/components/common/DeleteAlert/DeleteDialog";
-import ColorizeOutlinedIcon from "@mui/icons-material/ColorizeOutlined";
-import { ColorBox, ColorPicker } from "material-ui-color";
-import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import randomColor from "randomcolor";
+import React, { useEffect, useState } from "react";
 import {
   SketchPicker,
   TwitterPicker,
 } from "react-color";
-import _debounce from "lodash/debounce";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "redux/store";
+import {
+  NoTagsCreated,
+  SavedTagsArea,
+  SearchAddTag,
+  TagAutocompleteOptions
+} from "../style";
 const TagsInput = (props) => {
   const dispatch = useAppDispatch();
   const [tags, setTags] = useState([]);

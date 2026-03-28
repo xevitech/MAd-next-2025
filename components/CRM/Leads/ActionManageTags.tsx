@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
 import { Grid, IconButton, TextField } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
 import {
   AddButton,
   CustomChip,
@@ -10,8 +10,6 @@ import {
   PickerBox,
 } from "../style";
 
-import { DataGridStyle, SearchCommon } from "../commonStyle";
-import { useSelector } from "react-redux";
 import {
   createListOfTags,
   deleteListOfTags,
@@ -19,14 +17,14 @@ import {
   setManageTags,
   updateListOfTags,
 } from "@/hooks/UseCreateFormData";
-import { useAppDispatch } from "redux/store";
-import { BsPlusCircleFill } from "react-icons/bs";
-import { DataGridPro } from "@mui/x-data-grid-pro";
-import { ColorPicker } from "material-ui-color";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { GridColDef } from "@mui/x-data-grid-pro";
+import { DataGridPro, GridColDef } from "@mui/x-data-grid-pro";
 import moment from "moment";
+import { MuiColorInput } from "mui-color-input";
 import randomColor from "randomcolor";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "redux/store";
+import { DataGridStyle, SearchCommon } from "../commonStyle";
 import ManageTags from "./ManageTags";
 export interface DialogTitleProps {
   id: string;
@@ -118,7 +116,7 @@ const ActionManageTags = () => {
         return (
           <>
             <PickerBox>
-              <ColorPicker
+              <MuiColorInput
                 hideTextfield
                 disableAlpha
                 value={tag.background_color_code}

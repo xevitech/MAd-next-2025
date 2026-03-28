@@ -1,37 +1,32 @@
-import React, { useEffect, useRef, useState } from "react";
 import {
-  Box,
-  Button,
-  DialogActions,
+  createListOfTags,
+  deleteListOfTags,
+  getAllListOfTags,
+  setManageTags,
+  updateListOfTags
+} from "@/hooks/UseCreateFormData";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import CloseIcon from "@mui/icons-material/Close";
+import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import {
   DialogContent,
   DialogTitle,
-  Divider,
   FormControlLabel,
   Grid,
   IconButton,
   TextField,
-  Typography,
+  Typography
 } from "@mui/material";
-import {
-  AddTagFooter,
-  AddTagsBox,
-  AddTagsFullwidth,
-  CustomActionButon,
-  CustomChip,
-  CustomChip2,
-  EditDeleteAction,
-  LabelChipStack,
-  ManagaDeleteDialog,
-  ManagaTagDialog,
-  ManageTagSearch,
-  ManageTagSearchOuter,
-  ManageTagTable,
-  ManageTagText,
-  PickerBox,
-  TagFooterButton,
-  TagRow,
-} from "../style";
-import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
+import Checkbox from "@mui/material/Checkbox";
+import { DataGridPro, GridColDef } from "@mui/x-data-grid-pro";
+import moment from "moment";
+import randomColor from "randomcolor";
+import React, { useEffect, useRef, useState } from "react";
+import { BsPlusCircleFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useAppDispatch } from "redux/store";
 import {
   DataGridStyle,
   SearchCommon,
@@ -39,35 +34,23 @@ import {
   SmallOutineBtn,
   StyledBootstrapDialog,
 } from "../commonStyle";
-import { useSelector } from "react-redux";
 import {
-  createListOfTags,
-  deleteListOfTags,
-  getAllFieldData,
-  getAllListOfTags,
-  setManageTags,
-  setSelectedDataEmail,
-  setSelectedDataIds,
-  setShowButtonsAsperDataChecked,
-  updateListOfTags,
-} from "@/hooks/UseCreateFormData";
-import { useAppDispatch } from "redux/store";
-import CloseIcon from "@mui/icons-material/Close";
-import { BsPlusCircleFill } from "react-icons/bs";
-import { DataGridPro } from "@mui/x-data-grid-pro";
-import { ColorPicker } from "material-ui-color";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import { GridColDef } from "@mui/x-data-grid-pro";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+  AddTagFooter,
+  AddTagsBox,
+  AddTagsFullwidth,
+  CustomActionButon,
+  CustomChip,
+  LabelChipStack,
+  ManagaTagDialog,
+  ManageTagSearch,
+  ManageTagSearchOuter,
+  ManageTagTable,
+  ManageTagText,
+  PickerBox,
+  TagFooterButton,
+  TagRow
+} from "../style";
 import TagsInput from "./TagsInput";
-import Checkbox from "@mui/material/Checkbox";
-import { useRouter } from "next/router";
-import moment from "moment";
-import { RxCross2 } from "react-icons/rx";
-import { toast } from "react-toastify";
-import randomColor from "randomcolor";
 export interface DialogTitleProps {
   id: string;
   children?: React.ReactNode;
