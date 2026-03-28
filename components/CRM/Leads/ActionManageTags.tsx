@@ -117,8 +117,7 @@ const ActionManageTags = () => {
           <>
             <PickerBox>
               <MuiColorInput
-                hideTextfield
-                disableAlpha
+                format="hex"
                 value={tag.background_color_code}
                 onChange={handleColorChange}
               />
