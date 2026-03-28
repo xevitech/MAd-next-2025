@@ -12,6 +12,10 @@
 /.next/
 /out/
 
+#staticvalues
+/utils/staticValues.ts
+
+
 # production
 /build
 
