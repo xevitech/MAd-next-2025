@@ -21,6 +21,7 @@ import {
 import Checkbox from "@mui/material/Checkbox";
 import { DataGridPro, GridColDef } from "@mui/x-data-grid-pro";
 import moment from "moment";
+import { MuiColorInput } from "mui-color-input";
 import randomColor from "randomcolor";
 import React, { useEffect, useRef, useState } from "react";
 import { BsPlusCircleFill } from "react-icons/bs";
@@ -205,9 +206,8 @@ const ManageTags = ({ openPopUp, type }) => {
         return (
           <>
             <PickerBox>
-              <ColorPicker
-                hideTextfield
-                disableAlpha
+              <MuiColorInput
+                format="hex"
                 value={tag.background_color_code}
                 onChange={handleColorChange}
               />
