@@ -94,6 +94,7 @@ function CategorySector({ list }) {
   };
   const CleanedContent = ({ description }) => {
     const sanitizeHTML = (htmlString) => {
+      if (!htmlString) return "";
       return htmlString.replace(/<\/?(div|span)[^>]*>/g, "");
     };
 
