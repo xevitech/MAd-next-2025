@@ -1,97 +1,89 @@
-import React, { useEffect, useRef, useState } from "react";
+import { Search as SearchIcon } from "@mui/icons-material";
+import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import {
-    Button,
-    CardMedia,
+    Collapse,
     Grid,
     IconButton,
     InputAdornment,
     styled,
-    TextField,
+    TextField
 } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { useFormik } from "formik";
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import * as Yup from "yup";
 import {
-    SellerBannerContainer,
-    ButtonSize,
-    SellerCommonContainer,
-    TestiminialButton,
-    Startsellingbutton,
     BannerBoxSearch,
-    TotalCountCol,
-    TotalCountBox,
     BannerImageBox,
-    PagePerSection,
-    SliderScreenSection,
-    PageSubHead,
-    PageMainHead,
-    PageHeadingDes,
-    SellerPageBody,
-    ExpandableCard,
-    SectionTitle,
-    ContainerBox,
-    ColumnImage,
-    ColumnGap,
-    CRMColumnStack,
-    SectionPageHeadings,
-    SectionPageText,
+    ButtonoverCard,
+    ButtonText,
+    ChatColumnImage,
     CheckRow,
     CheckSection,
+    CircleShape,
+    CircleShapeRight,
+    ClickHereBox,
+    ColumnGap,
+    ColumnImage,
     ColumnStack,
-    LiveChatInfo,
-    LiveChatinnData,
-    LiveChatinnBox,
-    ChatColumnImage,
-    LeftSection,
+    CommonQuestionBox,
     Content,
-    GrowBusinessSec,
-    ImageSliderScreen,
-    SimplyCompleHead,
-    SimplyComBoxLeft,
-    SimplyCompleRight,
+    CRMColumnStack,
+    EmainChatBoxOuter,
     EngagementAnalyticsBox,
+    FlexBoxforchat,
+    GrowBusinessSec,
+    Imageborder,
+    ImageSliderScreen,
+    LearnMoreBox,
+    LeftSection,
+    Livechat,
+    LiveChatInfo,
+    LiveChatinnBox,
+    LiveChatinnData,
+    Livechatparagraph,
+    Onlinechat,
+    PageHeadingDes,
+    PageMainHead,
+    PagePerSection,
+    PageSubHead,
+    Realtime,
+    Realtimespan,
+    SectionPageHeadings,
+    SectionPageText,
+    SellerBannerContainer,
+    SellerCommonContainer,
+    SellerPageBody,
+    Shadesbg,
+    SimplyComBoxLeft,
+    SimplyCompleHead,
+    SimplyCompleRight,
+    Skewimage2,
+    Skewimageinsidepadding,
+    SliderScreenSection,
+    Startsellingbutton,
+    StepCardCon,
+    StepCardInn,
+    TestiminialButton,
+    TextLayer,
+    TotalCountBox,
+    TotalCountCol,
+    TypographyBorderline,
     VideoContainer,
 
     VideoContent,
-    WatchButton,
     VideoDescription,
-    VideoName,
     VideoIframeBox,
-    CommonQuestionBox,
-    Shadesbg,
-    Skewimage2,
-    Realtime,
-    Realtimespan,
-    Weeasy,
-    LearnMoreBox,
-    ButtonoverCard,
-    ButtonText,
-    TypographyBorderline,
-    Skewimageinsidepadding,
-    FlexBoxforchat,
-    Imageborder,
-    Onlinechat,
-    Livechat,
-    Livechatparagraph,
-    ClickHereBox,
-    TextLayer,
-    EmainChatBoxOuter,
-    StepCardCon,
-    StepCardInn,
-    CircleShape,
-    CircleShapeRight,
+    WatchButton,
+    Weeasy
 } from "./sellerStyle";
-import { useRouter } from "next/router";
-import { Form, useFormik } from "formik";
-import * as Yup from "yup";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import { Description, Search as SearchIcon } from "@mui/icons-material";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Container, Card, CardContent, Collapse } from "@mui/material";
-import { ExpandMore } from "@mui/icons-material";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
-import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 const images = [
     "/assets/images/landing-page/laptop-slide1.jpg",
     "/assets/images/landing-page/laptop-slide1.jpg",
@@ -125,30 +117,27 @@ const sections = [
     { title: "Buyer Database", content: "Information on buyer network." },
 ];
 
-import AOS from "aos";
-import "aos/dist/aos.css";
-import dynamic from "next/dynamic";
-import { useDispatch, useSelector } from "react-redux";
-import { SelectChangeEvent } from "@mui/material/Select";
-import { keyframes } from "@mui/system";
 import { apiClient } from "@/components/common/common";
 import { AddProductDetail } from "@/hooks/productDetailsReducer";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { SelectChangeEvent } from "@mui/material/Select";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import dynamic from "next/dynamic";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 // import ChatWindow from "@/components/Chat";
-import { getTokenFromCookies } from "@/utils/cookieUtils";
-import Buyerpage from "@/components/Buyerpage";
-import Sellerpage from "@/components/Sellerpage";
 import { landingPage } from "@/utils/constantImages";
+import { getTokenFromCookies } from "@/utils/cookieUtils";
 
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary, {
     AccordionSummaryProps,
 } from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
 const Item = styled(Box, {
     shouldForwardProp: (prop) => prop !== "active",
 })<{ active: boolean }>(({ active }) => ({
@@ -1282,7 +1271,7 @@ export default function SellerHome(props: any) {
                         <div>
                             <Accordion expanded={expanded === 'panel1'} onChange={handleChangeQ('panel1')}>
                                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                                    <Typography>Q: How do I register as a powercozmo supplier in the system?</Typography>
+                                    <Typography>Q: How do I register as a MerchantAD supplier in the system?</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>
@@ -1318,7 +1307,7 @@ export default function SellerHome(props: any) {
                             </Accordion>
                             <Accordion expanded={expanded === 'panel4'} onChange={handleChangeQ('panel4')}>
                                 <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-                                    <Typography>Q: How do I register as a powercozmo supplier in the system?</Typography>
+                                    <Typography>Q: How do I register as a MerchantAD supplier in the system?</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <Typography>

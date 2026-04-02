@@ -1,28 +1,17 @@
 import DeleteDialog from "@/components/common/DeleteAlert/DeleteDialog";
-import { apiClient } from "@/components/common/common";
+import { setMenuItem } from "@/hooks/LeadsReducer";
 import {
   BannerList,
   BannerSetting,
+  setBannarImagePreview,
+  setBannerImages,
   setBannerPage,
   setDefaultBanner,
-  setBannarImagePreview,
-  setNewBannerSlider,
-  setBannerImages,
   setIsBannerPageSelected,
+  setNewBannerSlider,
   setbannerFiles,
 } from "@/hooks/sellerSubaccount";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
-import BannerspacewithSelect from "./BannerspacewithSelect";
-import {
-  Bannersubimages,
-  BoxforBanner,
-  PreviewBtn,
-  SaveBtn,
-} from "../Subdomainstyle";
-import ImagefordragNdrop from "./ImagefordragNdrop";
-import EmptyPage from "@/components/common/EmptyPage";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import {
   Box,
   Checkbox,
@@ -32,16 +21,22 @@ import {
   Grid,
   MenuItem,
   Select,
-  SelectChangeEvent,
-  Typography,
+  SelectChangeEvent
 } from "@mui/material";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import BannerOptions from "./BannerOptions";
-import SavePreviewbuttons from "./SavePreviewbuttons";
-import PreviewModal from "./PreviewModal";
-import { ThreeDots } from "react-loader-spinner";
 import FormControl from "@mui/material/FormControl";
-import { setMenuItem } from "@/hooks/LeadsReducer";
+import React, { useEffect, useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import {
+  Bannersubimages,
+  BoxforBanner,
+  PreviewBtn,
+  SaveBtn,
+} from "../Subdomainstyle";
+import BannerOptions from "./BannerOptions";
+import ImagefordragNdrop from "./ImagefordragNdrop";
+import PreviewModal from "./PreviewModal";
 
 const CreateEditBanner = (mode) => {
   const dispatch = useDispatch();
@@ -367,7 +362,7 @@ const CreateEditBanner = (mode) => {
                       onChange={(e) => handleChange(e.target.checked)}
                     />
                   }
-                  label="Use Powercozmo default Rolling Banner"
+                  label="Use Merchant AD default Rolling Banner"
                   sx={{
                     "& .MuiFormControlLabel-label": {
                       fontSize: "12px",

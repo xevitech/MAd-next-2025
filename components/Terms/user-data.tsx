@@ -1,14 +1,13 @@
-import React from "react";
 import {
-  Typography,
   Box,
-  Paper,
+  Link,
   List,
   ListItem,
   ListItemText,
-  Link,
   styled,
+  Typography
 } from "@mui/material";
+import React from "react";
 const StyledContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
   lineHeight: 1.6,
@@ -287,7 +286,7 @@ export default function Userdata() {
         </List>
 
         <Typography variant="body1" paragraph sx={{ fontSize: "14px" }}>
-          Thank you for being a valued part of the PowerCozmo community. We are
+          Thank you for being a valued part of the MerchantAD community. We are
           always here to help and ensure that your experience with us is safe,
           secure, and respectful of your privacy.
         </Typography>

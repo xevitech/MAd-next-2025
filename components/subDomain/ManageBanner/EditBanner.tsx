@@ -2,53 +2,40 @@ import DeleteDialog from "@/components/common/DeleteAlert/DeleteDialog";
 import { apiClient, convertSize } from "@/components/common/common";
 import {
   BannerList,
-  BannerSetting,
-  BannerSetting_Update,
-  setBannerPage,
-  setDefaultBanner,
-  setBannarImagePreview,
-  setNewBannerSlider,
   setActiveEditPageData,
-  setId,
+  setBannarImagePreview,
   setbannerFiles,
   setBannerImages,
+  setBannerPage,
+  setDefaultBanner,
+  setId,
+  setNewBannerSlider
 } from "@/hooks/sellerSubaccount";
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { styled } from "@mui/material/styles";
-import { toast } from "react-toastify";
-import BannerspacewithSelect from "./BannerspacewithSelect";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import {
-  Bannersubimages,
-  BoxforBanner,
-  PreviewBtn,
-  SaveBtn,
-} from "../Subdomainstyle";
-import ImagefordragNdrop from "./ImagefordragNdrop";
-import EmptyPage from "@/components/common/EmptyPage";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import {
   Box,
   Checkbox,
   FormControlLabel,
   FormGroup,
   Grid,
-  MenuItem,
-  Select,
   SelectChangeEvent,
-  Typography,
+  Typography
 } from "@mui/material";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import BannerOptions from "./BannerOptions";
-import BannerOptionEditBanner from "./BannerOptionEditBanner";
-import SavePreviewbuttons from "./SavePreviewbuttons";
-import PreviewModal from "./PreviewModal";
-import { ThreeDots } from "react-loader-spinner";
-import FormControl from "@mui/material/FormControl";
-import { setMenuItem } from "@/hooks/LeadsReducer";
+import { styled } from "@mui/material/styles";
 import { isArray } from "lodash";
-import { cleanDigitSectionValue } from "@mui/x-date-pickers/internals/hooks/useField/useField.utils";
-import Button from "@mui/material/Button";
+import React, { useEffect, useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import {
+  Bannersubimages,
+  BoxforBanner,
+  PreviewBtn,
+  SaveBtn,
+} from "../Subdomainstyle";
+import BannerOptionEditBanner from "./BannerOptionEditBanner";
+import ImagefordragNdrop from "./ImagefordragNdrop";
+import PreviewModal from "./PreviewModal";
 
 const EditBanner = (props) => {
   const { mode, setMode } = props;
@@ -159,8 +146,8 @@ const EditBanner = (props) => {
     bannerImage?.data
       ? bannerImage?.data
       : bannerImage.forEach((v: any) => {
-          formData.append("images[]", v);
-        });
+        formData.append("images[]", v);
+      });
     formData?.append("default_banner", isChecked == false ? "off" : "on");
     formData?.append("active_banner", activeSettings[0]?.active_banner);
     formData?.append("swap_banner", activeSettings[0]?.swap_banner);
@@ -328,7 +315,7 @@ const EditBanner = (props) => {
                     position: "relative",
                     border: "1px solid #e0e0e0",
                     height: "200px",
-                    backgroundColor:'#f4f6fa',
+                    backgroundColor: '#f4f6fa',
                   }}
                 >
                   <img
@@ -454,7 +441,7 @@ const EditBanner = (props) => {
                           }}
                         />
                       }
-                      label="Use Powercozmo default Rolling Banner"
+                      label="Use Merchant AD default Rolling Banner"
                       sx={{
                         "& .MuiFormControlLabel-label": {
                           fontSize: "12px",

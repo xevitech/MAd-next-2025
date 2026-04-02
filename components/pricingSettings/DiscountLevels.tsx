@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
-  Typography,
   Box,
   FormControl,
-  Select,
-  MenuItem,
-  TextField,
   Grid,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
 } from "@mui/material";
-import { makeStyles } from "tss-react/mui";
-import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import { styled } from "@mui/material/styles";
 import Image from "next/image";
-import { apiClient } from "../common/common";
+import { useEffect, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { makeStyles } from "tss-react/mui";
 import { BtnFilled } from "../common/buttons/ButtonsVariations";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { apiClient } from "../common/common";
 import Discountlevel from "./discountSkeleton";
 import {
   BoxColumn,
@@ -34,7 +35,6 @@ import {
   ValueTitle,
   ValueTitle2,
 } from "./style";
-import { useSelector } from "react-redux";
 const useStyles = makeStyles()((theme) => {
   return {
     discountheader2: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles()((theme) => {
 });
 
 const data = [
-  "Pricing is shown only for users registered and logged into the Powercozmo website",
+  "Pricing is shown only for users registered and logged into the MerchantAD website",
   "If User came from google",
 ];
 const data1 = ["fixed", "Percentage"];
@@ -229,10 +229,10 @@ const DiscountLevels = ({ priceDetail, discountLoader }) => {
                       discountType !== ""
                         ? undefined
                         : () => (
-                            <Placeholder>
-                              Select Discount Type Value
-                            </Placeholder>
-                          )
+                          <Placeholder>
+                            Select Discount Type Value
+                          </Placeholder>
+                        )
                     }
                   >
                     {data1.map((val) => (
@@ -261,18 +261,18 @@ const DiscountLevels = ({ priceDetail, discountLoader }) => {
               {(role === "seller" ||
                 (role === "subuser" &&
                   permissions?.discount_levels?.add == true)) && (
-                <UpButton
-                  variant="contained"
-                  sx={{
-                    ":hover": {
-                      backgroundColor: "#D7282F",
-                    },
-                  }}
-                  onClick={ApplyHandler}
-                >
-                  Apply
-                </UpButton>
-              )}
+                  <UpButton
+                    variant="contained"
+                    sx={{
+                      ":hover": {
+                        backgroundColor: "#D7282F",
+                      },
+                    }}
+                    onClick={ApplyHandler}
+                  >
+                    Apply
+                  </UpButton>
+                )}
             </ContainerBox>
           </Grid>
           <Grid item xs={12}>
@@ -304,10 +304,10 @@ const DiscountLevels = ({ priceDetail, discountLoader }) => {
                                     value.condition !== ""
                                       ? undefined
                                       : () => (
-                                          <Placeholder>
-                                            Please Select Value
-                                          </Placeholder>
-                                        )
+                                        <Placeholder>
+                                          Please Select Value
+                                        </Placeholder>
+                                      )
                                   }
                                 >
                                   {data.map((val) => (
@@ -341,10 +341,10 @@ const DiscountLevels = ({ priceDetail, discountLoader }) => {
                                     value.discountType !== ""
                                       ? undefined
                                       : () => (
-                                          <Placeholder>
-                                            Select Discount Type Value
-                                          </Placeholder>
-                                        )
+                                        <Placeholder>
+                                          Select Discount Type Value
+                                        </Placeholder>
+                                      )
                                   }
                                 >
                                   {data1.map((val) => (
@@ -412,24 +412,24 @@ const DiscountLevels = ({ priceDetail, discountLoader }) => {
             {(role === "seller" ||
               (role === "subuser" &&
                 permissions?.discount_levels?.add == true)) && (
-              <Box component="div" display="flex" justifyContent="flex-end">
-                <BtnFilled onClick={onSubmitHandler}>
-                  {loader ? (
-                    <ThreeDots
-                      height="40"
-                      width="40"
-                      radius="9"
-                      color="white"
-                      ariaLabel="three-dots-loading"
-                      wrapperStyle={{}}
-                      visible={true}
-                    />
-                  ) : (
-                    "Submit"
-                  )}
-                </BtnFilled>
-              </Box>
-            )}
+                <Box component="div" display="flex" justifyContent="flex-end">
+                  <BtnFilled onClick={onSubmitHandler}>
+                    {loader ? (
+                      <ThreeDots
+                        height="40"
+                        width="40"
+                        radius="9"
+                        color="white"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        visible={true}
+                      />
+                    ) : (
+                      "Submit"
+                    )}
+                  </BtnFilled>
+                </Box>
+              )}
           </Grid>
         </>
       )}

@@ -1,19 +1,26 @@
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import {
-  Box,
-  Container,
-  Typography,
-  Grid,
   AccordionDetails,
-  List,
-  FormGroup,
-  FormControlLabel,
-  Stack,
+  Box,
   Button,
-  TableContainer,
+  Container,
+  FormControlLabel,
+  FormGroup,
+  Grid,
+  List,
+  Stack,
   Table,
-  TableHead,
   TableBody,
+  TableContainer,
+  TableHead,
+  Typography,
 } from "@mui/material";
+import TableCell from "@mui/material/TableCell";
 import React from "react";
 import {
   AccordionAnswer,
@@ -69,13 +76,6 @@ import {
   WedontText,
   Whatourclient,
 } from "./style";
-import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import TableCell from "@mui/material/TableCell";
-import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
-import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 const MainButton = {
   borderRadius: "26px",
   fontSize: "18px",
@@ -561,7 +561,7 @@ export default function PlanAndPricing() {
               <Box>
                 <Newsectiontext>Merchant AD |</Newsectiontext>
                 <Newsectiontext2>
-                  A few things to consider when choosing your powercozmo Store
+                  A few things to consider when choosing your MerchantAD Store
                 </Newsectiontext2>
               </Box>
               <Box mt={8}>

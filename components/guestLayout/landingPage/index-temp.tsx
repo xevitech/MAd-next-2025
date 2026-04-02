@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { InputAdornment, TextField } from "@mui/material";
 import { validateEmail } from "@/utils/commonFunctions/Validations";
-import { toast } from "react-toastify";
-import { ThreeDots } from "react-loader-spinner";
+import { BASE_URL } from "@/utils/staticValues";
+import { InputAdornment, TextField } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { AiOutlineMail } from "react-icons/ai";
+import { ThreeDots } from "react-loader-spinner";
+import { toast } from "react-toastify";
 import {
-  Overlayback,
-  LeftMaskContainer,
-  HeaderText,
-  NormalText,
-  InputFieldContainer,
-  CustomButton,
-  LandingPageContainer,
-  TopButtonsContainer,
-  RightMaskContainer,
   CrossIconContainer,
   CrossIconImage,
+  CustomButton,
+  HeaderText,
+  InputFieldContainer,
+  LandingPageContainer,
+  LeftMaskContainer,
+  NormalText,
+  Overlayback,
+  RightMaskContainer,
+  TopButtonsContainer,
 } from "./styles";
-import { AiOutlineMail } from "react-icons/ai";
-import { BASE_URL } from "@/utils/staticValues";
 
 const LandingPage = () => {
   const router = useRouter();
@@ -34,7 +34,7 @@ const LandingPage = () => {
       <Overlayback>
         <LeftMaskContainer>
           <HeaderText>{"Let's Go for FREE"}</HeaderText>
-          <NormalText>and start using powercozmo in seconds!</NormalText>
+          <NormalText>and start using MerchantAD in seconds!</NormalText>
         </LeftMaskContainer>
         <RightMaskContainer>
           <CrossIconContainer>
