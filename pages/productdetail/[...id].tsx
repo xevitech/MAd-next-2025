@@ -83,7 +83,6 @@ const ProductDetail = ({ data }) => {
             type="product"
           />
         )}
-        {/* {name && <ChatWindow />}s */}
         {name && <FooterPage />}
         {name && <ProductActions />}
 

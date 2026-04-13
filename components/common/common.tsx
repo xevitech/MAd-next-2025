@@ -1147,8 +1147,27 @@ export const CurrencySymbol = (id: number, field = "") => {
 export const FirstletterCapital = (str: string) =>
   str?.charAt(0)?.toUpperCase() + str?.slice(1);
 
+// export const Navigate = (data: any) => {
+//   const {
+//     slug,
+//     category_name,
+//     company_details,
+//     name,
+//     shop_name,
+//     brand_name,
+//     id,
+//     searchKey = "",
+//     product_url,
+//   } = data;
+//   window.open(
+//     `/productdetail/${slug}?search_keyword=${searchKey}`,
+//     "_blank",
+//     "noreferrer"
+//   );
+// };
+
 export const Navigate = (data: any) => {
-  const {
+   const {
     slug,
     category_name,
     company_details,
@@ -1157,15 +1176,18 @@ export const Navigate = (data: any) => {
     brand_name,
     id,
     searchKey = "",
-    product_url,
   } = data;
+  
   window.open(
-    `/productdetail/${product_url}?search_keyword=${searchKey}`,
+    `/productdetail/${
+      ReplaceSpaces(category_name) || ReplaceSpaces(brand_name) || id
+    }/${ReplaceSpaces(company_details?.slug ?? shop_name)}/${ReplaceSpaces(
+      slug
+    )}?search_keyword=${searchKey}`,
     "_blank",
     "noreferrer"
   );
 };
-
 
 export const GetUrlParams = (param) => {
   var url = new URL(window.location.href);
