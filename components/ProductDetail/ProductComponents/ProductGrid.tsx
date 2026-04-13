@@ -137,8 +137,10 @@ export default function ProductGrid() {
 
   const { query, asPath } = useRouter();
 
+  console.log("data", query);
+
   useEffect(() => {
-    if (query?.id?.[0]) fetchProductDetail();
+    if (query?.id?.[2]) fetchProductDetail();
   }, [query]);
 
   useEffect(() => {
@@ -215,9 +217,11 @@ export default function ProductGrid() {
       currency: currencyId ?? 0,
       // ip_address:
     };
+    // console.log("data", data);
     let params: any = await apiClient("front/single/view", "post", {
       body: data,
     });
+   
 
     if (params?.status == 200) {
       let response = await trackPageView(
@@ -340,7 +344,6 @@ export default function ProductGrid() {
   };
 
   let toolText = BrandList.find((v) => v.name == data?.condition);
-  console.log(data?.product_id, "data?.product_id");
   return (
     <>
       <Head>
@@ -429,10 +432,7 @@ export default function ProductGrid() {
                                         style={IconStyle}
                                       />
                                     ) : (
-                                      <FavoriteIcon
-                                        style={IconStyle}
-                                        data-tracking="wishlist-identifier"
-                                      />
+                                      <FavoriteIcon style={IconStyle} data-tracking="wishlist-identifier"/>
                                     )}
                                   </ButtonStyleContainer>
                                 )}
@@ -440,113 +440,7 @@ export default function ProductGrid() {
                             </Box>
                             <WebCarousal />
                             {availability == "in_stock" && (
-                              // <Box
-                              //   sx={{
-                              //     backgroundColor: "#F3F3F3",
-                              //     padding: "8px 12px 12px",
-                              //     borderRadius: "6px",
-                              //   }}
-                              // >
-                              //   <Typography
-                              //     sx={{
-                              //       fontSize: "14px",
-                              //       color: "#000000",
-                              //       fontWeight: "600",
-                              //       marginBottom: "8px",
-                              //     }}
-                              //   >
-                              //     Overview
-                              //   </Typography>
-                              //   <Box
-                              //     sx={{
-                              //       width: "100%",
-                              //       overflowX: "auto",
-                              //       backgroundColor: "#ffffff",
-                              //       padding: "20px 12px",
-
-                              //       "&::-webkit-scrollbar": {
-                              //         width: "0.4em",
-                              //         height: "0.4em",
-                              //       },
-                              //       "&::-webkit-scrollbar-track": {
-                              //         boxShadow:
-                              //           "inset 0 0 6px rgba(0,0,0,0.00)",
-                              //         webkitBoxShadow:
-                              //           "inset 0 0 6px rgba(0,0,0,0.00)",
-                              //       },
-                              //       "&::-webkit-scrollbar-thumb": {
-                              //         backgroundColor: "#dedede",
-                              //         borderRadius: "4px",
-                              //       },
-                              //       "&::-webkit-scrollbar-thumb:hover:horizontal":
-                              //         {
-                              //           background: "#6d6d6d",
-                              //         },
-                              //     }}
-                              //   >
-                              //     <Box
-                              //       sx={{
-                              //         display: "inline-flex",
-                              //         alignItems: "flex-start",
-                              //         width: "auto",
-                              //       }}
-                              //     >
-                              //       {Value.map((v) => (
-                              //         <Box
-                              //           sx={{
-                              //             paddingLeft: "4px",
-                              //             maxWidth: "180px",
-                              //             minWidth: "180px",
-                              //             "@media (max-width: 1500px)": {
-                              //               minWidth: "140px",
-                              //             },
-                              //             "& .MuiTypography-h6": {
-                              //               fontSize: "12px",
-                              //               color: "#4A4A4A",
-                              //               fontWeight: "normal",
-                              //             },
-                              //             "& .MuiTypography-body1": {
-                              //               fontSize: "15px",
-                              //               color: "#000000",
-                              //               fontWeight: "600",
-                              //             },
-                              //           }}
-                              //         >
-                              //           <Typography variant="h6">
-                              //             {v.title}
-                              //           </Typography>
-                              //           <Typography
-                              //             variant="body1"
-                              //             sx={{
-                              //               textTransform: "capitalize",
-                              //               "& .MuiSvgIcon-root": {
-                              //                 fontSize: "14px",
-                              //                 color: "#0AA133",
-                              //               },
-                              //             }}
-                              //           >
-                              //             {v.value}
-                              //             {v.title == "Condition" && (
-                              //               <LightTooltip
-                              //                 PopperProps={{
-                              //                   style: { zIndex: 10 },
-                              //                 }}
-                              //                 disableInteractive
-                              //                 arrow
-                              //                 placement="top"
-                              //                 title={toolText?.buyer}
-                              //               >
-                              //                 <InfoOutlinedIcon
-                              //                   sx={{ margin: "0 2px" }}
-                              //                 />
-                              //               </LightTooltip>
-                              //             )}
-                              //           </Typography>
-                              //         </Box>
-                              //       ))}
-                              //     </Box>
-                              //   </Box>
-                              // </Box>
+                              
                               <>
                                 {Value.some((v) => !!v.value) && (
                                   <Box

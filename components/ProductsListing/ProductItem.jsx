@@ -41,13 +41,22 @@ import QuickSignup from "../auth/quickSignup/QuickSignup";
 import { LightTooltip } from "../common/Tooltip/tooltip";
 import CustomSlider from "./CustomSlider";
 import ProductModule from "./product.module.css";
+import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import {
   ByOrderTypography,
+  ContentFlewView,
   InStockTypography,
   ProductItemInfoCard,
   ProductItemInfoCardOuter,
-  ProductTitleTypo
+  ProductTitleTypo,
+  ProductsmallTypography,
+  SeparationDots,
 } from "./style";
+import {
+  CompanyName,
+  CompanyNamearrow,
+  ProductHeadePriceButton,
+} from "./ProductListing.styled";
 const useStyles = makeStyles((theme) => {
   return {};
 });
@@ -752,21 +761,115 @@ const ProductItem = ({ data }) => {
                   </Typography>
                 </Box>
               )}
+
+              <Box className="productCenterInfo" sx={{ padding: "5px 0" }}>
+                {data.product_type == "simple" && (
+                  <>
+                    <ContentFlewView className={ProductModule.conditiondata}>
+                      <ProductsmallTypography>
+                        Manufacturer:
+                      </ProductsmallTypography>
+                      <LightTooltip
+                        placement="top-start"
+                        title={data?.brand_name || "N/A"}
+                        arrow
+                        disableInteractive
+                      >
+                        {/* manufacturer : 👇*/}
+                        <Typography className="boldtxt ProductLocationandbrand">
+                          {data?.brand_name || data?.manufacturer || "     --"}
+                          {/* manufacture brandName */}
+                        </Typography>
+                      </LightTooltip>
+                    </ContentFlewView>
+                    {data.product_type == "simple" && data?.condition ? (
+                      // data.availability == "in_stock" &&
+                      <ContentFlewView className={ProductModule.conditiondata}>
+                        <ProductsmallTypography>
+                          Condition:
+                        </ProductsmallTypography>
+                        <LightTooltip
+                          placement="top-start"
+                          title={data?.condition || "N/A"}
+                          arrow
+                          disableInteractive
+                        >
+                          <Typography className="boldtxt ProductLocationandbrand">
+                            {data?.condition || ""}
+                          </Typography>
+                        </LightTooltip>
+                      </ContentFlewView>
+                    ) : data.availability == "by_order" &&
+                      data?.model_number ? (
+                      <ContentFlewView className={ProductModule.conditiondata}>
+                        <ProductsmallTypography>
+                          Model Number:
+                        </ProductsmallTypography>
+                        <LightTooltip
+                          placement="top-start"
+                          title={data?.model_number || "N/A"}
+                          arrow
+                          disableInteractive
+                        >
+                          <Typography className="boldtxt ProductLocationandbrand">
+                            {data?.model_number || ""}
+                          </Typography>
+                        </LightTooltip>
+                      </ContentFlewView>
+                    ) : (
+                      <Box sx={{ padding: "24px" }}></Box>
+                    )}
+                  </>
+                )}
+                {data.product_type == "configured" && (
+                  <>
+                    {data.brand_name && (
+                      <ContentFlewView className={ProductModule.conditiondata}>
+                        <ProductsmallTypography>
+                          Manufacturer:
+                        </ProductsmallTypography>
+                        <LightTooltip
+                          disableInteractive
+                          title={data.brand_name}
+                          placement="top"
+                          arrow
+                        >
+                          <Typography className="boldtxt ProductLocationandbrand">
+                            {data.brand_name ?? "other"}
+                          </Typography>
+                        </LightTooltip>
+                      </ContentFlewView>
+                    )}
+                    <ContentFlewView className={ProductModule.conditiondata}>
+                      {data?.model_number ? (
+                        <ProductsmallTypography>
+                          Model Number:
+                        </ProductsmallTypography>
+                      ) : (
+                        <ProductsmallTypography
+                          sx={{ height: "18px" }}
+                        ></ProductsmallTypography>
+                      )}
+                      <LightTooltip
+                        placement="top-start"
+                        title={data?.condition || "N/A"}
+                        arrow
+                        disableInteractive
+                      >
+                        <Typography className="boldtxt ProductLocationandbrand">
+                          {data?.model_number || ""}
+                        </Typography>
+                      </LightTooltip>
+                    </ContentFlewView>
+                  </>
+                )}
+
+                <Box sx={{ clear: "both" }}></Box>
+              </Box>
               
             </Box>
           </ProductItemInfoCard>
-          <StyleDrawer
-            anchor="right"
-            open={isFlyoutOpen}
-            onClose={() => setIsFlyoutOpen(true)}
-            onOpen={toggleFlyout}
-          >
-            <ProductItemConfigGetQuote
-              toggleFlyout={toggleFlyout}
-              selectedData={data}
-              type={""}
-            />
-          </StyleDrawer>
+          
           <Box
             className={`tileFooter ${
               bussiness || data.is_verified ? "imageExists" : "imageNotExists"
@@ -804,7 +907,7 @@ const ProductItem = ({ data }) => {
                 </Button>
 
                 {/* Buy Now */}
-                <Button
+                {/* <Button
                   variant="contained"
                   disabled
                   startIcon={<FlashOnIcon />}
@@ -818,8 +921,107 @@ const ProductItem = ({ data }) => {
                   onClick={() => handleBuyNow()}
                 >
                   Buy Now
-                </Button>
+                </Button> */}
                 
+              </Box>
+            </Stack>
+            <Stack
+              sx={{
+                padding: "0 10px",
+                borderTop: "1px solid #EAEAEA",
+                marginTop: "10px",
+                minHeight: "30px",
+              }}
+            >
+              <CompanyName
+                // mini site open on click
+                onClick={() => {
+                  window.open(
+                    `/mini-site/${
+                      data?.company_details
+                        ? data?.company_details?.slug ??
+                          data?.company_details?.company_name
+                        : data?.company_namee ??
+                          data?.shop_slug ??
+                          data?.shop_name
+                    }`,
+                    "_blank",
+                    "noreferrer"
+                  );
+                }}
+              >
+                {/* hover business */}
+                <LightTooltip
+                  disableInteractive
+                  title={
+                    data?.company_details?.company_name ??
+                    data?.company_namee ??
+                    data?.category_list?.name
+                  }
+                  placement="top"
+                  arrow
+                >
+                  {data?.company_details?.company_name ||
+                    data?.shop_name ||
+                    data?.company_namee ||
+                    data?.shop_slug ||
+                    "-"}
+                  <ChevronRightOutlinedIcon />
+                </LightTooltip>
+              </CompanyName>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  width: "100%",
+                  gap: "7px",
+                  width: "",
+                  fontSize: "12px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {bussiness ? (
+                  <>
+                    <img
+                      src={`/assets/images/${businessTypeIcon}`}
+                      width="30"
+                      height="20"
+                      loading="lazy"
+                    />
+                    {bussinessName?.replace(/s(?=[^s]*$)/, "")}
+                  </>
+                ) : businessm ? (
+                  <>
+                    <img
+                      src={`/assets/images/${manufacturer_image}`}
+                      width="30"
+                      height="20"
+                      loading="lazy"
+                    />
+                    {businessm?.replace(/s(?=[^s]*$)/, "")}
+                  </>
+                ) : (
+                  <>
+                    <img
+                      src={`/assets/images/Others1.svg`}
+                      width="30"
+                      height="20"
+                      loading="lazy"
+                    />
+                    Other
+                  </>
+                )}
+                {data.is_verified && (
+                  <>
+                    <SeparationDots />
+                    <img
+                      src="/assets/verifyWtext.svg"
+                      width="60"
+                      height="21"
+                      loading="lazy"
+                    />
+                  </>
+                )}
               </Box>
             </Stack>
             
