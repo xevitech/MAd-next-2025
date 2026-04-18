@@ -91,6 +91,7 @@ import { useRouter } from "next/router";
 import HotitemsSkeleton from "./skeleton/HotitemsSkeleton";
 import { LightTooltip } from "@/components/common/Tooltip/tooltip";
 import { RootState } from "redux/store";
+import { BASE_URL_V2 } from "@/utils/staticValues";
 import { getBussinessTypeIcon } from "@/components/Helper";
 import { json } from "node:stream/consumers";
 interface TabPanelProps {
@@ -320,7 +321,7 @@ const RetargettingProduct = forwardRef((props, ref) => {
     const userId = JSON.parse(localStorage.getItem("userData"))?.id;
     const ipAddress = localStorage.getItem("ipAddress");
     setRecentLoading(true);
-    const response = await fetch(`https://merchantad.xevitech.com/api/v2/visitor/recent-viewed-product?user_id=${userId}&ip=${ipAddress}&currency=${currency}`);
+    const response = await fetch(`${BASE_URL_V2}/visitor/recent-viewed-product?user_id=${userId}&ip=${ipAddress}&currency=${currency}`);
     const data  = await response.json();
     const {
       recentViewedProducts

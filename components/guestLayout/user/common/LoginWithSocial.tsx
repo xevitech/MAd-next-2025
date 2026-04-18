@@ -7,6 +7,7 @@ import {
   REDIRECT_URI,
   TWITTER_CONSUMER_KEY,
   TWITTER_CONSUMER_SECRET_KEY,
+  BASE_URL,
 } from "@/utils/staticValues";
 import { Box, Typography } from "@mui/material";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
@@ -93,7 +94,7 @@ function LoginWithSocial({ text, type }) {
   };
 
   const handleTwitterLogins = async () => {
-    const rootUrl = "https://merchantad.xevitech.com/api/v1/auth/twitter/url";
+    const rootUrl = `${BASE_URL}/auth/twitter/url`;
     const response = await axios.get(rootUrl);
     window.location.href = response?.data?.url;
   };

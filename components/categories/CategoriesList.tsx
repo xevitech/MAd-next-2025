@@ -25,6 +25,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { toast, ToastContainer } from "react-toastify";
 import { useDispatch } from "react-redux";
+import { BASE_URL } from "@/utils/staticValues";
 
 interface AddCategoryInfo {
   name: string;
@@ -133,7 +134,7 @@ export const CategoriesList = () => {
       parent: category_id,
     };
     const response_AllApprovedSubCategoriesBoxes = await fetch(
-      "http://merchantad.xevitech.com/api/v1/categoryList",
+      `${BASE_URL}/categoryList`,
       {
         method: "POST",
         body: JSON.stringify(payload),
@@ -194,7 +195,7 @@ export const CategoriesList = () => {
         parent: 0,
       };
       const response_NonApprovedCategories = await fetch(
-        "http://merchantad.xevitech.com/api/v1/categoryList",
+        `${BASE_URL}/categoryList`,
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -212,7 +213,7 @@ export const CategoriesList = () => {
       }
       // AllApprovedRootCategoriesBox
       const response_AllApprovedRootCategoriesBox = await fetch(
-        "http://merchantad.xevitech.com/api/v1/categoryList",
+        `${BASE_URL}/categoryList`,
         {
           method: "GET",
           headers: {
