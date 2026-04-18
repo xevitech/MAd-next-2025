@@ -81,6 +81,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import PriceFilter4 from "@/components/ProductsListing/PriceFilter4";
 import BusinessFilter4 from "@/components/ProductsListing/BusinessFilter4";
 import { getBussinessTypeIcon } from "@/components/Helper";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -200,7 +201,7 @@ const SellerInfoAndSlider = ({
       case "Gold":
         return (
           <img
-            src="https://merchantad.xevitech.com/public/uploads/icon/gold.svg"
+            src={`${LOCAL_PUBLIC_URL}/uploads/icon/gold.svg`}
             alt=""
             height={25}
           />
@@ -209,7 +210,7 @@ const SellerInfoAndSlider = ({
       case "Silver":
         return (
           <img
-            src="https://merchantad.xevitech.com/public/uploads/icon/silver.svg"
+            src={`${LOCAL_PUBLIC_URL}/uploads/icon/silver.svg`}
             alt=""
             height={25}
           />
@@ -217,7 +218,7 @@ const SellerInfoAndSlider = ({
       case "Enterprise":
         return (
           <img
-            src="https://merchantad.xevitech.com/public/uploads/icon/enterprise.svg"
+            src={`${LOCAL_PUBLIC_URL}/uploads/icon/enterprise.svg`}
             alt=""
             height={25}
           />
@@ -225,7 +226,7 @@ const SellerInfoAndSlider = ({
       default:
         return (
           <img
-            src="https://merchantad.xevitech.com/public/uploads/icon/free.svg"
+            src={`${LOCAL_PUBLIC_URL}/uploads/icon/free.svg`}
             alt="free"
             height={25}
           />

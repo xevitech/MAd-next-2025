@@ -62,6 +62,7 @@ import { LightTooltip } from "../Tooltip/tooltip";
 import { setSkeleton } from "@/hooks/LeadsReducer";
 import SidebarSkeleton from "./SidebarSkeleton";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 export const LogoImageSmall = styled("img")({
   height: "50px",
   width: "50px",
@@ -297,7 +298,7 @@ export const UserSidebar = () => {
                   src={
                     userprofileImage
                       ? userprofileImage
-                      : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                      : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                   }
                   alt="userImage"
                 />

@@ -105,7 +105,7 @@ import { countries } from "@/utils/countries";
 import { LightTooltip } from "@/components/common/Tooltip/tooltip";
 import { CustomPriceQuoteCol } from "@/components/ProductDetail/ProductComponents/Modal/style";
 import { useDispatch, useSelector } from "react-redux";
-import { BASE_URL } from "@/utils/staticValues";
+import { BASE_URL, LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import { styled } from "@mui/system";
 import {
   getSpecificationsList,
@@ -330,7 +330,7 @@ export default function ProductDetailModal({
               <Image
                 src={
                   cellValues?.row?.profile_image == null
-                    ? "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                    ? `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                     : cellValues?.row?.profile_image
                 }
                 height={34}

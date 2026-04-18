@@ -99,6 +99,7 @@ import {
 } from "../style";
 import { SocialLinksTooltipText } from "../View/style";
 import TagsInput from "./TagsInput";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 LicenseInfo.setLicenseKey(
   "e25aea50a43f724c2a50c717a29c3f54Tz01MDc2NixFPTE2OTQ2OTY3MTk4MjUsUz1wcm8sTE09c3Vic2NyaXB0aW9uLEtWPTI="
 );
@@ -328,7 +329,7 @@ const PersonDetail = () => {
                         src={
                           updateSingleData?.[0]?.lead_user_info?.photo
                             ? updateSingleData?.[0]?.lead_user_info?.photo
-                            : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                            : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                         }
                       ></img>
                     </Avatar>
@@ -490,7 +491,7 @@ const PersonDetail = () => {
                       <AssignedAccount>
                         {/* <AssigneInfo>
                           <Avatar>
-                            <img src={leadUser?.file_name?leadUser?.file_name:"https://merchantad.xevitech.com/public/assets/img/avatar-place.png"}></img>
+                            <img src={leadUser?.file_name?leadUser?.file_name:`${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`}></img>
                           </Avatar>
                           <ReassignName>{leadUser?.name}</ReassignName>
                            <Box>
@@ -590,7 +591,7 @@ const PersonDetail = () => {
                 src={
                   updateSingleData?.[0]?.lead_user_info?.photo
                     ? updateSingleData?.[0]?.lead_user_info?.photo
-                    : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                    : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                 }
               ></img>
             </Avatar> */}
@@ -618,7 +619,7 @@ const PersonDetail = () => {
                     src={
                       updateSingleData?.[0]?.lead_user_info?.photo
                         ? updateSingleData?.[0]?.lead_user_info?.photo
-                        : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                        : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                     }
                   ></img>
                 </Avatar>
@@ -641,7 +642,7 @@ const PersonDetail = () => {
                         src={
                           updateSingleData?.[0]?.lead_user_info?.photo
                             ? updateSingleData?.[0]?.lead_user_info?.photo
-                            : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                            : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                         }
                       ></img>
                     </Avatar>
@@ -811,7 +812,7 @@ const PersonDetail = () => {
                       <AssignedAccount>
                         {/* <AssigneInfo>
                           <Avatar>
-                            <img src={leadUser?.file_name?leadUser?.file_name:"https://merchantad.xevitech.com/public/assets/img/avatar-place.png"}></img>
+                            <img src={leadUser?.file_name?leadUser?.file_name:`${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`}></img>
                           </Avatar>
                           <ReassignName>{leadUser?.name}</ReassignName>
                            <Box>

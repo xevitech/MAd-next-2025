@@ -1908,7 +1908,7 @@ export const createEchoInstance = () => {
   const echoInstance = new Echo({
     broadcaster: "reverb",
     key: "c3ot369vmc6dmbsz2oei",
-    wsHost: "merchantad.xevitech.com",
+    wsHost: "merchantad.com",
     wsPort: 443,
     forceTLS: true,
     enabledTransports: ["ws"],
@@ -1918,7 +1918,7 @@ export const createEchoInstance = () => {
         Accept: "application/json",
       },
     },
-    authEndpoint: "https://merchantad.xevitech.com/broadcasting/auth",
+    authEndpoint: "https://merchantad.com/broadcasting/auth",
   });
   (window as any).Echo = echoInstance;
   return echoInstance;

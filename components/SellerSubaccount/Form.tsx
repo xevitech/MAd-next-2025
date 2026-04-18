@@ -64,7 +64,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { ArrowDropDownIcon } from "@mui/x-date-pickers";
-import { BASE_URL } from "@/utils/staticValues";
+import { BASE_URL, LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import Auth from "@/auth/Auth";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
@@ -600,7 +600,7 @@ function ProjectForm1({ toggleDrawer, editValues, setEditValue }) {
                             alt="profile-image"
                             src={
                               profileImage.length == 0
-                                ? "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                                ? `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                                 : URL.createObjectURL(profileImage)
                             }
                           />
@@ -625,7 +625,7 @@ function ProjectForm1({ toggleDrawer, editValues, setEditValue }) {
                         alt="profile-image"
                         src={
                           !profileImage
-                            ? "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                            ? `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                             : typeof profileImage === "string"
                             ? `${profileImage}`
                             : URL.createObjectURL(profileImage)

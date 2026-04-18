@@ -47,6 +47,7 @@ import Login from "../ProductDetail/ProductComponents/Modal/Login";
 import { getTokenFromCookies } from "@/utils/cookieUtils";
 import { getBussinessTypeIcon } from "../Helper";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 const WishlistProductItem = (props) => {
   const { data, onSelect, isSelected, label_id = "", FetchWishListFunction, fetchLebalList } = props;
   const [openModal, setModal] = useState(false);
@@ -123,7 +124,7 @@ const WishlistProductItem = (props) => {
     }}
   };
 
-  const imageData = "https://merchantad.xevitech.com/public/";
+  const imageData = `${LOCAL_PUBLIC_URL}/`;
   let country = countriesList.map((element) => ({
     value: element?.code,
     view: element?.name,

@@ -185,6 +185,7 @@ import { LightTooltip } from "@/components/common/Tooltip/tooltip";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 type Anchor = "top" | "left" | "bottom" | "right";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -616,17 +617,17 @@ const EnquiryDetail = () => {
               <AvatarGroup max={4}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://merchantad.xevitech.com/public/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png"
+                  src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png`}
                   sx={{ width: 24, height: 24 }}
                 />
                 <Avatar
                   alt="Travis Howard"
-                  src="https://images.pexels.com/photos/6386956/pexels-photo-6386956.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/travis-howard.jpg`}
                   sx={{ width: 24, height: 24 }}
                 />
                 <Avatar
                   alt="Cindy Baker"
-                  src="https://merchantad.xevitech.com/public/uploads/product/gallery/black horse fly 1.png"
+                  src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/black horse fly 1.png`}
                   sx={{ width: 24, height: 24 }}
                 />
               </AvatarGroup>
@@ -1095,7 +1096,7 @@ const EnquiryDetail = () => {
                         <ProductBoxLeft>
                           <ProductImageBox>
                             <img
-                              src="https://merchantad.xevitech.com/public/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png"
+                              src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png`}
                               alt=""
                             />
                           </ProductImageBox>
@@ -2087,7 +2088,7 @@ const EnquiryDetail = () => {
                               <ProductBoxLeft>
                                 <ProductImageBox>
                                   <img
-                                    src="https://merchantad.xevitech.com/public/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png"
+                                    src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png`}
                                     alt=""
                                   />
                                 </ProductImageBox>

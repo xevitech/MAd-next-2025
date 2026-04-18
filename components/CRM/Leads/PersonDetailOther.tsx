@@ -123,6 +123,7 @@ import Paper from '@mui/material/Paper';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import CancelScheduleSendOutlinedIcon from '@mui/icons-material/CancelScheduleSendOutlined';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -251,9 +252,9 @@ const PersonDetailOther = () => {
                 // handlePopoverOpen(e)
                 // }
               }}>
-                {singleActivity?.owner && <img src={singleActivity?.owner ? singleActivity?.owner?.avatar : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"}></img>}
-                {singleActivity?.task_related_account_info?.length <= 0 && singleActivity?.hostby && <img src={singleActivity?.hostby ? singleActivity?.hostby?.avatar : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"}></img>}
-                {singleActivity?.hostby && <img src={singleActivity?.hostby ? singleActivity?.hostby?.avatar : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"}></img>}
+                {singleActivity?.owner && <img src={singleActivity?.owner ? singleActivity?.owner?.avatar : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`}></img>}
+                {singleActivity?.task_related_account_info?.length <= 0 && singleActivity?.hostby && <img src={singleActivity?.hostby ? singleActivity?.hostby?.avatar : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`}></img>}
+                {singleActivity?.hostby && <img src={singleActivity?.hostby ? singleActivity?.hostby?.avatar : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`}></img>}
               </Avatar> :
               <Avatar> <img src={singleActivity?.task_related_account_info?.[0]?.profile_image} /></Avatar>}
             <Box>

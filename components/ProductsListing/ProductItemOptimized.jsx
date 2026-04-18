@@ -60,6 +60,7 @@ import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import { StyleDrawer } from "../ProductDetail/style";
 import ProductItemConfigGetQuote from "../ProductDetail/ProductComponents/Modal/ProductItemConfigGetQuote";
 import QuoteConfiModal from "../ProductDetail/ProductComponents/Modal/QuoteConfiModal";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 
 const ProductItemOptimized = ({ data }) => {
 
@@ -497,7 +498,7 @@ let bussiness='';
                 style={{ width: "100%", height: 150, cursor: "pointer" }}
                 src={
                   data?.primary_image
-                    ? `https://merchantad.xevitech.com/public/${data?.primary_image}`
+                    ? `${LOCAL_PUBLIC_URL}/${data?.primary_image}`
                     : "https://rakanonline.com/wp-content/uploads/2022/08/default-product-image.png"
                 }
                 alt={data.product_name}

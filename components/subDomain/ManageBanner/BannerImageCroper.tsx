@@ -39,6 +39,7 @@ import {
   getRotatedImage,
 } from "@/components/common/ImageCropper/CanvsUtlis";
 import { setbannerFiles } from "@/hooks/sellerSubaccount";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 
 const ORIENTATION_TO_ANGLE = {
   3: 180,
@@ -257,7 +258,7 @@ const BannerImageCroper = forwardRef(({
                   sx={{ fontSize: "14px", fontWeight: "600", color: "#231f20" }}
                 >
                   {defaultImage ===
-                  "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                     ? "Add Photo"
                     : "Change Photo"}
                 </Typography>
@@ -422,7 +423,7 @@ const BannerImageCroper = forwardRef(({
                   }}
                 >
                   {defaultImage ==
-                  "https://merchantad.xevitech.com/public/assets/img/logo_default.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/logo_default.png`
                     ? "Change Photo"
                     : "Change Photo"}
                 </Button>
@@ -489,12 +490,12 @@ const BannerImageCroper = forwardRef(({
                   }}
                 >
                   {defaultImage ===
-                  "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                     ? "Add Photo"
                     : "Change Photo"}
                 </Button>
                 {defaultImage ===
-                "https://merchantad.xevitech.com/public/assets/img/avatar-place.png" ? (
+                `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png` ? (
                   ""
                 ) : (
                   <Button

@@ -16,7 +16,7 @@ import {
 } from "../guestLayout/landingPage/manufactureProducts/ManufactureStyle";
 import { LightTooltip } from "../common/Tooltip/tooltip";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { BASE_URL } from "@/utils/staticValues";
+import { BASE_URL, LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import Auth from "@/auth/Auth";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
@@ -221,7 +221,7 @@ export default function SupplierWishlist() {
                               <img
                                 src={
                                   supplier.icon
-                                    ? `https://merchantad.xevitech.com/public/${supplier.icon.toLowerCase()}`
+                                    ? `${LOCAL_PUBLIC_URL}/${supplier.icon.toLowerCase()}`
                                     : ""
                                 }
                                 alt=""
@@ -392,7 +392,7 @@ export default function SupplierWishlist() {
                             <img
                               src={
                                 supplier.icon
-                                  ? `https://merchantad.xevitech.com/public/${supplier.icon.toLowerCase()}`
+                                  ? `${LOCAL_PUBLIC_URL}/${supplier.icon.toLowerCase()}`
                                   : ""
                               }
                               alt=""

@@ -574,7 +574,7 @@ function App({ Component, ...rest }: any) {
 
             <link
               rel="canonical"
-              href={`https://merchantad.xevitech.com${router.pathname}`}
+              href={`https://merchantad.com${router.pathname}`}
             />
 
             <meta
@@ -589,7 +589,7 @@ function App({ Component, ...rest }: any) {
 
             <link
               rel="shortcut icon"
-              // href="https://merchantad.xevitech.com/public/assets/fav/merchantad-fav.png"
+              // href="https://merchantad.com/public/assets/fav/merchantad-fav.png"
               href="/assets/merchantad-fav.png"
             />
             <title>Merchant AD {pathname}</title>

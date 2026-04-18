@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import UploadOutlinedIcon from "@mui/icons-material/UploadOutlined";
-import { BASE_URL } from "@/utils/staticValues";
+import { BASE_URL, LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import axios from "axios";
 import {
   ButtonContainer,
@@ -260,7 +260,7 @@ const UploadImageModal = ({
               </Button>
             }
             {companyDetails?.contact_profile?.profile_image !==
-              "https://merchantad.xevitech.com/public/assets/img/logo_default.svg" && (
+              `${LOCAL_PUBLIC_URL}/assets/img/logo_default.svg` && (
               <div
                 style={{
                   fontWeight: "bold",

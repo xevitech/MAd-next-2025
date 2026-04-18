@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BItemQuantity, BottomButton, BProductContent, BProductInfo, BProductInfoImage, BProductInfoInner, BProductName, BProductPrice, BrowsingProductList, FlyoutInnerWrapper, FlyoutOuterContainer, RedFillButton, SelectAndClearRow, TopTitleArea } from "./style";
 import { Box, Button, Checkbox, Divider, FormControlLabel, FormGroup, Grid, Typography } from "@mui/material";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 const BrowsingHistory = (props) => {
     console.log(props.manualWidth);
 
@@ -42,7 +43,7 @@ const BrowsingHistory = (props) => {
                                 />
                                 <BProductInfoInner>
                                     <BProductInfoImage>
-                                        <img src="https://merchantad.xevitech.com/public/uploads/product/gallery/wind-turbine-motor.jpg" alt="" title="" />
+                                        <img src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/wind-turbine-motor.jpg`} alt="" title="" />
                                     </BProductInfoImage>
                                     <BProductContent>
                                         <BProductName>

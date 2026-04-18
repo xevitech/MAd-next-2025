@@ -76,7 +76,7 @@ import { CustomSwitch3 } from "../subDomain/Subdomainstyle";
 import { Android12Switch } from "../subDomain/ManageBanner/BannerOptions";
 import Swal from "sweetalert2";
 import PlanLimitDialog from "../Roles/PlanLimitDialog";
-import { BASE_URL } from "@/utils/staticValues";
+import { BASE_URL, LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import Auth from "@/auth/Auth";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import Switch, { SwitchProps } from "@mui/material/Switch";
@@ -259,7 +259,7 @@ const SellerContactTable = () => {
               src={
                 params.row.avatar_original[0]?.source
                   ? params.row.avatar_original[0]?.source
-                  : "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                  : `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
               }
               alt="avatar-image"
               style={{ borderRadius: "50%" }}

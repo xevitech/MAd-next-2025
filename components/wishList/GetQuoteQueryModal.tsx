@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-import { BASE_URL } from "@/utils/staticValues";
+import { BASE_URL, LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import Auth from "@/auth/Auth";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
@@ -240,7 +240,7 @@ const GetQuoteQueryModal = ({
             <SellerNameWithImage>
               <Avatar
                 alt="Remy Sharp"
-                src="https://merchantad.xevitech.com/public/uploads/all/1725351518_blob"
+                src={`${LOCAL_PUBLIC_URL}/uploads/all/1725351518_blob`}
               />
               <Typography variant="body2">{data?.name}</Typography>
             </SellerNameWithImage>
