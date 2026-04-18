@@ -40,6 +40,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import Image from "next/image";
 import Head from "next/head";
+import { BASE_URL } from "@/utils/staticValues";
 
 interface TablePaginationActionsProps {
   count: number;
@@ -410,7 +411,7 @@ export const Categories = () => {
         id: category.id,
       };
       const response_DeleteNonApprovedCategories = await fetch(
-        "http://merchantad.xevitech.com/api/v1/category/delete",
+        `${BASE_URL}/category/delete`, //
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -425,7 +426,7 @@ export const Categories = () => {
       if (data_DeleteNonApprovedCategories?.status) {
         toast.success(data_DeleteNonApprovedCategories?.message);
         const response_NonApprovedCategories = await fetch(
-          "http://merchantad.xevitech.com/api/v1/category/pending_approval",
+          `${BASE_URL}/category/pending_approval`,
           {
             method: "GET",
             headers: {
@@ -509,7 +510,7 @@ export const Categories = () => {
       parent: category_id,
     };
     const response_AllApprovedSubCategoriesBoxes = await fetch(
-      "http://merchantad.xevitech.com/api/v1/category/list",
+      `${BASE_URL}/category/list`,
       {
         method: "POST",
         body: JSON.stringify(payload),
@@ -562,7 +563,7 @@ export const Categories = () => {
         id: attribute.id,
       };
       const response_DeleteRootAttributes = await fetch(
-        "http://merchantad.xevitech.com/api/v1/attributes/delete",
+        `${BASE_URL}/attributes/delete`,
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -584,7 +585,7 @@ export const Categories = () => {
           parent_id: 0,
         };
         const response_AllRootAttributesBoxes = await fetch(
-          "http://merchantad.xevitech.com/api/v1/attributes/search",
+          `${BASE_URL}/attributes/search`,
           {
             method: "POST",
             body: JSON.stringify(attribute_payload),
@@ -626,7 +627,7 @@ export const Categories = () => {
       parent_id: attrubute_id,
     };
     const response_AllSubAttributesBoxes = await fetch(
-      "http://merchantad.xevitech.com/api/v1/attributes/search",
+      `${BASE_URL}/attributes/search`,
       {
         method: "POST",
         body: JSON.stringify(attribute_payload),
@@ -679,7 +680,7 @@ export const Categories = () => {
         id: attribute.id,
       };
       const response_DeleteSubAttributes = await fetch(
-        "http://merchantad.xevitech.com/api/v1/attributes/delete",
+        `${BASE_URL}/attributes/delete`,
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -750,7 +751,7 @@ export const Categories = () => {
       parent_id: 0,
     };
     const response_AllRootAttributesBoxes = await fetch(
-      "http://merchantad.xevitech.com/api/v1/attributes/search",
+      `${BASE_URL}/attributes/search`,
       {
         method: "POST",
         body: JSON.stringify(attribute_payload),
@@ -907,7 +908,7 @@ export const Categories = () => {
     if (addCategoryInfo.id == 0) {
       axios({
         method: "POST",
-        url: "http://merchantad.xevitech.com/api/v1/category/create",
+        url: `${BASE_URL}/category/create`,
         data: addCategoryInfo,
         headers: {
           "Content-Type": "application/json",
@@ -929,7 +930,7 @@ export const Categories = () => {
     } else {
       axios({
         method: "POST",
-        url: "http://merchantad.xevitech.com/api/v1/category/edit",
+        url: `${BASE_URL}/category/edit`,
         data: addCategoryInfo,
         headers: {
           "Content-Type": "application/json",
@@ -987,7 +988,7 @@ export const Categories = () => {
     setShowCategoryForm(false);
     // NonApprovedCategories
     const response_NonApprovedCategories = await fetch(
-      "http://merchantad.xevitech.com/api/v1/category/pending_approval",
+      `${BASE_URL}/category/pending_approval`,
       {
         method: "GET",
         headers: {
@@ -1052,7 +1053,7 @@ export const Categories = () => {
     if (addAttributeInfo.id == 0) {
       axios({
         method: "POST",
-        url: "http://merchantad.xevitech.com/api/v1/attributes/create",
+        url: `${BASE_URL}/attributes/create`,
         data: addAttributeInfo,
         headers: {
           "Content-Type": "application/json",
@@ -1074,7 +1075,7 @@ export const Categories = () => {
     } else {
       axios({
         method: "POST",
-        url: "http://merchantad.xevitech.com/api/v1/attributes/edit",
+        url: `${BASE_URL}/attributes/edit`,
         data: addAttributeInfo,
         headers: {
           "Content-Type": "application/json",
@@ -1135,7 +1136,7 @@ export const Categories = () => {
     if (addSubAttributeInfo.id == 0) {
       axios({
         method: "POST",
-        url: "http://merchantad.xevitech.com/api/v1/attributes/create",
+        url: `${BASE_URL}/attributes/create`,
         data: addSubAttributeInfo,
         headers: {
           "Content-Type": "application/json",
@@ -1157,7 +1158,7 @@ export const Categories = () => {
     } else {
       axios({
         method: "POST",
-        url: "http://merchantad.xevitech.com/api/v1/attributes/edit",
+        url: `${BASE_URL}/attributes/edit`,
         data: addSubAttributeInfo,
         headers: {
           "Content-Type": "application/json",
@@ -1226,7 +1227,7 @@ export const Categories = () => {
     setShowAttributeForm(false);
     // NonApprovedCategories
     const response_NonApprovedCategories = await fetch(
-      "http://merchantad.xevitech.com/api/v1/category/pending_approval",
+      `${BASE_URL}/category/pending_approval`,
       {
         method: "GET",
         headers: {
@@ -1272,7 +1273,7 @@ export const Categories = () => {
       parent_id: 0,
     };
     const response_AllRootAttributesBoxes = await fetch(
-      "http://merchantad.xevitech.com/api/v1/attributes/search",
+      `${BASE_URL}/attributes/search`,
       {
         method: "POST",
         body: JSON.stringify(attribute_payload),
@@ -1321,7 +1322,7 @@ export const Categories = () => {
       parent_id: selectedAttributeIndex,
     };
     const response_AllSubAttributesBoxes = await fetch(
-      "http://merchantad.xevitech.com/api/v1/attributes/search",
+      `${BASE_URL}/attributes/search`,
       {
         method: "POST",
         body: JSON.stringify(attribute_payload),
@@ -1345,7 +1346,7 @@ export const Categories = () => {
       setLoading(true);
       // NonApprovedCategories
       const response_NonApprovedCategories = await fetch(
-        "http://merchantad.xevitech.com/api/v1/category/pending_approval",
+        `${BASE_URL}/category/pending_approval`,
         {
           method: "GET",
           headers: {
@@ -1366,7 +1367,7 @@ export const Categories = () => {
         parent: 0,
       };
       const response_AllApprovedRootCategoriesBox = await fetch(
-        "http://merchantad.xevitech.com/api/v1/category/list",
+        `${BASE_URL}/category/list`,
         {
           method: "POST",
           body: JSON.stringify(payload),

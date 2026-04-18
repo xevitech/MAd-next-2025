@@ -23,6 +23,7 @@ import {
   LoginLogoContainer,
   RecoverPasswordText,
 } from "./styles";
+import { BASE_URL } from "@/utils/staticValues";
 
 interface ResetForm {
   newPassword: string;
@@ -134,7 +135,7 @@ export const ResetPassword = () => {
     setLoading(true);
 
     const response = await fetch(
-      "http://merchantad.xevitech.com/api/v1/auth/changePassword",
+      `${BASE_URL}/auth/changePassword`,
       {
         method: "POST",
         headers: {

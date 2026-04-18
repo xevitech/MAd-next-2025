@@ -29,6 +29,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import HelperText from "@/components/CompanySettings/CompanyDetail/Common/helperText";
 import { useRouter } from "next/router";
+import { BASE_URL } from "@/utils/staticValues";
 
 export const OuterBox = styled(Box)(() => ({
   width: "70%",
@@ -452,7 +453,7 @@ export default function RecreateCompany() {
 
     try {
       const response = await fetch(
-        "https://merchantad.xevitech.com/api/v1/user_request",
+        `${BASE_URL}/user_request`,
         {
           method: "POST",
           body: formData,

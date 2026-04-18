@@ -4,6 +4,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { Box, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
+import { BASE_URL } from "@/utils/staticValues";
 const HeaderPage = dynamic(
   () => import("components/common/include/headerPart"),
   {
@@ -77,7 +78,7 @@ function Pages({ data }) {
 export default Pages;
 export const getServerSideProps = async ({ query }) => {
   let result: any = await fetch(
-    `https://merchantad.xevitech.com/api/v1/cms/page/listed/${query?.id}`
+    `${BASE_URL}/cms/page/listed/${query?.id}`
   );
   let response = await result.json();
   if (response.status && response.data) {
