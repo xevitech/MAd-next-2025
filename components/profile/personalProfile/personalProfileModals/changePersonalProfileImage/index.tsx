@@ -26,6 +26,7 @@ import LinearProgressWithLabel from "@/components/common/progressLoader";
 import { makeStyles } from "tss-react/mui";
 import Cropper from "react-easy-crop";
 import getCroppedImg from "./CropImage";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 const useStyles = makeStyles()((theme) => {
   return {
     upbtn: {
@@ -277,7 +278,7 @@ export const ChangeProfileImage = (props) => {
               </Button>
             }
             {profileImageLink !==
-              "https://merchantad.xevitech.com/public/assets/img/avatar-place.png" && (
+              `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png` && (
               <div
                 style={{
                   fontWeight: "bold",

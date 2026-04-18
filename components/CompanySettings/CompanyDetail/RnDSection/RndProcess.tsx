@@ -22,6 +22,7 @@ import * as Yup from "yup";
 import { apiClient } from "@/components/common/common";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { useDispatch } from "react-redux";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import HelperText from "../Common/helperText";
 import {
   TypographyTitle,
@@ -636,7 +637,7 @@ export default function RndProcess({ process_formik }) {
                           <UploadImagesRow>
                             <UploadImageCol>
                               <img
-                                src="https://merchantad.xevitech.com/public/uploads/product/gallery/domestic-wind-turbine.png"
+                                src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/domestic-wind-turbine.png`}
                                 alt=""
                                 height="24px"
                               />
@@ -652,7 +653,7 @@ export default function RndProcess({ process_formik }) {
                             </UploadImageCol>
                             <UploadImageCol>
                               <img
-                                src="https://merchantad.xevitech.com/public/uploads/product/gallery/domestic-wind-turbine.png"
+                                src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/domestic-wind-turbine.png`}
                                 alt=""
                                 height="24px"
                               />
@@ -668,7 +669,7 @@ export default function RndProcess({ process_formik }) {
                             </UploadImageCol>
                             <UploadImageCol>
                               <img
-                                src="https://merchantad.xevitech.com/public/uploads/product/gallery/domestic-wind-turbine.png"
+                                src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/domestic-wind-turbine.png`}
                                 alt=""
                                 height="24px"
                               />

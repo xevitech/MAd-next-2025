@@ -15,7 +15,7 @@ import { apiClient, toBase64 } from "@/components/common/common";
 import Image from "next/image";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import Auth from "@/auth/Auth";
-import { BASE_URL } from "@/utils/staticValues";
+import { BASE_URL, LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import CloseIcon from "@mui/icons-material/Close";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import {
@@ -1329,7 +1329,7 @@ const ContactPersonDetail = () => {
                                       </Avatar>
                                     ) : (
                                       <Image
-                                        src="https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                                        src={`${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`}
                                         width={40}
                                         height={40}
                                         alt=""

@@ -45,6 +45,7 @@ import CustomSlider from "../ProductsListing/CustomSlider";
 import { ProductHeadePriceButton } from "../ProductsListing/ProductListing.styled";
 import ProductModule from "../ProductsListing/product.module.css";
 import { getBussinessTypeIcon } from "../Helper";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 
 const SupplierProductItem = ({ data, onSelect, isSelected }) => {
   const [openModal, setModal] = useState(false);
@@ -116,7 +117,7 @@ const SupplierProductItem = ({ data, onSelect, isSelected }) => {
     FetchWishList(1);
   };
 
-  const imageData = "https://merchantad.xevitech.com/public/";
+  const imageData = `${LOCAL_PUBLIC_URL}/`;
   let country = countriesList.map((element) => ({
     value: element?.code,
     view: element?.name,

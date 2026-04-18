@@ -73,6 +73,7 @@ import {
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { LightTooltip } from "../common/Tooltip/tooltip";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 export default function SimpleRfqFlyout({ listData }) {
   return (
     <div>
@@ -86,7 +87,7 @@ export default function SimpleRfqFlyout({ listData }) {
                     <ProductNameBox>
                       <ProductImageBox>
                         <img
-                          src="https://merchantad.xevitech.com/public/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png"
+                          src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png`}
                           alt=""
                         />
                       </ProductImageBox>

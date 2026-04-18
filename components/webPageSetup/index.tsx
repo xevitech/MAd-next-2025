@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { MyAppContext } from "@/contextApi/appContext";
 import { AccessDenied } from "../common/AccessDenied";
 import Dashboard from "pages/dashboard";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 function createData(
   name: string,
   calories: number,
@@ -92,7 +93,7 @@ const WebPageSetup = () => {
                       </TableCell>
                       <TableCell align="right">Static Page</TableCell>
                       <TableCell align="right">
-                        http://merchantad.xevitech.com/public/pages/turbine
+                        {`${LOCAL_PUBLIC_URL}/pages/turbine`}
                       </TableCell>
 
                       <TableCell align="right">

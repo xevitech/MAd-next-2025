@@ -28,7 +28,7 @@ import Image from "next/image";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
-import { BASE_URL } from "@/utils/staticValues";
+import { BASE_URL, LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 import {
   Header,
   ImageAndHeadingContainer,
@@ -470,7 +470,7 @@ const PersonalProfile = () => {
                   sx={{ fontSize: "14px", fontWeight: "600", color: "#231f20" }}
                 >
                   {defaultImage ===
-                  "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                     ? "Add Photo"
                     : "Change Photo"}
                 </Typography>
@@ -626,7 +626,7 @@ const PersonalProfile = () => {
                   }}
                 >
                   {defaultImage ==
-                  "https://merchantad.xevitech.com/public/assets/img/logo_default.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/logo_default.png`
                     ? "Change Photo"
                     : "Change Photo"}
                 </Button>
@@ -693,12 +693,12 @@ const PersonalProfile = () => {
                   }}
                 >
                   {defaultImage ===
-                  "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                     ? "Add Photo"
                     : "Change Photo"}
                 </Button>
                 {defaultImage ===
-                "https://merchantad.xevitech.com/public/assets/img/avatar-place.png" ? (
+                `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png` ? (
                   ""
                 ) : (
                   <Button

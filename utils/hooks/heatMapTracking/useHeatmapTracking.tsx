@@ -315,7 +315,7 @@ const useHeatmapTracking = (settings) => {
             session_end_at: currentDateTime,
           };
           removeMobileVerficiationFromCookie();
-          // navigator.sendBeacon('https://merchantad.xevitech.com/crm/v1/session-end', JSON.stringify(payload))
+          // navigator.sendBeacon('https://merchantad.com/crm/v1/session-end', JSON.stringify(payload))
           // try {
 
           //   const response = await crmApiClient("session-end", "post", payload);

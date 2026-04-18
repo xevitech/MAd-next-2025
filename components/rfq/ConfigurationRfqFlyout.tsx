@@ -107,6 +107,7 @@ import {
 import { LightTooltip } from "../common/Tooltip/tooltip";
 import { DataGridPro } from "@mui/x-data-grid-pro";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 export default function ConfigurationRfqFlyout({ listData }) {
   const columns2: any = [
     {
@@ -141,17 +142,17 @@ export default function ConfigurationRfqFlyout({ listData }) {
               <AvatarGroup max={4}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://merchantad.xevitech.com/public/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png"
+                  src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png`}
                   sx={{ width: 24, height: 24 }}
                 />
                 <Avatar
                   alt="Travis Howard"
-                  src="https://images.pexels.com/photos/6386956/pexels-photo-6386956.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/travis-howard.jpeg`}
                   sx={{ width: 24, height: 24 }}
                 />
                 <Avatar
                   alt="Cindy Baker"
-                  src="https://merchantad.xevitech.com/public/uploads/product/gallery/black horse fly 1.png"
+                  src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/black horse fly 1.png`}
                   sx={{ width: 24, height: 24 }}
                 />
               </AvatarGroup>
@@ -310,7 +311,7 @@ export default function ConfigurationRfqFlyout({ listData }) {
                   <ProductNameBox>
                     <ProductImageBox>
                       <img
-                        src="https://merchantad.xevitech.com/public/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png"
+                        src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/Screenshot from 2024-04-25 09-42-27.png`}
                         alt=""
                       />
                     </ProductImageBox>

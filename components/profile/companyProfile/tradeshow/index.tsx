@@ -52,6 +52,7 @@ import { toast } from "react-toastify";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import TradeShowSkeleton from "./Skeleton/TradeShowSkeleton";
 import { Flag } from "@/components/common/countryFlag";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 
 const tradeShows = [
   {
@@ -175,9 +176,9 @@ export default function Tradeshow() {
         const photos = params?.value;
         const images = useMemo(
           () => [
-            "https://merchantad.xevitech.com/public/uploads/product/gallery/Hfd5fd7e8187d4084a3059c08743dac2cb.jpg_720x720q50.jpg",
-            "https://merchantad.xevitech.com/public/uploads/product/gallery/H94c5d8ec3b0449af826d6e9d58f42a8dc.png",
-            "https://merchantad.xevitech.com/public/uploads/product/gallery/H2cf3c09544f8466e973b10c0bb99369a6.jpg_720x720q50_1_11zon.jpg",
+            `${LOCAL_PUBLIC_URL}/uploads/product/gallery/Hfd5fd7e8187d4084a3059c08743dac2cb.jpg_720x720q50.jpg`,
+            `${LOCAL_PUBLIC_URL}/uploads/product/gallery/H94c5d8ec3b0449af826d6e9d58f42a8dc.png`,
+            `${LOCAL_PUBLIC_URL}/uploads/product/gallery/H2cf3c09544f8466e973b10c0bb99369a6.jpg_720x720q50_1_11zon.jpg`,
           ],
           []
         );

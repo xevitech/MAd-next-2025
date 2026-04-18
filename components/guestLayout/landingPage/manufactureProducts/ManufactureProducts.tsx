@@ -44,6 +44,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Link from "next/link";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
@@ -149,7 +150,7 @@ const SellerInfoAndSlider = ({ sellerName, country, since, staffCount, business 
         return (
 
           <img
-            src="https://merchantad.xevitech.com/public/uploads/icon/gold.svg"
+            src={`${LOCAL_PUBLIC_URL}/uploads/icon/gold.svg`}
             alt=""
             height={25}
           />
@@ -160,7 +161,7 @@ const SellerInfoAndSlider = ({ sellerName, country, since, staffCount, business 
         return (
 
           <img
-            src="https://merchantad.xevitech.com/public/uploads/icon/silver.svg"
+            src={`${LOCAL_PUBLIC_URL}/uploads/icon/silver.svg`}
             alt=""
             height={25}
           />
@@ -169,7 +170,7 @@ const SellerInfoAndSlider = ({ sellerName, country, since, staffCount, business 
       case 3384:
         return (
           <img
-            src="https://merchantad.xevitech.com/public/uploads/icon/platinum.svg"
+            src={`${LOCAL_PUBLIC_URL}/uploads/icon/platinum.svg`}
             alt=""
             height={25}
           />
@@ -178,7 +179,7 @@ const SellerInfoAndSlider = ({ sellerName, country, since, staffCount, business 
         return (
 
           <img
-            src=""
+            src={`${LOCAL_PUBLIC_URL}/uploads/icon/free.svg`}
             alt="free"
             height={25}
           />
@@ -499,7 +500,7 @@ export default function ManufactureProducts() {
           </IconButton>
           <ManuFacturerSupplierTo>
             <Typography>To:</Typography>
-            <ManuFacturerSellerName><Avatar alt="Remy Sharp" src="https://merchantad.xevitech.com/public/uploads/all/1725351518_blob" />
+            <ManuFacturerSellerName><Avatar alt="Remy Sharp" src={`${LOCAL_PUBLIC_URL}/uploads/all/1725351518_blob`} />
               <Typography variant="body2"></Typography>
             </ManuFacturerSellerName>
           </ManuFacturerSupplierTo>

@@ -40,6 +40,7 @@ import { useSelector } from "react-redux";
 import Carousel from "react-material-ui-carousel";
 import Collapse from "@mui/material/Collapse";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 const ProductDrawer = ({ drawer, handleClose, anchor }) => {
   const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
@@ -171,7 +172,7 @@ const ProductDrawer = ({ drawer, handleClose, anchor }) => {
                   <ProductCarouselImagContent>
                     <ProductCarouselImag>
                       <img
-                        src="https://merchantad.xevitech.com/public/uploads/product/gallery/Screenshot from 2024-07-16 11-02-44.png"
+                        src={`${LOCAL_PUBLIC_URL}/uploads/product/gallery/Screenshot from 2024-07-16 11-02-44.png`}
                         alt=""
                       />
                     </ProductCarouselImag>

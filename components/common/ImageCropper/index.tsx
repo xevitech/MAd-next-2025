@@ -29,6 +29,7 @@ import Avatar from "@mui/material/Avatar";
 import theme from "styles/theme";
 import UploadOutlinedIcon from "@mui/icons-material/UploadOutlined";
 import UploadIcon from "@mui/icons-material/Upload";
+import { LOCAL_PUBLIC_URL } from "@/utils/staticValues";
 
 const ORIENTATION_TO_ANGLE = {
   3: 180,
@@ -241,7 +242,7 @@ const ImageCropper = (props) => {
                   sx={{ fontSize: "14px", fontWeight: "600", color: "#231f20" }}
                 >
                   {defaultImage ===
-                  "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                     ? "Add Photo"
                     : "Change Photo"}
                 </Typography>
@@ -414,7 +415,7 @@ const ImageCropper = (props) => {
                   }}
                 >
                   {defaultImage ==
-                  "https://merchantad.xevitech.com/public/assets/img/logo_default.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/logo_default.png`
                     ? "Change Photo"
                     : "Change Photo"}
                 </Button>
@@ -481,12 +482,12 @@ const ImageCropper = (props) => {
                   }}
                 >
                   {defaultImage ===
-                  "https://merchantad.xevitech.com/public/assets/img/avatar-place.png"
+                  `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png`
                     ? "Add Photo"
                     : "Change Photo"}
                 </Button>
                 {defaultImage ===
-                "https://merchantad.xevitech.com/public/assets/img/avatar-place.png" ? (
+                `${LOCAL_PUBLIC_URL}/assets/img/avatar-place.png` ? (
                   ""
                 ) : (
                   <Button
