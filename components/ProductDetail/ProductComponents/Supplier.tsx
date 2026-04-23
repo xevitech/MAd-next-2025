@@ -155,7 +155,7 @@ const Supplier = ({ handleClose = null }) => {
   return (
     <>
       <>
-        <SupplierContainer className="Border">
+        {/* <SupplierContainer className="Border">
           <Stack
             direction={{ xs: "row" }}
             justifyContent={{ xs: "flex-start" }}
@@ -291,7 +291,7 @@ const Supplier = ({ handleClose = null }) => {
               </Typography>
             </Box>
           </LiveChat>
-        </SupplierContainer>
+        </SupplierContainer> */}
       </>
     </>
   );

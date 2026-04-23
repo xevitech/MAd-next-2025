@@ -51,8 +51,8 @@ import { FirstletterCapital } from "@/components/common/common";
 import { useSelector } from "react-redux";
 import QueryModal from "./Modal/QueryModal";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import { LightTooltip } from "@/components/common/Tooltip/tooltip";
 import moment from "moment";
 import { returnCountryFromCode } from "@/utils/commonFunctions/other";
@@ -130,7 +130,7 @@ function HeaderInfoPopup({ data }) {
                 onClick={(e) => {
                   e.stopPropagation();
                   window.open(
-                    `/mini-site/${company_details?.slug ?? "powercozmo"}/home`,
+                    `/mini-site/${company_details?.slug ?? "merchantad"}/home`,
                     "_blank"
                   );
                 }}
@@ -934,7 +934,7 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                     onClick={() =>
                       window.open(
                         `/mini-site/${
-                          company_details?.slug ?? "powercozmo"
+                          company_details?.slug ?? "merchantad"
                         }/home`,
                         "_blank"
                       )
@@ -1187,7 +1187,7 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                 onClick={() => {
                   window.open(
                     `/mini-site/${
-                      company_details?.slug ?? "powercozmo"
+                      company_details?.slug ?? "merchantad"
                     }/reviews`,
                     "_blank"
                   );
@@ -1386,62 +1386,8 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                   </CoDetailsOptInfo>
                 </Box>
               </Grid>
-              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                    "@media (max-width: 767px)": {
-                      alignItems: "flex-start",
-                    },
-                    "& .icon-response-rate": {
-                      fontSize: "20px",
-                      display: "block",
-                      width: "24px",
-                      textAlign: "center",
-                    },
-                  }}
-                >
-                  <i className="icon-response-rate"></i>
-                  <CoDetailsOptInfo>
-                    <Typography>Response Rate</Typography>
-                    <Typography variant="h6">
-                      {company_details?.response_rate}
-                    </Typography>
-                  </CoDetailsOptInfo>
-                </Box>
-              </Grid>
-              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                    "@media (max-width: 767px)": {
-                      alignItems: "flex-start",
-                    },
-                    "& .icon-response-time": {
-                      fontSize: "20px",
-                      display: "block",
-                      width: "24px",
-                      textAlign: "center",
-                    },
-                  }}
-                >
-                  <i className="icon-response-time">
-                    <span className="path1"></span>
-                    <span className="path2"></span>
-                    <span className="path3"></span>
-                  </i>
-                  <CoDetailsOptInfo>
-                    <Typography>Response Time</Typography>
-                    <Typography variant="h6">
-                      {company_details?.response_time}
-                    </Typography>
-                  </CoDetailsOptInfo>
-                </Box>
-              </Grid>
+            
+              
             </Grid>
           </CoDetailsOpt>
 
@@ -1535,6 +1481,9 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                     sx={{
                       width: "100%",
                       height: "34px",
+                      padding: "0 10px",
+                      cursor: "pointer",
+                      
                       fontSize: "12px",
                       "@media screen and (max-width: 1600px)": {
                         fontSize: "11px !important",
@@ -1549,7 +1498,7 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                         alignItems: "center",
                         justifyContent: "center",
                         borderRadius: "4px",
-                        padding: "0 7px",
+                        padding: "0 17px",
                         width: "auto",
                         minWidth: "auto",
                         cursor: "pointer",
@@ -1582,7 +1531,7 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                     onClick={() =>
                       window.open(
                         `/mini-site/${
-                          company_details?.slug ?? "powercozmo"
+                          company_details?.slug ?? "merchantad"
                         }/home`,
                         "_blank"
                       )
@@ -1605,7 +1554,7 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                     </Box>
                   </BtnOutlined>
 
-                  <Box
+                  {/* <Box
                     sx={{
                       border: "1px solid #d7282f",
                       display: "none",
@@ -1644,7 +1593,7 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                       <span className="path1"></span>
                       <span className="path2"></span>
                     </i>
-                  </Box>
+                  </Box> */}
                   <GetQuoteMobile
                     variant="contained"
                     color="error"
@@ -1666,73 +1615,13 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                       }
                     }}
                   >
-                    {quote_button_type == "contact"
+                    {"Proceed To Buy"}
+                    {/* {quote_button_type == "contact"
                       ? "Contact Us Now"
-                      : "Get Quote Now"}
+                      : "Get Quote Now vcv"} */}
                   </GetQuoteMobile>
                 </Box>
-                <Box
-                  sx={{
-                    display: "none",
-                    justifyContent: "center",
-                    "@media screen and (max-width:767px)": {
-                      display: "block",
-                    },
-                  }}
-                >
-                  <BtnOutlined
-                    sx={{
-                      width: "100% !important",
-                      height: "34px !important",
-                      fontSize: "12px !important",
-                      border: "1px solid #2B2B2B !important",
-                      color: "#2B2B2B !important",
-                      borderRadius: "6px !important",
-                      "&:hover": {
-                        color: "#ffffff !important",
-                        backgroundColor: "#2B2B2B !important",
-                      },
-                      "@media screen and (max-width:767px)": {
-                        marginBottom: "10px",
-                      },
-                    }}
-                    data-tracking="contact-seller"
-                    onClick={() => {
-                      let id = localStorage?.userData
-                        ? JSON.parse(localStorage?.userData).id
-                        : "";
-                      if (id === user_id) {
-                        const swalWithBootstrapButtons = Swal.mixin({
-                          customClass: {
-                            confirmButton: "custom-btn cancel-button",
-                            cancelButton: "custom-btn remove-btn",
-                          },
-                          buttonsStyling: false,
-                        });
-                        swalWithBootstrapButtons.fire({
-                          title: "",
-                          text: "You cannot contact for your own product.",
-                          icon: "warning",
-                          showCancelButton: false,
-                          reverseButtons: true,
-                        });
-                        return;
-                      } else {
-                        handleClickOpen();
-                      }
-                    }}
-                  >
-                    Contact Supplier
-                  </BtnOutlined>
-
-                  {openSupplier && (
-                    <QueryModal
-                      handleClose={handleClose}
-                      open={openSupplier}
-                      type="contact"
-                    />
-                  )}
-                </Box>
+                
               </Grid>
               <Grid item xs={6} sm={6} md={6}>
                 <div>
@@ -1775,7 +1664,7 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                     onClick={() =>
                       window.open(
                         `/mini-site/${
-                          company_details?.slug ?? "powercozmo"
+                          company_details?.slug ?? "merchantad"
                         }/companyprofile`,
                         "_blank"
                       )
@@ -1787,72 +1676,7 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
               </Grid>
             </Grid>
           </InfoButtons>
-          <Box
-            sx={{
-              display: "block",
-              justifyContent: "center",
-              "@media screen and (max-width:767px)": {
-                display: "none",
-              },
-            }}
-          >
-            <BtnOutlined
-              className="pdpblackbtn"
-              sx={{
-                width: "100%",
-                height: "34px",
-                fontSize: "14px",
-                borderColor: "#231f20",
-                color: "#ffffff",
-                backgroundColor: "#231f20",
-                marginTop: "8px",
-                fontWeight: "500",
-                "&:hover": {
-                  color: "#ffffff",
-                  backgroundColor: "#4e4e4e",
-                },
-              }}
-              data-tracking="contact-seller"
-              onClick={() => {
-                let id = localStorage?.userData
-                  ? JSON.parse(localStorage?.userData).id
-                  : "";
-
-                if (id === user_id) {
-                  const swalWithBootstrapButtons = Swal.mixin({
-                    customClass: {
-                      confirmButton: "custom-btn cancel-button",
-                      cancelButton: "custom-btn remove-btn",
-                    },
-                    buttonsStyling: false,
-                  });
-                  swalWithBootstrapButtons.fire({
-                    title: "",
-                    html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot  <br> contact for your own product.</span>`,
-                    icon: undefined,
-                    showCancelButton: false,
-                    reverseButtons: true,
-                    imageUrl: "/assets/minisiteimages/blockmessage.svg",
-                    imageWidth: 80,
-                    imageAlt: "alt",
-                  });
-                  return;
-                } else {
-                  handleClickOpen();
-                }
-              }}
-            >
-              Contact Supplier
-            </BtnOutlined>
-
-            {openSupplier && (
-              <QueryModal
-                handleClose={handleClose}
-                open={openSupplier}
-                type="contact"
-              />
-            )}
-          </Box>
+          
         </CustomContainer>
       ) : null}
     </>
