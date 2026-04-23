@@ -97,7 +97,8 @@ const ProductActions = () => {
     ];
     return (
         <div>
-            <PDpSpeedDialBox>
+            <></>
+            {/* <PDpSpeedDialBox>
                 <SpeedDial
                     ariaLabel="SpeedDial basic example"
                     icon={<SpeedDialIcon className="addicon" />}
@@ -144,11 +145,11 @@ const ProductActions = () => {
                         />
                     ))}
                 </SpeedDial>
-            </PDpSpeedDialBox>
-            <SlidingDiv open={open} width={tab == 1 ? 1 : 2} height={tab == 1 ? 1 : 2}>
+            </PDpSpeedDialBox> */}
+            {/* <SlidingDiv open={open} width={tab == 1 ? 1 : 2} height={tab == 1 ? 1 : 2}>
                 {tab == 1 && <ContactSupplierFly handleClose={handleClose} />}
                 {tab == 2 && <BrowsingHistory handleClose={handleClose} />}
-            </SlidingDiv>
+            </SlidingDiv> */}
         </div>
     );
 };

@@ -722,7 +722,7 @@ export default function RetargatingHomePage() {
               <LandingPageHeadingsSpan>
                 {(userData && userData?.name) || "Guest"}
               </LandingPageHeadingsSpan>
-              , Welcome to powercozmo.com
+              , Welcome to Merchant AD
             </LandingPageHeadings>
           </Box>
         </RetargetWelcomeBox>
@@ -736,13 +736,13 @@ export default function RetargatingHomePage() {
             <Retargettingmanufacture ref={quoteSectionRef} />
           </Suspense>
         </CustomTabPanel>
-        <RightFixedMenus>
+        {/* <RightFixedMenus>
           <Typography>
             <span onClick={scrollToQuoteSection} style={{ cursor: "pointer" }}>
-              Get a Quote
+              Get a Quote fgf
             </span>
           </Typography>
-        </RightFixedMenus>
+        </RightFixedMenus> */}
       </BodyContentInfo>
     </Box>
   );

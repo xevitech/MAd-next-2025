@@ -9,8 +9,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
 import { SliderArrowbigpost } from "../miniSite/styled";
 import ProductModule from "./product.module.css";
 
@@ -846,6 +846,7 @@ export default function BigPostdummy(props) {
                     height: "100%",
                   }}
                 >
+                  
                   <Button
                     sx={{ color: "#d7282f" }}
                     variant="contained"
@@ -888,7 +889,7 @@ export default function BigPostdummy(props) {
                         visible={true}
                       />
                     ) : (
-                      " Get Quote"
+                      "Proceed To Buy"
                     )}
                   </Button>
                   

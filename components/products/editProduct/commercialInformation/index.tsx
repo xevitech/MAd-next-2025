@@ -4972,7 +4972,7 @@ export const CommercialInformation = ({
                       inputProps={{ "aria-label": "A" }}
                     />
                     <strong style={{ marginRight: "8px" }}>
-                      Get Quote Now
+                      Proceed To Buy
                     </strong>{" "}
                   </span>
                   <Box

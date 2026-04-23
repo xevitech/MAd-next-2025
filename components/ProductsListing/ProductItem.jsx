@@ -903,7 +903,7 @@ const ProductItem = ({ data }) => {
                   }}
                   onClick={() => handleAddToCart()}
                 >
-                 Add to Cart
+                 Proceed To Buy
                 </Button>
 
                 {/* Buy Now */}
