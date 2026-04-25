@@ -281,104 +281,104 @@ const QuoteModal = ({ open, handleClose }) => {
         return;
       }
 
-      if (!customize_request?.countryName) {
-        toast.error("Please select origin");
-        return;
-      } 
-      if (customize_request?.userPriceTerms == "") {
-        toast.error("Please select delivery term");
-        return;
-      } else if (
-        !["FCA", "FAS", "FOB", "EXW"].includes(
-          customize_request?.userPriceTerms
-        ) &&
-        !customize_request?.portCountry
-      ) {
-        toast.error("Please select port country");
-        return;
-      } else if (
-        !["FCA", "FAS", "FOB", "EXW"].includes(
-          customize_request?.userPriceTerms
-        ) &&
-        customize_request?.destination_port.trim() === ""
-      ) {
-        if (customize_request?.shipingMethod == "road") {
-          toast.error("Please enter destination port");
-        } else {
-          toast.error("Please select destination port");
-        }
-        return;
-      } else if (!more_information?.purposeOfInquiry) {
-        if (value == 0) {
-          toast.error(
-            "Please select more information tab to select purpose of inquiry"
-          );
-          return;
-        } else {
-          toast.error("Please select purpose of inquiry");
-          return;
-        }
-      } else if (!more_information?.productApplications) {
-        toast.error("Please enter product applications");
-        return;
-      } else if (!more_information?.statementOne) {
-        toast.error("Please enter product applications");
-        return;
-      }
+      // if (!customize_request?.countryName) {
+      //   toast.error("Please select origin");
+      //   return;
+      // } 
+      // if (customize_request?.userPriceTerms == "") {
+      //   toast.error("Please select delivery term");
+      //   return;
+      // } else if (
+      //   !["FCA", "FAS", "FOB", "EXW"].includes(
+      //     customize_request?.userPriceTerms
+      //   ) &&
+      //   !customize_request?.portCountry
+      // ) {
+      //   toast.error("Please select port country");
+      //   return;
+      // } else if (
+      //   !["FCA", "FAS", "FOB", "EXW"].includes(
+      //     customize_request?.userPriceTerms
+      //   ) &&
+      //   customize_request?.destination_port.trim() === ""
+      // ) {
+      //   if (customize_request?.shipingMethod == "road") {
+      //     toast.error("Please enter destination port");
+      //   } else {
+      //     toast.error("Please select destination port");
+      //   }
+      //   return;
+      // } else if (!more_information?.purposeOfInquiry) {
+      //   if (value == 0) {
+      //     toast.error(
+      //       "Please select more information tab to select purpose of inquiry"
+      //     );
+      //     return;
+      //   } else {
+      //     toast.error("Please select purpose of inquiry");
+      //     return;
+      //   }
+      // } else if (!more_information?.productApplications) {
+      //   toast.error("Please enter product applications");
+      //   return;
+      // } else if (!more_information?.statementOne) {
+      //   toast.error("Please enter product applications");
+      //   return;
+      // }
     }
-    if (quotedetails.product_type != "simple") {
-      if (!customize_request?.userPriceTerms) {
-        toast.error("Please select delivery term");
-        return;
-      } else if (
-        !["FCA", "FAS", "FOB", "EXW"].includes(
-          customize_request?.userPriceTerms
-        ) &&
-        !customize_request?.portCountry
-      ) {
-        toast.error("Please select port country");
-        return;
-      } else if (!customize_request?.userMessage) {
-        toast.error("Please enter message");
-        return;
-      } else if (!more_information?.purposeOfInquiry) {
-        if (value == 0) {
-          toast.error(
-            "Please select more information tab to select purpose of inquiry"
-          );
-          return;
-        } else {
-          toast.error("Please select purpose of inquiry");
-          return;
-        }
-      } else if (!more_information?.projectName) {
-        toast.error("Please enter project name");
-        return;
-      } else if (!more_information?.projectLocation) {
-        toast.error("Please enter project location");
-        return;
-      }
-      if (more_information?.competitor[0] === "") {
-        toast.error("Please enter competitor");
-        return;
-      } else if (!more_information?.productApplications) {
-        toast.error("Please enter product applications");
-        return;
-      } else if (!more_information?.statementOne) {
-        toast.error("Please enter product applications");
-        return;
-      } else if (!more_information?.purposeOfInquiry) {
-        if (value == 0) {
-          toast.error(
-            "Please select more information tab to select purpose of inquiry"
-          );
-          return;
-        } else {
-          toast.error("Please select purpose of inquiry");
-          return;
-        }
-      }
-    }
+    // if (quotedetails.product_type != "simple") {
+    //   if (!customize_request?.userPriceTerms) {
+    //     toast.error("Please select delivery term");
+    //     return;
+    //   } else if (
+    //     !["FCA", "FAS", "FOB", "EXW"].includes(
+    //       customize_request?.userPriceTerms
+    //     ) &&
+    //     !customize_request?.portCountry
+    //   ) {
+    //     toast.error("Please select port country");
+    //     return;
+    //   } else if (!customize_request?.userMessage) {
+    //     toast.error("Please enter message");
+    //     return;
+    //   } else if (!more_information?.purposeOfInquiry) {
+    //     if (value == 0) {
+    //       toast.error(
+    //         "Please select more information tab to select purpose of inquiry"
+    //       );
+    //       return;
+    //     } else {
+    //       toast.error("Please select purpose of inquiry");
+    //       return;
+    //     }
+    //   } else if (!more_information?.projectName) {
+    //     toast.error("Please enter project name");
+    //     return;
+    //   } else if (!more_information?.projectLocation) {
+    //     toast.error("Please enter project location");
+    //     return;
+    //   }
+    //   if (more_information?.competitor[0] === "") {
+    //     toast.error("Please enter competitor");
+    //     return;
+    //   } else if (!more_information?.productApplications) {
+    //     toast.error("Please enter product applications");
+    //     return;
+    //   } else if (!more_information?.statementOne) {
+    //     toast.error("Please enter product applications");
+    //     return;
+    //   } else if (!more_information?.purposeOfInquiry) {
+    //     if (value == 0) {
+    //       toast.error(
+    //         "Please select more information tab to select purpose of inquiry"
+    //       );
+    //       return;
+    //     } else {
+    //       toast.error("Please select purpose of inquiry");
+    //       return;
+    //     }
+    //   }
+    // }
 
     if (!token) {
       setSendQueryButtonActive(true);
@@ -459,6 +459,22 @@ const QuoteModal = ({ open, handleClose }) => {
     );
     formData.append("system_info", CheckOs());
     formData.append("product_datetime", moment().format("YYYY-MM-DD hh:mm:ss"));
+
+    // console.log('formdata11111111111111111',formData);
+    let urlCartInfo = "cart/store";
+    let response;
+
+    response = await apiClient(
+        urlCartInfo,
+        "post",
+        {
+          body: formData,
+        },
+        true
+      );
+
+
+    /*working module
     let url;
 
     if (quotedetails.product_type == "configured") {
@@ -486,22 +502,23 @@ const QuoteModal = ({ open, handleClose }) => {
         true
       );
     }
+      */
 
     if (response?.status === 200) {
-      dispatch(
-        createHistory({
-          lead_id: response?.lead_id,
-          type_id: 1,
-          name: "Lead",
-          type: "info",
-          message: `<span>Lead Created`,
-        })
-      );
+      // dispatch(
+      //   createHistory({
+      //     lead_id: response?.lead_id,
+      //     type_id: 1,
+      //     name: "Lead",
+      //     type: "info",
+      //     message: `<span>Lead Created`,
+      //   })
+      // );
       if (values == 1) {
         setSendQueryButtonActive(false);
-        toast.success("Quotation sent successfully");
+        toast.success("Item added to cart");
       } else {
-        toast.success("Quotation sent successfully");
+        toast.success("Item added to cart");
       }
 
       CloseDrawer();
@@ -860,7 +877,7 @@ const QuoteModal = ({ open, handleClose }) => {
                         display="block"
                         setToggleSignup={setToggleSignup}
                         SubmitQuotation={SubmitQuotation}
-                        buttonName="Signup & Send Query"
+                        buttonName="Signup & Add to Cart"
                         type={"signup"}
                       />
                     ) : (
@@ -868,7 +885,7 @@ const QuoteModal = ({ open, handleClose }) => {
                         setToggleSignup={setToggleSignup}
                         setHideLogin={HandleClose}
                         SubmitQuotation={SubmitQuotation}
-                        buttonName="Login & Send Query"
+                        buttonName="Login & Add to Cart"
                       />
                     )}
                   </SupplierContainer>
@@ -879,16 +896,16 @@ const QuoteModal = ({ open, handleClose }) => {
               <RequestQuoteH
                 sx={{ display: "flex", alignItems: "center", gap: 2 }}
               >
-                <Typography>Request for Quote</Typography>
+                <Typography>Add to Cart</Typography>
               </RequestQuoteH>
               <ClearOutlinedIcon onClick={CloseDrawer} />
             </DrawerHeader>
             <DrawerBody>
               <HeaderBreadcrumb>
-                <Typography variant="h6">
+                {/* <Typography variant="h6">
                   You are about to submit a request for quotation{""}
                   <span>(RFQ)</span> for the following product listed under:
-                </Typography>
+                </Typography> */}
                 <Stack spacing={2}>
                   <Breadcrumbs separator="›" aria-label="breadcrumb">
                     {quotedetails?.breadcrumbs?.map((v, i) => (
@@ -929,7 +946,7 @@ const QuoteModal = ({ open, handleClose }) => {
                   </QuoteDetail>
                 </IdWName>
               </ProductWImg>
-              <SubjectCol>
+              {/* <SubjectCol>
                 <Grid container spacing={2}>
                   <Grid item xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
                     <UserthumbImg>
@@ -1388,7 +1405,7 @@ const QuoteModal = ({ open, handleClose }) => {
                     onProductIdsChange={handleSelectedProductIds}
                   />
                 </OverviewCol>
-              </SubjectCol>
+              </SubjectCol> */}
 
               <TabsData>
                 <Box sx={{ height: "38px" }}>
@@ -1401,10 +1418,10 @@ const QuoteModal = ({ open, handleClose }) => {
                   >
                     <Tab
                       iconPosition="start"
-                      label="Customize your Request"
+                      label="Prepare your Order"
                       disableRipple
                     />
-                    <Tab
+                    {/* <Tab
                       iconPosition="end"
                       label="More Information"
                       disableRipple
@@ -1413,7 +1430,7 @@ const QuoteModal = ({ open, handleClose }) => {
                       iconPosition="end"
                       label="Related Products"
                       disableRipple
-                    />
+                    /> */}
                   </Tabs>
                 </Box>
 
@@ -1431,7 +1448,7 @@ const QuoteModal = ({ open, handleClose }) => {
                     id={quotedetails?.id}
                   />
 
-                  <Grid item md={12}>
+                  {/* <Grid item md={12}>
                     <Box
                       sx={{
                         padding: "0 16px 16px",
@@ -1561,7 +1578,7 @@ const QuoteModal = ({ open, handleClose }) => {
                           })}
                       </Box>
                     </Box>
-                  </Grid>
+                  </Grid> */}
                 </Box>
                 <Box
                   sx={{
@@ -1672,7 +1689,7 @@ const QuoteModal = ({ open, handleClose }) => {
                     visible={true}
                   />
                 ) : (
-                  "Send a Query"
+                  "Add to Cart"
                 )}
               </Button>
             </FooterBtn>
