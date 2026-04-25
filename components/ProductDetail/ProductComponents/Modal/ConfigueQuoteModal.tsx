@@ -818,7 +818,7 @@ const ConfigueQuoteModal = ({ toggleFlyout }) => {
                   display="block"
                   setToggleSignup={setToggleSignup}
                   SubmitQuotation={SubmitQuotation}
-                  buttonName="Signup & Send Query"
+                  buttonName="Signup & Add to Cart"
                   type={"signup"}
                 />
               ) : (
@@ -826,7 +826,7 @@ const ConfigueQuoteModal = ({ toggleFlyout }) => {
                   setToggleSignup={setToggleSignup}
                   setHideLogin={HandleClose}
                   SubmitQuotation={SubmitQuotation}
-                  buttonName="Login & Send Query"
+                  buttonName="Login & Add to Cart"
                 />
               )}
             </SupplierContainer>

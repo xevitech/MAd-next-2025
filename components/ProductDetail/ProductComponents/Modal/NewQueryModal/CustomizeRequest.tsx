@@ -453,28 +453,6 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
       value: 5,
     },
   ];
-  // const hideOptions = [
-  //   {
-  //     name: "Sign in show price or contact us for pricing information.",
-  //     value: 1,
-  //   },
-  //   {
-  //     name: "Price Flexible: The price of this product is flexible and may vary depending on quantity and other factors. Please sign in to see price us to discuss pricing.",
-  //     value: 2,
-  //   },
-  //   {
-  //     name: "@Price Negotiable Upon Request@: Please contact us for pricing information. The price of this product may vary depending on quantity and other factors.",
-  //     value: 3,
-  //   },
-  //   {
-  //     name: "Price Subject to Negotiation: The price of this product is negotiable upon request. Please contact us for more information.",
-  //     value: 4,
-  //   },
-  //   {
-  //     name: "@Price Subject to Final Agreement@: The price of this product is flexible and may vary depending on quantity and other factors. Please contact us to discuss pricing.",
-  //     value: 5,
-  //   },
-  // ];
 
   const [openSupplier, setOpenSupplier] = React.useState(false);
   const handleQuote = async () => {
@@ -550,36 +528,6 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
       <>
         <span
           className="blueclr"
-          // onClick={() => {
-          //   let id = localStorage?.userData
-          //     ? JSON.parse(localStorage?.userData).id
-          //     : "";
-
-          //   if (id === user_id) {
-          //     const swalWithBootstrapButtons = Swal.mixin({
-          //       customClass: {
-          //         confirmButton: "custom-btn cancel-button",
-          //         cancelButton: "custom-btn remove-btn",
-          //       },
-          //       buttonsStyling: false,
-          //     });
-
-          //     swalWithBootstrapButtons.fire({
-          //       title: "",
-          //       html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot <br> contact for your own product.</span>`,
-          //       icon: undefined,
-          //       showCancelButton: false,
-          //       reverseButtons: true,
-          //       imageUrl: "/assets/minisiteimages/blockmessage.svg",
-          //       imageWidth: 80,
-          //       imageAlt: "alt",
-          //     });
-          //     return;
-          //   }
-          //   if (quote_button_type == "contact") {
-          //   } else {
-          //   }
-          // }}
           style={{
             cursor: "pointer",
             fontWeight: "600",
@@ -597,41 +545,7 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
         The price of this product is flexible and may vary depending on quantity
         and other factors. Please{" "}
         <span
-        // className="blueclr"
-        // onClick={() => {
-        //   let id = localStorage?.userData
-        //     ? JSON.parse(localStorage?.userData).id
-        //     : "";
-
-        //   if (id === user_id) {
-        //     const swalWithBootstrapButtons = Swal.mixin({
-        //       customClass: {
-        //         confirmButton: "custom-btn cancel-button",
-        //         cancelButton: "custom-btn remove-btn",
-        //       },
-        //       buttonsStyling: false,
-        //     });
-
-        //     swalWithBootstrapButtons.fire({
-        //       title: "",
-        //       html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot <br>contact for your own product.</span>`,
-        //       icon: undefined,
-        //       showCancelButton: false,
-        //       reverseButtons: true,
-        //       imageUrl: "/assets/minisiteimages/blockmessage.svg",
-        //       imageWidth: 80,
-        //       imageAlt: "alt",
-        //     });
-        //     return;
-        //   }
-
-        //   setOpenSupplier(true);
-        // }}
-        // style={{
-        //   cursor: "pointer",
-        //   fontWeight: "600",
-        //   // color: "#0055D6",
-        // }}
+        
         >
           Contact Us{" "}
         </span>
@@ -644,39 +558,7 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
         </span>{" "}
         Please{" "}
         <span
-          // className="blueclr"
-          // onClick={() => {
-          //   let id = localStorage?.userData
-          //     ? JSON.parse(localStorage?.userData).id
-          //     : "";
-
-          //   if (id === user_id) {
-          //     const swalWithBootstrapButtons = Swal.mixin({
-          //       customClass: {
-          //         confirmButton: "custom-btn cancel-button",
-          //         cancelButton: "custom-btn remove-btn",
-          //       },
-          //       buttonsStyling: false,
-          //     });
-          //     swalWithBootstrapButtons.fire({
-          //       title: "",
-          //       html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot <br> contact for your own product.</span>`,
-          //       icon: undefined,
-          //       showCancelButton: false,
-          //       reverseButtons: true,
-          //       imageUrl: "/assets/minisiteimages/blockmessage.svg",
-          //       imageWidth: 80,
-          //       imageAlt: "alt",
-          //     });
-          //     return;
-          //   }
-          //   if (quote_button_type == "contact") {
-          //     setOpenSupplier(true);
-          //   } else {
-          //     setModal(true);
-          //     dispatch(setQuoteDetails(data));
-          //   }
-          // }}
+          
           style={{
             cursor: "pointer",
             // fontWeight: "600",
@@ -705,43 +587,7 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
         and other factors. Please{" "}
         <span
 
-        // onClick={() => {
-        //   let id = localStorage?.userData
-        //     ? JSON.parse(localStorage?.userData).id
-        //     : "";
-
-        //   if (id === user_id) {
-        //     const swalWithBootstrapButtons = Swal.mixin({
-        //       customClass: {
-        //         confirmButton: "custom-btn cancel-button",
-        //         cancelButton: "custom-btn remove-btn",
-        //       },
-        //       buttonsStyling: false,
-        //     });
-        //     swalWithBootstrapButtons.fire({
-        //       title: "",
-        //       html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot <br> contact for your own product.</span>`,
-        //       icon: undefined,
-        //       showCancelButton: false,
-        //       reverseButtons: true,
-        //       imageUrl: "/assets/minisiteimages/blockmessage.svg",
-        //       imageWidth: 80,
-        //       imageAlt: "alt",
-        //     });
-        //     return;
-        //   }
-        //   if (quote_button_type == "contact") {
-        //     setOpenSupplier(true);
-        //   } else {
-        //     setModal(true);
-        //     dispatch(setQuoteDetails(data));
-        //   }
-        // }}
-        // style={{
-        //   cursor: "pointer",
-        //   fontWeight: "600",
-        //   // color: "#0055D6",
-        // }}
+        
         >
           Contact Us{" "}
         </span>
@@ -1914,10 +1760,10 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
           <Grid item md={12}>
             <LableValue>
               <Typography variant="h3">Quantity Selection</Typography>
-              <Typography variant="body1">
+              {/* <Typography variant="body1">
                 This product is available as an <span>order-based</span> item.
                 Please provide your estimated required quantity.
-              </Typography>
+              </Typography> */}
             </LableValue>
             <Grid container>
               <Grid item md={10}>
@@ -1977,58 +1823,13 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
                         },
                       }}
                     >
-                      {/* {quotedetails?.price_type === "quantity"
-                        ? finalPrice !== ""
-                          ? `${CurrencySymbol(
-                              quotedetails?.currency_id
-                            )} ${finalPrice}`
-                          : minRequiredQuantity
-                          ? `Enter Minimum Quantity ${minRequiredQuantity}`
-                          : "Price not available"
-                        : byOrderFixedPrice} */}
 
                       {quotedetails?.hide_price === 1 &&
                         quotedetails?.price_type != "price_unavailable" && (
                           <>{formatCurrency(priceMessage)}</>
                         )}
-                      {/* {quotedetails?.price_type === "quantity"
-                        ? finalPrice !== ""
-                          ? `${CurrencySymbol(
-                              quotedetails?.currency_id
-                            )} ${finalPrice}`
-                          : "Price not available"
-                        : `${CurrencySymbol(quotedetails?.currency_id)} ${
-                            quotedetails?.unit_price * quantity
-                          }`} */}
-                      {/* {quotedetails?.price_type == "quantity"
-                      ? `${
-                          RenderPrice(
-                            quotedetails?.quantity_based_list,
-                            quantity
-                          ) != "NA"
-                            ? CurrencySymbol(quotedetails?.currency_id)
-                            : ""
-                        }${
-                          RenderPrice(
-                            quotedetails?.quantity_based_list,
-                            quantity
-                          ) != "NA"
-                            ? RenderPrice(
-                                quotedetails?.quantity_based_list,
-                                quantity
-                              )
-                            : ""
-                        }`
-                      : `${CurrencySymbol(quotedetails?.currency_id)}${
-                          quotedetails?.unit_price * quantity
-                        }`} */}
                       <span>
-                        {/* {RenderPrice(
-                        quotedetails?.quantity_based_list,
-                        quantity
-                      ) != "NA"
-                        ? "/"
-                        : ""} */}
+                        
                       </span>
                     </Box>
                   )}
@@ -2049,8 +1850,8 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
               </Grid>
             </Grid>
           </Grid>
-          {/* {quotedetails?.caseData && optionList?.length > 1 && ( */}
-          <Grid item md={6}>
+
+          {/* <Grid item md={6}>
             <Box>
               <LableValueTop>
                 <Typography variant="h3">Origin Selection</Typography>
@@ -2120,142 +1921,12 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
                     ))}
                   </Select>
                 </FormControl>
-                {/* <Autocomplete
-                    size={"small"}
-                    multiple
-                    disableClearable={false}
-                    disabled={true}
-                    id="product-list-autocomplete"
-                    options={[]}
-                    getOptionLabel={(option: any) => option}
-                    slotProps={{
-                      popper: {
-                        sx: {
-                          zIndex: 9,
-                        },
-                      },
-                    }}
-                    ListboxProps={{
-                      sx: {
-                        "&::-webkit-scrollbar": {
-                          width: "6px",
-                        },
-                        "&::-webkit-scrollbar-track": {
-                          backgroundColor: "#f1f1f1",
-                        },
-                        "&::-webkit-scrollbar-thumb": {
-                          backgroundColor: "#acabab",
-                        },
-                        "&::-webkit-scrollbar-thumb:hover": {
-                          backgroundColor: "#6d6d6d",
-                        },
-                      },
-                    }}
-                    onChange={(e, values) => {}}
-                    sx={{ width: "100% " }}
-                    value={countryNames ?? ["in"]}
-                    defaultValue={countryNames ?? ["in"]}
-                    renderOption={(props, option) => (
-                      <Box
-                        component="li"
-                        sx={{
-                          padding: "6px 16px !important",
-                          minHeight: "30px !important",
-                          "& > img": { mr: 2, flexShrink: 0 },
-                        }}
-                        {...props}
-                      >
-                        {option.view}
-                      </Box>
-                    )}
-                    renderInput={(params): any => {
-                      return (
-                        <>
-                          <TextField
-                            {...params}
-                            InputLabelProps={{
-                              shrink: true,
-                            }}
-                            InputProps={{
-                              ...params.InputProps,
-                              endAdornment: null,
-                            }}
-                          />
-                        </>
-                      );
-                    }}
-                  /> */}
-                {/* <Autocomplete
-                    multiple
-                    id="multiple-limit-tags"
-                    options={optionList ? optionList : []}
-                    value={SelectedOrigin}
-                    onChange={(e, value) => {
-                      setSelectedOrigin(value);
-                    }}
-                    getOptionLabel={(option: any) => GetCountryName(option)}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="Select Origin"
-                        placeholder="Origins"
-                      />
-                    )}
-                    size="small"
-                    sx={{ width: "100%" }}
-                  /> */}
-              </Box>
-            </Box>
-          </Grid>
-          {/* )} */}
-          {/* {quotedetails?.caseData && optionList?.length > 1 && ( */}
-          {/* <Grid item md={12}>
-            <Box>
-              <LableValueTop className="CustomizeRequestOrigin">
-                <Typography variant="h3">Origin Selection</Typography>
-                <Typography variant="body1">
-                  This product is manufactured by the same company in the
-                  following origins or territories. Please select your preferred
-                  origin.
-                </Typography>
-              </LableValueTop>
-              <Box
-                sx={{
-                  "& .MuiChip-root": {
-                    background: "#D7282F",
-                    "& .MuiChip-label": {
-                      color: "#fff",
-                    },
-                    "& svg": {
-                      color: "#fff",
-                    },
-                  },
-                }}
-              >
-                <Autocomplete
-                  multiple
-                  id="multiple-limit-tags"
-                  options={optionList ? optionList : []}
-                  value={SelectedOrigin}
-                  onChange={(e, value) => {
-                    setSelectedOrigin(value);
-                  }}
-                  getOptionLabel={(option: any) => GetCountryName(option)}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="Select Origin"
-                      placeholder="Origins"
-                    />
-                  )}
-                  size="small"
-                  sx={{ width: "100%" }}
-                />
               </Box>
             </Box>
           </Grid> */}
-          {/* )} */}
-          <Grid item md={6}>
+
+          
+          {/* <Grid item md={6}>
             <Box>
               <LableValueTop>
                 <Typography variant="h3">Delivery Term Selection</Typography>
@@ -2336,8 +2007,9 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
                 </FormControl>
               </Box>
             </Box>
-          </Grid>
-          <Grid item md={12}>
+          </Grid> */}
+
+          {/* <Grid item md={12}>
             <Box
               sx={{
                 backgroundColor: "#ECECEC",
@@ -2574,9 +2246,11 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
                 </Grid>
               </Box>
             </Box>
-          </Grid>
+          </Grid> */}
+
         </Grid>
-        <Grid container>
+
+        {/* <Grid container>
           <Grid item md={12}>
             <Box
               sx={{
@@ -2614,7 +2288,8 @@ const CustomizeRequest = React.memo(({ priceTermList, formik, id, type } : any) 
               />
             </Box>
           </Grid>
-        </Grid>
+        </Grid> */}
+
       </Box>
     </>
   );

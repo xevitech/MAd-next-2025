@@ -23,6 +23,8 @@ import FlashOnIcon from "@mui/icons-material/FlashOn";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Box, Button, Tooltip, Typography } from "@mui/material";
+import { ThreeDots } from "react-loader-spinner";
+import Swal from "sweetalert2";
 import Stack from "@mui/material/Stack";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
@@ -42,6 +44,7 @@ import { LightTooltip } from "../common/Tooltip/tooltip";
 import CustomSlider from "./CustomSlider";
 import ProductModule from "./product.module.css";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
+import { getDecryptedUserId } from "@/utils/getLocalUser";
 import {
   ByOrderTypography,
   ContentFlewView,
@@ -890,11 +893,265 @@ const ProductItem = ({ data }) => {
                 className={ProductModule.boxquote}
                 sx={{ display: "flex", alignItems: "center", gap: "10px" }}
               >
+
+
+              
+                <ProductHeadePriceButton
+                  data-tracking="getQuoteButton"
+                  sx={{
+                    "& svg": {
+                      margin: "0 auto",
+                    },
+                  }}
+                  className={ProductModule.redoutline_btn}
+                  onClick={(e) => {
+                    if (
+                      data?.product_type === "configured" &&
+                      data?.variation_options?.length > 0
+                    ) {
+                      let id = localStorage?.userData
+                        ? getDecryptedUserId()
+                        : "";
+                      if (id === data?.user_id) {
+                        const swalWithBootstrapButtons = Swal.mixin({
+                          customClass: {
+                            confirmButton: "custom-btn cancel-button",
+                            cancelButton: "custom-btn remove-btn",
+                          },
+                          buttonsStyling: false,
+                        });
+                        swalWithBootstrapButtons.fire({
+                          title: "",
+                          html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot request a quotation <br> for your own products.</span>`,
+                          icon: undefined,
+                          showCancelButton: false,
+                          reverseButtons: true,
+                          imageUrl: "/assets/minisiteimages/blockquote.webp",
+                          imageWidth: 80,
+                          imageAlt: "alt",
+                        });
+                        return;
+                      }
+                      toggleFlyout();
+                      setProductId(data.id);
+                      return;
+                    } else if (
+                      data?.product_type === "configured" &&
+                      data?.variation_options?.length < 0
+                    ) {
+                      let id = localStorage?.userData
+                        ? getDecryptedUserId()
+                        : "";
+                      if (id === data?.user_id) {
+                        const swalWithBootstrapButtons = Swal.mixin({
+                          customClass: {
+                            confirmButton: "custom-btn cancel-button",
+                            cancelButton: "custom-btn remove-btn",
+                          },
+                          buttonsStyling: false,
+                        });
+                        swalWithBootstrapButtons.fire({
+                          title: "",
+                          html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot request a quotation <br> for your own products.</span>`,
+                          icon: undefined,
+                          showCancelButton: false,
+                          reverseButtons: true,
+                          imageUrl: "/assets/minisiteimages/blockquote.webp",
+                          imageWidth: 80,
+                          imageAlt: "alt",
+                        });
+                        return;
+                      }
+                      handleConfiQuote(data.id, "quote");
+                      setProductId(data.id);
+                      return;
+                    } else if (data?.price_type === "price_unavailable") {
+                      let imageUrl = "/assets/Price Unavailable 2.svg";
+                      let message = `<span style="color: #231f20; font-size: 16px; font-weight: 500; display: block;">You can't <strong>'Get a quote'</strong> for this product at the moment. <br> 
+                      Please explore other products or contact supplier for your query. </span>`;
+
+                      const swalWithBootstrapButtons = Swal.mixin({
+                        customClass: {
+                          confirmButton: "custom-btn cancel-button",
+                          cancelButton: "custom-btn remove-btn",
+                        },
+                        buttonsStyling: false,
+                      });
+
+                      swalWithBootstrapButtons.fire({
+                        title: "",
+                        html: message,
+                        icon: undefined,
+                        showCancelButton: false,
+                        confirmButtonText: "OK",
+                        reverseButtons: true,
+                        imageUrl: imageUrl,
+                        imageWidth: 80,
+                        imageAlt: "Notice Icon",
+                      });
+                      // showDialog();
+                    } else if (
+                      data?.product_type === "configured" &&
+                      data?.variation_options?.length < 0
+                    ) {
+                      let id = localStorage?.userData
+                        ? getDecryptedUserId()
+                        : "";
+                      if (id === data?.user_id) {
+                        const swalWithBootstrapButtons = Swal.mixin({
+                          customClass: {
+                            confirmButton: "custom-btn cancel-button",
+                            cancelButton: "custom-btn remove-btn",
+                          },
+                          buttonsStyling: false,
+                        });
+                        swalWithBootstrapButtons.fire({
+                          title: "",
+                          html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot request a quotation <br> for your own products.</span>`,
+                          icon: undefined,
+                          showCancelButton: false,
+                          reverseButtons: true,
+                          imageUrl: "/assets/minisiteimages/blockquote.webp",
+                          imageWidth: 80,
+                          imageAlt: "alt",
+                        });
+                        return;
+                      }
+
+                      handleConfiQuote(data.id, "quote");
+
+                      setProductId(data.id);
+                      return;
+                    } else if (
+                      data.is_placeholder === "yes" &&
+                      data?.product_type === "configured" &&
+                      data?.variation_options?.length < 0
+                    ) {
+                      let id = localStorage?.userData
+                        ? getDecryptedUserId()
+                        : "";
+                      if (id === data?.user_id) {
+                        const swalWithBootstrapButtons = Swal.mixin({
+                          customClass: {
+                            confirmButton: "custom-btn cancel-button",
+                            cancelButton: "custom-btn remove-btn",
+                          },
+                          buttonsStyling: false,
+                        });
+                        swalWithBootstrapButtons.fire({
+                          title: "",
+                          html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot request a quotation <br> for your own products.</span>`,
+                          icon: undefined,
+                          showCancelButton: false,
+                          reverseButtons: true,
+                          imageUrl: "/assets/minisiteimages/blockquote.webp",
+                          imageWidth: 80,
+                          imageAlt: "alt",
+                        });
+                        return;
+                      }
+
+                      // toggleFlyout();
+                      handleConfiQuote(data.id, "quote");
+                      setProductId(data.id);
+                      return;
+                    } else if (
+                      data.is_placeholder === "yes" &&
+                      data?.product_type === "configured" &&
+                      data?.variation_options?.length > 0
+                    ) {
+                      let id = localStorage?.userData
+                        ? getDecryptedUserId()
+                        : "";
+                      if (id === data?.user_id) {
+                        const swalWithBootstrapButtons = Swal.mixin({
+                          customClass: {
+                            confirmButton: "custom-btn cancel-button",
+                            cancelButton: "custom-btn remove-btn",
+                          },
+                          buttonsStyling: false,
+                        });
+                        swalWithBootstrapButtons.fire({
+                          title: "",
+                          html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot request a quotation <br> for your own products.</span>`,
+                          icon: undefined,
+                          showCancelButton: false,
+                          reverseButtons: true,
+                          imageUrl: "/assets/minisiteimages/blockquote.webp",
+                          imageWidth: 80,
+                          imageAlt: "alt",
+                        });
+                        return;
+                      }
+                      toggleFlyout();
+                      setProductId(data.id);
+                    } else {
+                      let id = localStorage?.userData
+                        ? getDecryptedUserId()
+                        : "";
+                      if (id === data?.user_id) {
+                        const swalWithBootstrapButtons = Swal.mixin({
+                          customClass: {
+                            confirmButton: "custom-btn cancel-button",
+                            cancelButton: "custom-btn remove-btn",
+                          },
+                          buttonsStyling: false,
+                        });
+                        swalWithBootstrapButtons.fire({
+                          title: "",
+                          html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You cannot request a quotation <br> for your own products.</span>`,
+                          icon: undefined,
+                          showCancelButton: false,
+                          reverseButtons: true,
+                          imageUrl: "/assets/minisiteimages/blockquote.webp",
+                          imageWidth: 80,
+                          imageAlt: "alt",
+                        });
+                        return;
+                      }
+                      // e.stopPropagation();
+                      if (
+                        data?.product_type === "simple" ||
+                        data.is_placeholder === "yes"
+                      ) {
+                        handleQuote(data.id, "quote");
+                      } else {
+                        handleConfiQuote(data.id, "quote");
+                      }
+                    }
+                  }}
+                >
+                  <Typography component="span" data-tracking="getQuoteButton">
+                    {showLoader === "quote" ? (
+                      <ThreeDots
+                        height="28"
+                        width="30"
+                        radius="9"
+                        color="var(--primary-color)"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        visible={true}
+                      />
+                    ) : (
+                      "Proceed To Buy"
+                    )}
+                  </Typography>
+                </ProductHeadePriceButton>
+
+                
+
+
+
+
+
+
+
+
                 {/* /* add buy now and add to cart button here */}
 
-                <Button
+                {/* <Button
+                  sx={{ color: "#d7282f" }}
                   variant="outlined"
-                  disabled
                   startIcon={<ShoppingCartIcon />}
                   sx={{
                     borderRadius: "8px",
@@ -904,7 +1161,7 @@ const ProductItem = ({ data }) => {
                   onClick={() => handleAddToCart()}
                 >
                  Proceed To Buy
-                </Button>
+                </Button> */}
 
                 {/* Buy Now */}
                 {/* <Button

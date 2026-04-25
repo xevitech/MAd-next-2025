@@ -16,14 +16,18 @@ import { SelectChangeEvent } from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 import { keyframes } from "@mui/system";
 import AOS from "aos";
-import "aos/dist/aos.css";
+// import "aos/dist/aos.css";
 import { useFormik } from "formik";
+import BigPostdummy from "@/components/ProductsListing/BigPostdummy";
+import BigpostSkeleton from "./skeleton/BigpostSkeleton";
+import ProductSkeletonwithBigPost from "./skeleton/ProductSkeletonwithBigPost";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { toast } from "react-toastify";
+import MenuIcon from "@mui/icons-material/Menu";
 import * as Yup from "yup";
 import {
   BannerFormData,
@@ -35,6 +39,8 @@ import {
   FixedForm,
   GetStarted,
   LandingPageHeadings,
+  FormCrossbtn,
+  QuickSignupButton,
   OurTopProducts,
   PageContentInfo,
   SectionColoredBox,
@@ -54,6 +60,7 @@ import {
 import MobileInputCommon from "@/components/common/PhoneInput";
 import { getTokenFromCookies } from "@/utils/cookieUtils";
 import Heroslider from "./heroSlider";
+import BrandSection from "@/components/landingpage/BrandSection";
 
 const CounterBox = styled(Box)(() => ({
   display: "flex",
@@ -842,6 +849,9 @@ export default function Homepage(props: any) {
       <BodyContentInfo>
         <PageContentInfo>
           <Heroslider />
+
+          {/* Trending Spotlight */}
+
           <SectionWhiteBox className="discover-business">
             <CommonEachSection>
               <Box className="mypagecontainer">
@@ -849,7 +859,26 @@ export default function Homepage(props: any) {
                   <Box>
                     <Grid container spacing={2}>
                       <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                        <Typography variant="h4">Popular Products</Typography>
+                        <Typography variant="h4"> Brands in Spotlight </Typography>
+                        <BrandSection />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </OurTopProducts>
+              </Box>
+            </CommonEachSection>
+          </SectionWhiteBox>
+
+
+          {/* Trending Spotlight */}
+          <SectionWhiteBox className="discover-business">
+            <CommonEachSection>
+              <Box className="mypagecontainer">
+                <OurTopProducts>
+                  <Box>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                        <Typography variant="h4"> Trending Spotlight</Typography>
                         <Slider {...settingsProduct}>
                           {data.slice(0, 8)?.map((product, index) => (
                             <div key={index}>
@@ -866,76 +895,90 @@ export default function Homepage(props: any) {
               </Box>
             </CommonEachSection>
           </SectionWhiteBox>
-          
 
-          
+          {/* Top Ranking & Fresh Arrival */}
 
           <SectionWhiteBox className="discover-business">
             <CommonEachSection>
               <Box className="mypagecontainer">
                 {/* <LandingPageHeadings sx={{ textAlign: "center" }}>
-                  Explore Opportunities to Grow Your Business
+                  # Trending Spotlight
                 </LandingPageHeadings> */}
                 <OurTopProducts>
                   <Box>
                     <Grid container spacing={2}>
-                      {/* <Grid item xs={12} sm={12} md={6} lg={5} xl={4}>
+                      <Grid item xs={12} sm={12} md={4} lg={4}>
                         <Typography variant="h4">Top ranking</Typography>
-                        {bigPostList?.length > 0 && (
-                          <Box
-                            key={"index"}
-                            style={{
-                              backgroundColor: "#FFF6F6",
-                              borderRadius: "6px",
-                            }}
-                          >
-                            {bigPostList.length > 1 ? (
-                              <Slider {...settingsBigPost}>
-                                {bigPostList?.map((bigPostElement, i) => {
-                                  return (
+                        {loading ? (
+                          <>
+                            <BigpostSkeleton />
+                          </>
+                        ) : (
+                          <Box>
+                            {bigPostList?.length > 0 && (
+                              <Box
+                                key={"index"}
+                                style={{
+                                  backgroundColor: "#FFF6F6",
+                                  borderRadius: "6px",
+                                  boxShadow:
+                                    "inset rgba(17, 17, 26, 0.05) 0px -1px 1px, rgba(17, 17, 26, 0.1) 0px 0px 3px",
+                                }}
+                              >
+                                {bigPostList.length > 1 ? (
+                                  <Slider {...settingsBigPost}>
+                                    {/* {console.log("bigPost",bigPostList)} */}
+                                    {bigPostList?.map((bigPostElement, i) => (
+                                      <Box
+                                        sx={{ position: "relative" }}
+                                        key={`Bigpost-${i}`}
+                                      >
+                                        <BigPostdummy data={bigPostElement} />
+                                      </Box>
+                                    ))}
+                                  </Slider>
+                                ) : (
+                                  bigPostList?.map((bigPostElement, i) => (
                                     <Box
-                                      sx={{ position: "relative" }}
-                                      key={`Bigpost-${i}`}
+                                      sx={{
+                                        position: "relative",
+                                        overflow: "hidden",
+                                        "&:hover": {
+                                          "& .BigPostFooter": {
+                                            bottom: "0",
+                                            boxShadow: "0 5px 11px #cccccc",
+                                          },
+                                        },
+                                      }}
+                                      key={`Bigpost1-${i}`}
                                     >
-                                      <BigPostdummy data={bigPostElement} />
+                                      <BigPostdummy data={bigPostElement} key={i} />
                                     </Box>
-                                  );
-                                })}
-                              </Slider>
-                            ) : (
-                              bigPostList?.map((bigPostElement, i) => (
-                                <Box
-                                  sx={{
-                                    position: "relative",
-                                    overflow: "hidden",
-                                    "&:hover": {
-                                      "& .BigPostFooter": {
-                                        bottom: "0",
-                                        boxShadow: "0 5px 11px #cccccc",
-                                      },
-                                    },
-                                  }}
-                                  key={`Bigpost1-${i}`}
-                                >
-                                  <BigPostdummy data={bigPostElement} key={i} />
-                                </Box>
-                              ))
+                                  ))
+                                )}
+                              </Box>
                             )}
                           </Box>
                         )}
-                      </Grid> */}
-                      {/* <Grid item xs={12} sm={12} md={6} lg={7} xl={8}> */}
-                      <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                        <Typography variant="h4">New Arrivals</Typography>
-                        <Slider {...settingsProduct}>
-                          {data.slice(0, 8)?.map((product, index) => (
-                            <div key={index}>
-                              <Box sx={{ margin: "0 5px" }}>
-                                <ProductItem data={product} />
-                              </Box>
-                            </div>
-                          ))}
-                        </Slider>
+                      </Grid>
+
+                      <Grid item xs={12} sm={12} md={8} lg={8}>
+                        <Typography variant="h4">Fresh arrivals</Typography>
+                        {loading ? (
+                          <>
+                            <ProductSkeletonwithBigPost />
+                          </>
+                        ) : (
+                          <Slider {...settingsProduct}>
+                            {data.slice(0, 8)?.map((product, index) => (
+                              <div key={index}>
+                                <Box sx={{ margin: "0 5px" }}>
+                                  <ProductItem data={product} />
+                                </Box>
+                              </div>
+                            ))}
+                          </Slider>
+                        )}
                       </Grid>
                     </Grid>
                   </Box>
@@ -944,11 +987,14 @@ export default function Homepage(props: any) {
             </CommonEachSection>
           </SectionWhiteBox>
 
+
+          
+
           
 
           
           
-          <SectionColoredBox>
+          {/* <SectionColoredBox>
             <TestimonialBox>
               <Box className="mypagecontainer">
                 <LandingPageHeadings sx={{ textAlign: "center" }}>
@@ -1013,16 +1059,16 @@ export default function Homepage(props: any) {
                 </Grid>
               </Box>
             </SectionWhiteBox>
-          </SectionColoredBox>
+          </SectionColoredBox> */}
           
 
-          <FixedForm
+          {/* <FixedForm
             sx={{
               transform: `${isOpen ? "translateX(100%)" : "translateX(0)"}`,
             }}
           >
             <BannerFormData>
-              {/* <FormCrossbtn>
+              <FormCrossbtn>
                 <QuickSignupButton
                   onClick={handleCloseDialog}
                   sx={{
@@ -1048,8 +1094,8 @@ export default function Homepage(props: any) {
                     </Typography>
                   )}
                 </QuickSignupButton>
-              </FormCrossbtn> */}
-              {/*  */}
+              </FormCrossbtn>
+              
               <BannerFormInner>
                 <Typography variant="h4">Quick Signup</Typography>
                 <Typography variant="body2">
@@ -1130,7 +1176,7 @@ export default function Homepage(props: any) {
                 </Box>
               </BannerFormInner>
             </BannerFormData>
-          </FixedForm>
+          </FixedForm> */}
         </PageContentInfo>
       </BodyContentInfo>
       {/* <FooterPage /> */}
