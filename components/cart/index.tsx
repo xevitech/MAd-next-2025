@@ -10,6 +10,9 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ReplayIcon from '@mui/icons-material/Replay';
 import SecurityIcon from '@mui/icons-material/Security';
+import { apiClient } from "@/components/common/common";
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import { toast } from "react-toastify";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {
   Accordion,
@@ -42,34 +45,15 @@ import {
   Textoverimg1
 } from "./style";
 
-// --- Mock Data & Utilities ---
 
-const mockProducts = [
-  {
-    id: 1, name: 'Premium Wireless Headphones', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300',
-    price: 299.99, variant: 'Color: Midnight Black', stock: 5, deliveryDays: '3-5 Business Days',
-  },
-  {
-    id: 2, name: 'Minimalist Leather Watch', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300',
-    price: 159.00, variant: 'Size: 42mm | Brown Strap', stock: 2, deliveryDays: '2-4 Business Days',
-  },
-  {
-    id: 3, name: 'Smart Home Speaker', image: 'https://images.unsplash.com/photo-1589003077984-894e133dabab?w=300',
-    price: 89.50, variant: 'Color: Sandstone', stock: 10, deliveryDays: '1-3 Business Days',
-  },
-  {
-    id: 4, name: 'Premium Wireless Headphones', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300',
-    price: 299.99, variant: 'Color: Midnight Black', stock: 15, deliveryDays: '3-5 Business Days',
-  },
-];
 
 const recommendedProducts = [
   { id: 4, name: 'Watch Stand', price: 29.00, image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=300' },
   { id: 5, name: 'Headphone Case', price: 19.00, image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300' },
 ];
 
-const formatCurrency = (amount: number) => {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+const formatCurrency = (amount: number, symbol = '$') => {
+  return `${symbol}${amount.toFixed(2)}`;
 };
 
 // --- Types ---
@@ -79,15 +63,15 @@ interface CartItem {
   name: string;
   image: string;
   price: number;
-  variant: string;
-  stock: number;
-  deliveryDays: string;
   quantity: number;
+  currency?: string;
+  unit_price?: number;
+  saved_for_later?: boolean | number;
 }
 
 interface CartContextType {
   items: CartItem[];
-  savedForLater: CartItem[];
+  // savedForLater: CartItem[]; // we will keep saved for later as a flag in the same items array to avoid sync issues
   coupon: { code: string; percentage: number } | null;
   loading: boolean;
   updateQuantity: (id: number, quantity: number) => void;
@@ -114,55 +98,176 @@ const useCart = () => {
   return context;
 };
 
+
+
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);
-  const [savedForLater, setSavedForLater] = useState<CartItem[]>([]);
+  // const [savedForLater, setSavedForLater] = useState<CartItem[]>([]); // now we will keep saved for later as a flag in the same items array to avoid sync issues
   const [coupon, setCoupon] = useState<{ code: string; percentage: number } | null>(null);
   const [loading, setLoading] = useState(true);
+  const [userId, setUserId] = useState("");
 
-  // Initialize from localStorage
+  // Initialize from api
   useEffect(() => {
-    const savedCart = localStorage.getItem('ecommerce_cart');
-    const savedLater = localStorage.getItem('ecommerce_saved_later');
-    if (savedCart) setItems(JSON.parse(savedCart));
-    if (savedLater) setSavedForLater(JSON.parse(savedLater));
-    
-    // Demo: Pre-fill cart if empty for better preview
-    if (!savedCart || JSON.parse(savedCart).length === 0) {
-        const initialItems = mockProducts.map(p => ({...p, quantity: 1}));
-        setItems(initialItems);
-    }
-    
-    setLoading(false);
+    const fetchCart = async () => {
+      try {
+        setLoading(true);
+
+        const curr = localStorage.getItem("currency");
+
+        let user_id = "";
+
+        const userData = localStorage.getItem("userData");
+        if (userData) {
+          const parsedUserData = JSON.parse(userData);
+          user_id = parsedUserData.id;
+          setUserId(user_id);
+        }
+
+        const res = await apiClient(
+          `cart/list?user_id=${user_id}&currency_id=${curr}`,
+          "get",
+          {
+            headers: {
+              Accept: "application/json"
+            }
+          }
+        );
+
+        if (res.status) {
+          const mappedItems = res.data.map((item: any) => ({
+            id: item.id,
+            name: item.product_name,
+            image: item.product_image,
+            price: parseFloat(item.price), // important
+            unit_price: parseFloat(item.unit_price), // important
+            quantity: item.quantity,
+            currency: item.currency,
+            saved_for_later: item.saved_for_later,
+          }));
+
+          setItems(mappedItems);
+        }
+      } catch (error) {
+        console.error("Cart API error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCart();
   }, []);
 
   useEffect(() => {
     if (!loading) {
       localStorage.setItem('ecommerce_cart', JSON.stringify(items));
-      localStorage.setItem('ecommerce_saved_later', JSON.stringify(savedForLater));
+      // localStorage.setItem('ecommerce_saved_later', JSON.stringify(savedForLater));
     }
-  }, [items, savedForLater, loading]);
+  }, [items, loading]);
 
   const updateQuantity = (id: number, quantity: number) => {
     if (quantity < 1) return;
     setItems(items.map(item => (item.id === id ? { ...item, quantity } : item)));
   };
 
-  const removeItem = (id: number) => setItems(items.filter(item => item.id !== id));
+  const removeItem = async (id: number) => {
+    const prevItems = items;
+    setItems((prev) => prev.filter(item => item.id !== id));
+    try {
+      const res = await apiClient(
+        `cart/remove?cart_id=${id}`,
+        "delete",
+        {
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
 
-  const saveForLater = (id: number) => {
-    const itemToSave = items.find(item => item.id === id);
-    if (itemToSave) {
-      setSavedForLater([...savedForLater, { ...itemToSave, quantity: 1 }]);
-      removeItem(id);
+      if (res.status) {
+        toast.success(res.message || "Item removed from cart");
+      } else {
+        throw new Error(res.message || "Delete failed");
+      }
+
+    } catch (error) {
+      console.error("Delete API error:", error);
+      setItems(prevItems);
+      toast.error("Failed to remove cart item");
     }
   };
 
-  const moveToCart = (id: number) => {
-    const itemToMove = savedForLater.find(item => item.id === id);
-    if (itemToMove) {
-      setItems([...items, itemToMove]);
-      setSavedForLater(savedForLater.filter(item => item.id !== id));
+  const saveForLater = async (id: number) => {
+    const prevItems = items;
+
+    // ✅ update UI instantly (move item to saved)
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, saved_for_later: 1 } : item
+      )
+    );
+
+    try {
+      const res = await apiClient(
+        `cart/save-for-later?cart_id=${id}&saved_for_later=1`,
+        "post",
+        {
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (res.status) {
+        toast.success(res.message || "Saved for later");
+      } else {
+        throw new Error(res.message || "Failed");
+      }
+
+    } catch (error) {
+      console.error("Save for later error:", error);
+
+      // rollback
+      setItems(prevItems);
+      toast.error("Failed to save item for later");
+    }
+  };
+
+  // const moveToCart = async (id: number) => {
+  //   const itemToMove = savedForLater.find(item => item.id === id);
+  //   if (itemToMove) {
+  //     setItems([...items, itemToMove]);
+  //     setSavedForLater(savedForLater.filter(item => item.id !== id));
+  //   }
+  // };
+
+  const moveToCart = async (id: number) => {
+    const prevItems = items;
+
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, saved_for_later: 0 } : item
+      )
+    );
+
+    try {
+      const res = await apiClient(
+        `cart/save-for-later?cart_id=${id}&saved_for_later=0`,
+        "post",
+        {
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (!res.status) {
+        throw new Error(res.message || "Failed");
+      }
+
+    } catch (error) {
+      setItems(prevItems);
+      toast.error("Failed to move item to cart");
     }
   };
 
@@ -176,8 +281,9 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   const removeCoupon = () => setCoupon(null);
   const clearCart = () => setItems([]);
+  const cartItems = items.filter(i => !i.saved_for_later);
 
-  const subTotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subTotal = cartItems.reduce((sum, item) => sum + item.unit_price * item.quantity, 0);
   const discount = coupon ? (subTotal * coupon.percentage) / 100 : 0;
   const shipping = subTotal > 500 ? 0 : 15.00;
   const tax = (subTotal - discount) * 0.08;
@@ -185,9 +291,10 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <CartContext.Provider value={{
-      items, savedForLater, coupon, loading, updateQuantity, removeItem, saveForLater,
+      items, coupon, loading, updateQuantity, removeItem, saveForLater,
       moveToCart, applyCoupon, removeCoupon, clearCart, subTotal, discount, shipping, tax, total
-    }}>
+    }}> 
+    {/* // we can also provide savedForLater here by filtering items with saved_for_later flag, but to avoid confusion we will keep it as a separate state for now */}
       {children}
     </CartContext.Provider>
   );
@@ -226,15 +333,16 @@ const MobileCartItem = ({ item }: { item: CartItem }) => {
         <CardMedia component="img" sx={{ width: 120, height: 120, objectFit: 'cover' }} image={item.image} alt={item.name} />
         <Box sx={{ p: 2, flex: 1 }}>
           <Typography variant="subtitle2" noWrap fontWeight="bold">{item.name}</Typography>
-          <Typography variant="body2" color="text.secondary">{item.variant}</Typography>
-          <Typography variant="body2" color="primary" fontWeight="bold" sx={{ mt: 1 }}>{formatCurrency(item.price)}</Typography>
+          {/* <Typography variant="body2" color="text.secondary">{item.variant}</Typography> */}
+          <Typography variant="body2" color="primary" fontWeight="bold" sx={{ mt: 1 }}>{formatCurrency(item.unit_price, item.currency)}</Typography>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #eee', borderRadius: 1 }}>
               <IconButton size="small" onClick={() => updateQuantity(item.id, item.quantity - 1)}><RemoveIcon fontSize="small" /></IconButton>
               <Typography sx={{ width: 24, textAlign: 'center' }}>{item.quantity}</Typography>
               <IconButton size="small" onClick={() => updateQuantity(item.id, item.quantity + 1)}><AddIcon fontSize="small" /></IconButton>
             </Box>
-            <IconButton size="small" onClick={() => saveForLater(item.id)}><FavoriteBorderIcon fontSize="small" /></IconButton>
+            <IconButton size="small" onClick={() => saveForLater(item.id)}><BookmarkBorderIcon fontSize="small" /></IconButton>
+            <IconButton onClick={() => removeItem(item.id)} color="error"><DeleteIcon fontSize="small" /></IconButton>
           </Box>
         </Box>
       </Paper>
@@ -250,11 +358,11 @@ const DesktopCartItem = ({ item }: { item: CartItem }) => {
         <CardMedia component="img" image={item.image} sx={{ width: 80, height: 80, borderRadius: 1, objectFit: 'cover' }} />
         <Box>
           <Typography variant="subtitle2" fontWeight="bold">{item.name}</Typography>
-          <Typography variant="caption" color="text.secondary">{item.variant}</Typography>
-          <Chip label={`${item.stock} in stock`} size="small" color="success" sx={{ mt: 0.5, height: 20, fontSize: '0.7rem' }} />
+          {/* <Typography variant="caption" color="text.secondary">{item.variant}</Typography> */}
+          {/* <Chip label={`${item.stock} in stock`} size="small" color="success" sx={{ mt: 0.5, height: 20, fontSize: '0.7rem' }} /> */}
         </Box>
       </TableCell>
-      <TableCell>{formatCurrency(item.price)}</TableCell>
+      <TableCell>{formatCurrency(item.unit_price, item.currency)}</TableCell>
       <TableCell>
         <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #eee', borderRadius: 1, width: 'fit-content' }}>
           <IconButton size="small" onClick={() => updateQuantity(item.id, item.quantity - 1)}><RemoveIcon fontSize="small" /></IconButton>
@@ -263,12 +371,14 @@ const DesktopCartItem = ({ item }: { item: CartItem }) => {
         </Box>
       </TableCell>
       <TableCell align="right">
-        <Typography fontWeight="bold">{formatCurrency(item.price * item.quantity)}</Typography>
-        <Typography variant="caption" color="text.secondary">{item.deliveryDays}</Typography>
+        <Typography fontWeight="bold">{formatCurrency(item.unit_price * item.quantity, item.currency)}</Typography>
+        {/* <Typography variant="caption" color="text.secondary">{item.deliveryDays}</Typography> */}
       </TableCell>
       <TableCell align="right">
-        <Tooltip title="Save for later"><IconButton onClick={() => saveForLater(item.id)}><FavoriteBorderIcon fontSize="small" /></IconButton></Tooltip>
-        <Tooltip title="Remove"><IconButton onClick={() => removeItem(item.id)} color="error"><DeleteIcon fontSize="small" /></IconButton></Tooltip>
+        <Tooltip title="Save for later"><IconButton onClick={() => saveForLater(item.id)}><BookmarkBorderIcon fontSize="small" /></IconButton></Tooltip>
+        <Tooltip title="Remove">
+          <IconButton onClick={() => removeItem(item.id)} color="error"><DeleteIcon fontSize="small" /></IconButton>
+        </Tooltip>
       </TableCell>
     </TableRow>
   );
@@ -296,7 +406,7 @@ const OrderSummary = ({ isMobile }: { isMobile: boolean }) => {
         ) : (
           <Stack direction="row" spacing={1}>
             <TextField size="small" placeholder="Promo Code" fullWidth value={couponInput} onChange={(e) => setCouponInput(e.target.value)} error={couponError} helperText={couponError ? "Invalid code" : ""} />
-            <Button variant="outlined" onClick={handleApplyCoupon}>Apply</Button>
+            <Button  color="error" variant="outlined" onClick={handleApplyCoupon}>Apply</Button>
           </Stack>
         )}
       </Box>
@@ -316,7 +426,7 @@ const OrderSummary = ({ isMobile }: { isMobile: boolean }) => {
         <Divider sx={{ my: 1 }} />
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}><Typography variant="h6" fontWeight="bold">Total</Typography><Typography variant="h6" fontWeight="bold">{formatCurrency(total)}</Typography></Box>
       </Stack>
-      <Button variant="contained" color="primary" fullWidth size="large" sx={{ mt: 3, py: 1.5 }} href='/pages/checkout' startIcon={<PaymentIcon />}>Proceed to Checkout</Button>
+      <Button variant="contained" color="error" fullWidth size="large" sx={{ mt: 3, py: 1.5 }} href='/pages/checkout' startIcon={<PaymentIcon />}>Proceed to Checkout</Button>
       <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 3, color: 'text.secondary' }}>
         <Tooltip title="Secure Checkout"><SecurityIcon fontSize="small" /></Tooltip>
         <Tooltip title="Free Shipping over $500"><LocalShippingIcon fontSize="small" /></Tooltip>
@@ -345,21 +455,36 @@ const Recommendations = ({ title, products }: { title: string; products: any[] }
 );
 
 const SavedForLaterSection = () => {
-  const { savedForLater, moveToCart } = useCart();
-  if (savedForLater.length === 0) return null;
+  const { items, moveToCart } = useCart();
+
+  const savedItems = items.filter(i => i.saved_for_later === 1);
+
+  if (savedItems.length === 0) return null;
+
   return (
     <Box sx={{ mt: 5 }}>
-      <Typography variant="h6" fontWeight="bold" gutterBottom>Saved For Later ({savedForLater.length})</Typography>
+      <Typography variant="h6" fontWeight="bold" gutterBottom>
+        Saved For Later ({savedItems.length})
+      </Typography>
       <Divider sx={{ mb: 2 }} />
       <Grid container spacing={2}>
-        {savedForLater.map((item) => (
+        {savedItems.map((item) => (
           <Grid item xs={12} sm={6} md={3} key={item.id}>
             <Card variant="outlined">
               <Box sx={{ display: 'flex', p: 1 }}>
                 <CardMedia component="img" sx={{ width: 80, height: 80 }} image={item.image} />
-                <Box sx={{ ml: 2, flex: 1 }}><Typography variant="subtitle2">{item.name}</Typography><Typography variant="body2" color="primary">{formatCurrency(item.price)}</Typography></Box>
+                <Box sx={{ ml: 2, flex: 1 }}>
+                  <Typography variant="subtitle2">{item.name}</Typography>
+                  <Typography variant="body2" color="error" fontWeight="bold">
+                    {formatCurrency(item.unit_price, item.currency)}
+                  </Typography>
+                </Box>
               </Box>
-              <CardActions sx={{ justifyContent: 'flex-end' }}><Button size="small" onClick={() => moveToCart(item.id)}>Move to Cart</Button></CardActions>
+              <CardActions sx={{ justifyContent: 'flex-end' }}>
+                <Button  color="error" size="small" onClick={() => moveToCart(item.id)}>
+                  Move to Cart
+                </Button>
+              </CardActions>
             </Card>
           </Grid>
         ))}
@@ -384,6 +509,8 @@ export function CartComponent() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { items, loading, clearCart, total } = useCart();
   const [mobileSummaryOpen, setMobileSummaryOpen] = useState(false);
+
+  const cartItems = items.filter(i => !i.saved_for_later);
 
   if (loading) {
     return <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}><CircularProgress /></Box>;
@@ -417,7 +544,7 @@ export function CartComponent() {
       
       
       <Box sx={{ display: 'flex', justifyContent: 'space-around', mb: 10, mt: 5 }}>
-          <Typography variant="h4" fontWeight="bold">Shopping Cart ({items.length} items)</Typography>
+          <Typography variant="h4" fontWeight="bold">Shopping Cart ({cartItems.length} items)</Typography>
           <Button variant='outlined' color="error" onClick={clearCart} startIcon={<DeleteIcon />}>Clear Cart</Button>
       </Box>
       
@@ -426,7 +553,7 @@ export function CartComponent() {
           <Grid container spacing={4}>
               <Grid xs={12} md={8}>
                   {isMobile ? (
-                      <Box>{items.map((item) => <MobileCartItem key={item.id} item={item} />)}</Box>
+                      <Box>{cartItems.map((item) => <MobileCartItem key={item.id} item={item} />)}</Box>
                   ) : (
                       <TableContainer component={Paper} variant="outlined">
                       <Table>
@@ -439,11 +566,11 @@ export function CartComponent() {
                               <TableCell align="right">Actions</TableCell>
                           </TableRow>
                           </TableHead>
-                          <TableBody>{items.map((item) => <DesktopCartItem key={item.id} item={item} />)}</TableBody>
+                          <TableBody>{cartItems.map((item) => <DesktopCartItem key={item.id} item={item} />)}</TableBody>
                       </Table>
                       </TableContainer>
                   )}
-                  <Button startIcon={<ArrowBackIcon />} sx={{ mt: 2 }}>Continue Shopping</Button>
+                  <Button  color="error" startIcon={<ArrowBackIcon />} sx={{ mt: 2 }}>Continue Shopping</Button>
                   <SavedForLaterSection />
                   <Recommendations title="Frequently Bought Together" products={recommendedProducts} />
               </Grid>
@@ -476,15 +603,7 @@ export function CartComponent() {
           )}
         </Box>
       </Grid>
-
-      
-      
 </>
-    
-    
   );
 }
-
-// Export the Provider wrapped version for convenience if needed, or just the component
 export { CartProvider };
-

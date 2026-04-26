@@ -1,8 +1,3 @@
-// import CartComponent from "@/app/components/cart";
-
-// export default function CartPage() {
-//   return <CartComponent />;
-// }
 
 import HeaderPage from "@/components/common/include/headerPart";
 import dynamic from "next/dynamic";
@@ -27,7 +22,7 @@ export default function CartPage() {
   return (
     <>
       <Head>
-              <title>About Us - Merchant AD</title>
+              <title>Cart - Merchant AD</title>
               <meta
                 name="description"
                 content="Merchant AD facilitates an integrated platform that eases availability of spare parts, components and services to the Power Generation, Oil & Energy, Water & Wastewater management sectors"
