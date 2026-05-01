@@ -3,6 +3,7 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import LockIcon from '@mui/icons-material/Lock';
+import { apiClient } from "@/components/common/common";
 import {
   Alert,
   Box,
@@ -23,7 +24,7 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect  } from 'react';
 
 // --- Types & Mock Data ---
 
@@ -47,12 +48,6 @@ interface CartItem {
   quantity: number;
   variant?: string;
 }
-
-// Mock Cart Data (In real app, this comes from CartContext or API)
-const mockCartItems: CartItem[] = [
-  { id: 1, name: 'Premium Wireless Headphones', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300', price: 299.99, quantity: 1, variant: 'Black' },
-  { id: 2, name: 'Minimalist Leather Watch', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300', price: 159.00, quantity: 1, variant: '42mm' },
-];
 
 const formatCurrency = (amount: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
 
@@ -144,123 +139,376 @@ export const CheckoutProvider = ({ children }: { children: React.ReactNode }) =>
 
 // --- 1. Customer Details Component ---
 
-const CustomerDetails = () => {
-  const { contactInfo, setContactInfo, handleNext } = useCheckout();
+// const CustomerDetails = () => {
+//   const { contactInfo, setContactInfo, handleNext } = useCheckout();
   
-  return (
-    <Box>
-      <Typography variant="h6" gutterBottom>Contact Information</Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <TextField
-            label="Email Address"
-            type="email"
-            fullWidth
-            required
-            value={contactInfo.email}
-            onChange={(e) => setContactInfo({ ...contactInfo, email: e.target.value })}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            label="Phone Number"
-            fullWidth
-            required
-            value={contactInfo.phone}
-            onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
-            helperText="For delivery updates only"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Typography variant="body2">Already have an account?</Typography>
-            <Link href="#" underline="hover" onClick={(e) => e.preventDefault()}>Log In</Link>
-          </Box>
-        </Grid>
-      </Grid>
-      <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
-        <Button variant="contained" onClick={handleNext}>Continue to Shipping</Button>
-      </Box>
-    </Box>
-  );
-};
+//   return (
+//     <Box>
+//       <Typography variant="h6" gutterBottom>Contact Information</Typography>
+//       <Grid container spacing={2}>
+//         <Grid item xs={12}>
+//           <TextField
+//             label="Email Address"
+//             type="email"
+//             fullWidth
+//             required
+//             value={contactInfo.email}
+//             onChange={(e) => setContactInfo({ ...contactInfo, email: e.target.value })}
+//           />
+//         </Grid>
+//         <Grid item xs={12}>
+//           <TextField
+//             label="Phone Number"
+//             fullWidth
+//             required
+//             value={contactInfo.phone}
+//             onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
+//             helperText="For delivery updates only"
+//           />
+//         </Grid>
+//         <Grid item xs={12}>
+//           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+//             <Typography variant="body2">Already have an account?</Typography>
+//             <Link href="#" underline="hover" onClick={(e) => e.preventDefault()}>Log In</Link>
+//           </Box>
+//         </Grid>
+//       </Grid>
+//       <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
+//         <Button variant="contained" onClick={handleNext}>Continue to Shipping</Button>
+//       </Box>
+//     </Box>
+//   );
+// };
 
-// --- 2. Shipping Address Component ---
-
+// --- 2. Shipping & Billing Address Component ---
 const ShippingAddressSection = () => {
-  const { shippingAddress, setShippingAddress, shippingMethod, setShippingMethod, handleNext, handleBack } = useCheckout();
-  
+  const {
+    shippingAddress,
+    setShippingAddress,
+    shippingMethod,
+    setShippingMethod,
+    handleNext,
+    handleBack,
+  } = useCheckout();
+
+  const [sameAsShipping, setSameAsShipping] = useState(true);
+
+  const [billingAddress, setBillingAddress] = useState({
+    firstName: "",
+    lastName: "",
+    address1: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: "",
+  });
+
   const shippingOptions = [
-    { id: 'standard', name: 'Standard Shipping', price: 5.00, time: '5-7 Business Days' },
-    { id: 'express', name: 'Express Shipping', price: 15.00, time: '2-3 Business Days' },
-    { id: 'sameday', name: 'Same Day Delivery', price: 25.00, time: 'Order within 2 hrs' },
+    { id: "standard", name: "Standard Shipping", price: 5.0, time: "5-7 Business Days" },
+    { id: "express", name: "Express Shipping", price: 15.0, time: "2-3 Business Days" },
+    { id: "sameday", name: "Same Day Delivery", price: 25.0, time: "Order within 2 hrs" },
   ];
 
+  // Sync billing with shipping when checkbox is checked
+  useEffect(() => {
+    if (sameAsShipping) {
+      setBillingAddress(shippingAddress);
+    }
+  }, [sameAsShipping, shippingAddress]);
+
   return (
     <Box>
-      <Typography variant="h6" gutterBottom>Shipping Address</Typography>
+      {/* SHIPPING ADDRESS */}
+      <Typography variant="h6" gutterBottom>
+       Shipping Address
+      </Typography>
+
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <TextField required label="First Name" fullWidth value={shippingAddress.firstName} onChange={(e) => setShippingAddress({ ...shippingAddress, firstName: e.target.value })} />
+          <TextField
+            required
+            label="First Name"
+            fullWidth
+            value={shippingAddress.firstName}
+            onChange={(e) =>
+              setShippingAddress({ ...shippingAddress, firstName: e.target.value })
+            }
+          />
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <TextField required label="Last Name" fullWidth value={shippingAddress.lastName} onChange={(e) => setShippingAddress({ ...shippingAddress, lastName: e.target.value })} />
+          <TextField
+            required
+            label="Last Name"
+            fullWidth
+            value={shippingAddress.lastName}
+            onChange={(e) =>
+              setShippingAddress({ ...shippingAddress, lastName: e.target.value })
+            }
+          />
         </Grid>
+
         <Grid item xs={12}>
-          <TextField required label="Address Line 1" fullWidth value={shippingAddress.address1} onChange={(e) => setShippingAddress({ ...shippingAddress, address1: e.target.value })} />
+          <TextField
+            required
+            label="Address Line 1"
+            fullWidth
+            value={shippingAddress.address1}
+            onChange={(e) =>
+              setShippingAddress({ ...shippingAddress, address1: e.target.value })
+            }
+          />
         </Grid>
+
         <Grid item xs={12}>
           <TextField label="Address Line 2 (Optional)" fullWidth />
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <TextField required label="City" fullWidth value={shippingAddress.city} onChange={(e) => setShippingAddress({ ...shippingAddress, city: e.target.value })} />
+          <TextField
+            required
+            label="City"
+            fullWidth
+            value={shippingAddress.city}
+            onChange={(e) =>
+              setShippingAddress({ ...shippingAddress, city: e.target.value })
+            }
+          />
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <TextField required label="State/Province" fullWidth value={shippingAddress.state} onChange={(e) => setShippingAddress({ ...shippingAddress, state: e.target.value })} />
+          <TextField
+            required
+            label="State/Province"
+            fullWidth
+            value={shippingAddress.state}
+            onChange={(e) =>
+              setShippingAddress({ ...shippingAddress, state: e.target.value })
+            }
+          />
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <TextField required label="Zip/Postal Code" fullWidth value={shippingAddress.zip} onChange={(e) => setShippingAddress({ ...shippingAddress, zip: e.target.value })} />
+          <TextField
+            required
+            label="Zip/Postal Code"
+            fullWidth
+            value={shippingAddress.zip}
+            onChange={(e) =>
+              setShippingAddress({ ...shippingAddress, zip: e.target.value })
+            }
+          />
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <TextField select required label="Country" fullWidth value={shippingAddress.country} onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value })}>
+          <TextField
+            select
+            required
+            label="Country"
+            fullWidth
+            value={shippingAddress.country}
+            onChange={(e) =>
+              setShippingAddress({ ...shippingAddress, country: e.target.value })
+            }
+          >
             <MenuItem value="US">United States</MenuItem>
             <MenuItem value="CA">Canada</MenuItem>
             <MenuItem value="UK">United Kingdom</MenuItem>
           </TextField>
         </Grid>
+
         <Grid item xs={12}>
-          <TextField label="Delivery Instructions (Optional)" fullWidth multiline rows={2} />
+          <TextField
+            label="Delivery Instructions (Optional)"
+            fullWidth
+            multiline
+            rows={2}
+          />
         </Grid>
       </Grid>
 
+      {/* CHECKBOX */}
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={sameAsShipping}
+            onChange={(e) => setSameAsShipping(e.target.checked)}
+          />
+        }
+        label="Billing address same as shipping"
+      />
+      {!sameAsShipping && (
+        <>
+          <Divider sx={{ my: 3 }} />
+
+          <Typography variant="h6" gutterBottom>
+            Billing Address
+          </Typography>
+
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                label="First Name"
+                fullWidth
+                value={billingAddress.firstName}
+                onChange={(e) =>
+                  setBillingAddress({ ...billingAddress, firstName: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                label="Last Name"
+                fullWidth
+                value={billingAddress.lastName}
+                onChange={(e) =>
+                  setBillingAddress({ ...billingAddress, lastName: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                required
+                label="Address Line 1"
+                fullWidth
+                value={billingAddress.address1}
+                onChange={(e) =>
+                  setBillingAddress({ ...billingAddress, address1: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField label="Address Line 2 (Optional)" fullWidth />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                label="City"
+                fullWidth
+                value={billingAddress.city}
+                onChange={(e) =>
+                  setBillingAddress({ ...billingAddress, city: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                label="State/Province"
+                fullWidth
+                value={billingAddress.state}
+                onChange={(e) =>
+                  setBillingAddress({ ...billingAddress, state: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                label="Zip/Postal Code"
+                fullWidth
+                value={billingAddress.zip}
+                onChange={(e) =>
+                  setBillingAddress({ ...billingAddress, zip: e.target.value })
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                select
+                required
+                label="Country"
+                fullWidth
+                value={billingAddress.country}
+                onChange={(e) =>
+                  setBillingAddress({ ...billingAddress, country: e.target.value })
+                }
+              >
+                <MenuItem value="US">United States</MenuItem>
+                <MenuItem value="CA">Canada</MenuItem>
+                <MenuItem value="UK">United Kingdom</MenuItem>
+              </TextField>
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                label="Delivery Instructions (Optional)"
+                fullWidth
+                multiline
+                rows={2}
+              />
+            </Grid>
+          </Grid>
+        </>
+      )}
+
       <Divider sx={{ my: 3 }} />
 
-      <Typography variant="h6" gutterBottom>Shipping Method</Typography>
-      <FormControl component="fieldset" sx={{ width: '100%' }}>
-        <RadioGroup value={shippingMethod} onChange={(e) => setShippingMethod(e.target.value)}>
+      {/* SHIPPING METHOD */}
+      <Typography variant="h6" gutterBottom>
+        Shipping Method
+      </Typography>
+
+      <FormControl component="fieldset" sx={{ width: "100%" }}>
+        <RadioGroup
+          value={shippingMethod}
+          onChange={(e) => setShippingMethod(e.target.value)}
+        >
           {shippingOptions.map((option) => (
-            <Paper key={option.id} variant="outlined" sx={{ p: 2, mb: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderColor: shippingMethod === option.id ? 'primary.main' : 'divider' }}>
+            <Paper
+              key={option.id}
+              variant="outlined"
+              sx={{
+                p: 2,
+                mb: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                borderColor:
+                  shippingMethod === option.id ? "primary.main" : "divider",
+              }}
+            >
               <FormControlLabel
                 value={option.id}
                 control={<Radio />}
-                label={<Box>
-                  <Typography fontWeight="bold">{option.name}</Typography>
-                  <Typography variant="caption" color="text.secondary">{option.time}</Typography>
-                </Box>}
+                label={
+                  <Box>
+                    <Typography fontWeight="bold">{option.name}</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      {option.time}
+                    </Typography>
+                  </Box>
+                }
               />
-              <Typography fontWeight="bold">{formatCurrency(option.price)}</Typography>
+              <Typography fontWeight="bold">
+                {formatCurrency(option.price)}
+              </Typography>
             </Paper>
           ))}
         </RadioGroup>
       </FormControl>
 
-      <Box sx={{ mt: 3, display: 'flex', justifyContent: 'space-between' }}>
+      {/* ACTION BUTTONS */}
+      <Box sx={{ mt: 3, display: "flex", justifyContent: "space-between" }}>
         <Button onClick={handleBack}>Back</Button>
-        <Button variant="contained" onClick={handleNext}>Continue to Payment</Button>
+        <Button variant="contained" onClick={handleNext}>
+          Continue to Payment
+        </Button>
       </Box>
     </Box>
   );
 };
+
+// export default ShippingAddressSection;
 
 // --- 3. Payment Method Component ---
 
@@ -361,73 +609,264 @@ const PaymentMethodSection = () => {
 
 // --- 4. Order Summary Component ---
 
+// const OrderSummaryCheckout = () => {
+//   const items = mockCartItems; // Would come from context
+//   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+//   const shipping = 15.00; // Static for simplicity
+//   const tax = subtotal * 0.08;
+//   const total = subtotal + shipping + tax;
+
+//   return (
+//     <Paper variant="outlined" sx={{ p: 3 }}>
+//       <Typography variant="h6" gutterBottom>Order Summary</Typography>
+      
+//       <Box sx={{ maxHeight: 250, overflow: 'auto', mb: 2 }}>
+//         {items.map((item) => (
+//           <Box key={item.id} sx={{ display: 'flex', mb: 2 }}>
+//             <CardMedia
+//               component="img"
+//               image={item.image}
+//               sx={{ width: 60, height: 60, objectFit: 'cover', borderRadius: 1, mr: 2 }}
+//             />
+//             <Box sx={{ flex: 1 }}>
+//               <Typography variant="body2" fontWeight="bold">{item.name}</Typography>
+//               <Typography variant="caption" color="text.secondary">Variant: {item.variant}</Typography>
+//               <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
+//                 <Typography variant="caption">Qty: {item.quantity}</Typography>
+//                 <Typography variant="body2">{formatCurrency(item.price)}</Typography>
+//               </Box>
+//             </Box>
+//           </Box>
+//         ))}
+//       </Box>
+
+//       <TextField
+//         label="Discount Code"
+//         size="small"
+//         fullWidth
+//         InputProps={{ endAdornment: <Button size="small">Apply</Button> }}
+//         sx={{ mb: 2 }}
+//       />
+
+//       <Divider sx={{ my: 1 }} />
+//       <Stack spacing={1}>
+//         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+//           <Typography variant="body2" color="text.secondary">Subtotal</Typography>
+//           <Typography variant="body2">{formatCurrency(subtotal)}</Typography>
+//         </Box>
+//         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+//           <Typography variant="body2" color="text.secondary">Shipping</Typography>
+//           <Typography variant="body2">{formatCurrency(shipping)}</Typography>
+//         </Box>
+//         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+//           <Typography variant="body2" color="text.secondary">Tax</Typography>
+//           <Typography variant="body2">{formatCurrency(tax)}</Typography>
+//         </Box>
+//         <Divider />
+//         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+//           <Typography variant="subtitle1" fontWeight="bold">Total</Typography>
+//           <Typography variant="subtitle1" fontWeight="bold">{formatCurrency(total)}</Typography>
+//         </Box>
+//       </Stack>
+      
+//       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 2, gap: 1, color: 'text.secondary' }}>
+//         <LockIcon fontSize="small" />
+//         <Typography variant="caption">Secure Checkout - SSL Encrypted</Typography>
+//       </Box>
+//     </Paper>
+//   );
+// };
+
 const OrderSummaryCheckout = () => {
-  const items = mockCartItems; // Would come from context
-  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const shipping = 15.00; // Static for simplicity
-  const tax = subtotal * 0.08;
+  const [items, setItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        setLoading(true);
+
+        const curr = localStorage.getItem("currency");
+        const sessionId = localStorage.getItem("sessionId");
+        let user_id = "";
+
+        const userData = localStorage.getItem("userData");
+        if (userData) {
+          const parsed = JSON.parse(userData);
+          user_id = parsed.id;
+        }
+
+        const res = await apiClient(
+          `checkout/cart-items?user_id=${user_id}&currency_id=${curr}&unique_session_id=${sessionId}`,
+          "get",
+          { headers: { Accept: "application/json" } }
+        );
+
+        if (res.status) {
+          const mappedItems = res.data.map((item: any) => ({
+            id: item.id,
+            name: item.product_name,
+            image: item.product_image,
+            price: parseFloat(item.unit_price), // ✅ USE unit_price
+            quantity: item.quantity,
+            currency_symbol: item.currency,
+            variant: item.config_matrix
+              ? JSON.stringify(item.config_matrix)
+              : "",
+          }));
+
+          setItems(mappedItems);
+
+        }
+      } catch (error) {
+        console.error("Cart API error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCart();
+  }, []);
+
+  // 💰 Calculations (same logic as backend)
+  const subtotal = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  const currencySymbol = items?.[0]?.currency_symbol || "₹";
+
+  const shipping = subtotal > 500 ? 0 : 15;
+  const tax = (subtotal) * 0.08;
   const total = subtotal + shipping + tax;
 
   return (
     <Paper variant="outlined" sx={{ p: 3 }}>
-      <Typography variant="h6" gutterBottom>Order Summary</Typography>
-      
-      <Box sx={{ maxHeight: 250, overflow: 'auto', mb: 2 }}>
+      <Typography variant="h6" gutterBottom>
+        Order Summary
+      </Typography>
+
+      {/* ITEMS */}
+      <Box sx={{ maxHeight: 250, overflow: "auto", mb: 2 }}>
         {items.map((item) => (
-          <Box key={item.id} sx={{ display: 'flex', mb: 2 }}>
+          <Box key={item.id} sx={{ display: "flex", mb: 2 }}>
             <CardMedia
               component="img"
               image={item.image}
-              sx={{ width: 60, height: 60, objectFit: 'cover', borderRadius: 1, mr: 2 }}
+              sx={{
+                width: 60,
+                height: 60,
+                objectFit: "cover",
+                borderRadius: 1,
+                mr: 2,
+              }}
             />
+
             <Box sx={{ flex: 1 }}>
-              <Typography variant="body2" fontWeight="bold">{item.name}</Typography>
-              <Typography variant="caption" color="text.secondary">Variant: {item.variant}</Typography>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
-                <Typography variant="caption">Qty: {item.quantity}</Typography>
-                <Typography variant="body2">{formatCurrency(item.price)}</Typography>
+              <Typography variant="body2" fontWeight="bold">
+                {item.name}
+              </Typography>
+
+              {item.variant && (
+                <Typography variant="caption" color="text.secondary">
+                  Variant: {item.variant}
+                </Typography>
+              )}
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  mt: 1,
+                }}
+              >
+                <Typography variant="caption">
+                  Qty: {item.quantity}
+                </Typography>
+
+                <Typography variant="body2">
+                  {item.currency_symbol}{item.price.toFixed(2)}
+                </Typography>
               </Box>
             </Box>
           </Box>
         ))}
       </Box>
 
+      {/* COUPON */}
       <TextField
         label="Discount Code"
         size="small"
         fullWidth
-        InputProps={{ endAdornment: <Button size="small">Apply</Button> }}
+        InputProps={{
+          endAdornment: <Button size="small">Apply</Button>,
+        }}
         sx={{ mb: 2 }}
       />
 
       <Divider sx={{ my: 1 }} />
+
+      {/* TOTALS */}
       <Stack spacing={1}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="body2" color="text.secondary">Subtotal</Typography>
-          <Typography variant="body2">{formatCurrency(subtotal)}</Typography>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="body2" color="text.secondary">
+            Subtotal
+          </Typography>
+          <Typography variant="body2">
+            {currencySymbol}{subtotal.toFixed(2)}
+          </Typography>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="body2" color="text.secondary">Shipping</Typography>
-          <Typography variant="body2">{formatCurrency(shipping)}</Typography>
+
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="body2" color="text.secondary">
+            Shipping
+          </Typography>
+          <Typography variant="body2">
+            {currencySymbol}{shipping.toFixed(2)}
+          </Typography>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="body2" color="text.secondary">Tax</Typography>
-          <Typography variant="body2">{formatCurrency(tax)}</Typography>
+
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="body2" color="text.secondary">
+            Tax
+          </Typography>
+          <Typography variant="body2">
+            {currencySymbol}{tax.toFixed(2)}
+          </Typography>
         </Box>
+
         <Divider />
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="subtitle1" fontWeight="bold">Total</Typography>
-          <Typography variant="subtitle1" fontWeight="bold">{formatCurrency(total)}</Typography>
+
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="subtitle1" fontWeight="bold">
+            Total
+          </Typography>
+          <Typography variant="subtitle1" fontWeight="bold">
+            {currencySymbol}{total.toFixed(2)}
+          </Typography>
         </Box>
       </Stack>
-      
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 2, gap: 1, color: 'text.secondary' }}>
+
+      {/* FOOTER */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          mt: 2,
+          gap: 1,
+          color: "text.secondary",
+        }}
+      >
         <LockIcon fontSize="small" />
-        <Typography variant="caption">Secure Checkout - SSL Encrypted</Typography>
+        <Typography variant="caption">
+          Secure Checkout - SSL Encrypted
+        </Typography>
       </Box>
     </Paper>
   );
 };
+
 
 // --- Confirmation Component ---
 
@@ -451,15 +890,14 @@ const OrderConfirmation = () => (
 export function CheckoutComponent() {
   const { activeStep, isProcessing } = useCheckout();
   
-  const steps = ['Customer Details', 'Shipping Address', 'Payment Method'];
+  // const steps = ['Customer Details', 'Shipping Address', 'Payment Method'];
+  const steps = ['Address', 'Payment Method'];
 
   return (
     <Box sx={{ py: 4 }}>
-
-      <Button variant='outlined' startIcon={<ArrowBackIcon />} href="/pages/cart" sx={{ mb: 2 }} disabled={isProcessing}>
+      <Button variant='outlined' color='error' startIcon={<ArrowBackIcon />} href="/cart" sx={{ mb: 2 }} disabled={isProcessing}>
         Back to Cart
       </Button>
-      
       <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 4 }}>
         {steps.map((label) => (
           <Step key={label}>
@@ -476,9 +914,9 @@ export function CheckoutComponent() {
             <Grid container spacing={8}>
                 <Grid item xs={12} md={7}>
                     <Paper variant="outlined" sx={{ p: 3 }}>
-                    {activeStep === 0 && <CustomerDetails />}
-                    {activeStep === 1 && <ShippingAddressSection />}
-                    {activeStep === 2 && <PaymentMethodSection />}
+                    {/* {activeStep === 0 && <CustomerDetails />} */}
+                    {activeStep === 0 && <ShippingAddressSection />}
+                    {activeStep === 1 && <PaymentMethodSection />}
                     </Paper>
                 </Grid>
                 <Grid item xs={12} md={5}>

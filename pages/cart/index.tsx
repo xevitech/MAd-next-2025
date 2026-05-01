@@ -14,7 +14,7 @@ import { CartComponent, CartProvider } from '@/components/cart';
 import { Box } from '@mui/material';
 
 export const metadata = {
-  title: 'Shopping Cart | My E-Commerce Store',
+  title: 'Shopping Cart | Merchant AD',
   description: 'Review your cart items and proceed to checkout.',
 };
 
@@ -22,16 +22,16 @@ export default function CartPage() {
   return (
     <>
       <Head>
-              <title>Cart - Merchant AD</title>
-              <meta
-                name="description"
-                content="Merchant AD facilitates an integrated platform that eases availability of spare parts, components and services to the Power Generation, Oil & Energy, Water & Wastewater management sectors"
-              />
-              <link
-                href="https://unpkg.com/aos@2.3.1/dist/aos.css"
-                rel="stylesheet"
-              ></link>
-            </Head>
+        <title>Cart - Merchant AD</title>
+        <meta
+          name="description"
+          content="Merchant AD facilitates an integrated platform that eases availability of spare parts, components and services to the Power Generation, Oil & Energy, Water & Wastewater management sectors"
+        />
+        <link
+          href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          rel="stylesheet"
+        ></link>
+      </Head>
       <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" />
       <HeaderPage />
       

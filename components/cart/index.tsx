@@ -426,7 +426,7 @@ const OrderSummary = ({ isMobile }: { isMobile: boolean }) => {
         <Divider sx={{ my: 1 }} />
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}><Typography variant="h6" fontWeight="bold">Total</Typography><Typography variant="h6" fontWeight="bold">{formatCurrency(total)}</Typography></Box>
       </Stack>
-      <Button variant="contained" color="error" fullWidth size="large" sx={{ mt: 3, py: 1.5 }} href='/pages/checkout' startIcon={<PaymentIcon />}>Proceed to Checkout</Button>
+      <Button variant="contained" color="error" fullWidth size="large" sx={{ mt: 3, py: 1.5 }} href='/checkout' startIcon={<PaymentIcon />}>Proceed to Checkout</Button>
       <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 3, color: 'text.secondary' }}>
         <Tooltip title="Secure Checkout"><SecurityIcon fontSize="small" /></Tooltip>
         <Tooltip title="Free Shipping over $500"><LocalShippingIcon fontSize="small" /></Tooltip>
