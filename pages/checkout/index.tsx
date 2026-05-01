@@ -8,12 +8,12 @@ const FooterPage = dynamic(
 );
 
 import { CheckoutComponent, CheckoutProvider } from '@/components/checkout';
-import { Container } from '@mui/material';
 import Head from "next/head";
 import Script from "next/script";
+import { Box } from "@/components/dashboard/style";
 
 export const metadata = {
-  title: 'Checkout | My E-Commerce Store',
+  title: 'Checkout | Merchant AD',
   description: 'Complete your purchase securely.',
 };
 
@@ -21,7 +21,7 @@ export default function CheckoutPage() {
   return (
     <>  
       <Head>
-          <title>About Us - Merchant AD</title>
+          <title>Checkout - Merchant AD</title>
           <meta
             name="description"
             content="Merchant AD facilitates an integrated platform that eases availability of spare parts, components and services to the Power Generation, Oil & Energy, Water & Wastewater management sectors"
@@ -34,10 +34,10 @@ export default function CheckoutPage() {
         <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" />
         <HeaderPage />
       <CheckoutProvider>
-        <Container>
+        <Box className="mx-auto px-4">
 
         <CheckoutComponent />
-        </Container>
+        </Box >
       </CheckoutProvider>
       <FooterPage />
     </>
