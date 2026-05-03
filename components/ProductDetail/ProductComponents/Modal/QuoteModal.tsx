@@ -308,17 +308,20 @@ const QuoteModal = ({ open, handleClose }) => {
       //     toast.error("Please select destination port");
       //   }
       //   return;
-      // } else if (!more_information?.purposeOfInquiry) {
-      //   if (value == 0) {
-      //     toast.error(
-      //       "Please select more information tab to select purpose of inquiry"
-      //     );
-      //     return;
-      //   } else {
-      //     toast.error("Please select purpose of inquiry");
-      //     return;
-      //   }
-      // } else if (!more_information?.productApplications) {
+      // } else 
+      
+        if (!more_information?.purposeOfInquiry) {
+        if (value == 0) {
+          toast.error(
+            "Please select more information tab to select purpose of inquiry"
+          );
+          return;
+        } else {
+          toast.error("Please select purpose of inquiry");
+          return;
+        }
+      } 
+      // else if (!more_information?.productApplications) {
       //   toast.error("Please enter product applications");
       //   return;
       // } else if (!more_information?.statementOne) {
@@ -326,59 +329,62 @@ const QuoteModal = ({ open, handleClose }) => {
       //   return;
       // }
     }
-    // if (quotedetails.product_type != "simple") {
-    //   if (!customize_request?.userPriceTerms) {
-    //     toast.error("Please select delivery term");
-    //     return;
-    //   } else if (
-    //     !["FCA", "FAS", "FOB", "EXW"].includes(
-    //       customize_request?.userPriceTerms
-    //     ) &&
-    //     !customize_request?.portCountry
-    //   ) {
-    //     toast.error("Please select port country");
-    //     return;
-    //   } else if (!customize_request?.userMessage) {
-    //     toast.error("Please enter message");
-    //     return;
-    //   } else if (!more_information?.purposeOfInquiry) {
-    //     if (value == 0) {
-    //       toast.error(
-    //         "Please select more information tab to select purpose of inquiry"
-    //       );
-    //       return;
-    //     } else {
-    //       toast.error("Please select purpose of inquiry");
-    //       return;
-    //     }
-    //   } else if (!more_information?.projectName) {
-    //     toast.error("Please enter project name");
-    //     return;
-    //   } else if (!more_information?.projectLocation) {
-    //     toast.error("Please enter project location");
-    //     return;
-    //   }
-    //   if (more_information?.competitor[0] === "") {
-    //     toast.error("Please enter competitor");
-    //     return;
-    //   } else if (!more_information?.productApplications) {
-    //     toast.error("Please enter product applications");
-    //     return;
-    //   } else if (!more_information?.statementOne) {
-    //     toast.error("Please enter product applications");
-    //     return;
-    //   } else if (!more_information?.purposeOfInquiry) {
-    //     if (value == 0) {
-    //       toast.error(
-    //         "Please select more information tab to select purpose of inquiry"
-    //       );
-    //       return;
-    //     } else {
-    //       toast.error("Please select purpose of inquiry");
-    //       return;
-    //     }
-    //   }
-    // }
+    if (quotedetails.product_type != "simple") {
+      // if (!customize_request?.userPriceTerms) {
+      //   toast.error("Please select delivery term");
+      //   return;
+      // } else if (
+      //   !["FCA", "FAS", "FOB", "EXW"].includes(
+      //     customize_request?.userPriceTerms
+      //   ) &&
+      //   !customize_request?.portCountry
+      // ) {
+      //   toast.error("Please select port country");
+      //   return;
+      // } else if (!customize_request?.userMessage) {
+      //   toast.error("Please enter message");
+      //   return;
+      // } else 
+        
+      if (!more_information?.purposeOfInquiry) {
+        if (value == 0) {
+          toast.error(
+            "Please select more information tab to select purpose of inquiry"
+          );
+          return;
+        } else {
+          toast.error("Please select purpose of inquiry");
+          return;
+        }
+      } else if (!more_information?.projectName) {
+        toast.error("Please enter project name");
+        return;
+      } else if (!more_information?.projectLocation) {
+        toast.error("Please enter project location");
+        return;
+      }
+      // if (more_information?.competitor[0] === "") {
+      //   toast.error("Please enter competitor");
+      //   return;
+      // } else if (!more_information?.productApplications) {
+      //   toast.error("Please enter product applications");
+      //   return;
+      // } else if (!more_information?.statementOne) {
+      //   toast.error("Please enter product applications");
+      //   return;
+      // } else 
+      if (!more_information?.purposeOfInquiry) {
+        if (value == 0) {
+          toast.error(
+            "Please select more information tab to select purpose of inquiry"
+          );
+          return;
+        } else {
+          toast.error("Please select purpose of inquiry");
+          return;
+        }
+      }
+    }
 
     if (!token) {
       setSendQueryButtonActive(true);
@@ -464,27 +470,26 @@ const QuoteModal = ({ open, handleClose }) => {
     let urlCartInfo = "cart/store";
     let response;
 
-    response = await apiClient(
-        urlCartInfo,
-        "post",
-        {
-          body: formData,
-        },
-        true
-      );
+    // response = await apiClient(
+    //     urlCartInfo,
+    //     "post",
+    //     {
+    //       body: formData,
+    //     },
+    //     true
+    //   );
 
 
-    /*working module
     let url;
 
     if (quotedetails.product_type == "configured") {
       url = "front/getQuery/submit";
     } else if (quotedetails.product_type == "simple") {
-      url = "quotation/simple";
+      url = "product/quotation/simple";
     }
-    let response;
+    // let response;
     if (quotedetails.product_type == "simple") {
-      response = await crmApiClient(
+      response = await apiClient(
         url,
         "post",
         {
@@ -502,7 +507,6 @@ const QuoteModal = ({ open, handleClose }) => {
         true
       );
     }
-      */
 
     if (response?.status === 200) {
       // dispatch(
@@ -516,9 +520,9 @@ const QuoteModal = ({ open, handleClose }) => {
       // );
       if (values == 1) {
         setSendQueryButtonActive(false);
-        toast.success("Item added to cart");
+        toast.success("Quote request sent successfully");
       } else {
-        toast.success("Item added to cart");
+        toast.success("Quote request sent successfully");
       }
 
       CloseDrawer();
@@ -877,7 +881,7 @@ const QuoteModal = ({ open, handleClose }) => {
                         display="block"
                         setToggleSignup={setToggleSignup}
                         SubmitQuotation={SubmitQuotation}
-                        buttonName="Signup & Add to Cart"
+                        buttonName="Signup & Get a Quote"
                         type={"signup"}
                       />
                     ) : (
@@ -885,7 +889,7 @@ const QuoteModal = ({ open, handleClose }) => {
                         setToggleSignup={setToggleSignup}
                         setHideLogin={HandleClose}
                         SubmitQuotation={SubmitQuotation}
-                        buttonName="Login & Add to Cart"
+                        buttonName="Login & Get a Quote"
                       />
                     )}
                   </SupplierContainer>
@@ -896,16 +900,16 @@ const QuoteModal = ({ open, handleClose }) => {
               <RequestQuoteH
                 sx={{ display: "flex", alignItems: "center", gap: 2 }}
               >
-                <Typography>Add to Cart</Typography>
+                <Typography>Get a Quote</Typography>
               </RequestQuoteH>
               <ClearOutlinedIcon onClick={CloseDrawer} />
             </DrawerHeader>
             <DrawerBody>
               <HeaderBreadcrumb>
-                {/* <Typography variant="h6">
+                <Typography variant="h6">
                   You are about to submit a request for quotation{""}
                   <span>(RFQ)</span> for the following product listed under:
-                </Typography> */}
+                </Typography>
                 <Stack spacing={2}>
                   <Breadcrumbs separator="›" aria-label="breadcrumb">
                     {quotedetails?.breadcrumbs?.map((v, i) => (
@@ -946,7 +950,7 @@ const QuoteModal = ({ open, handleClose }) => {
                   </QuoteDetail>
                 </IdWName>
               </ProductWImg>
-              {/* <SubjectCol>
+              <SubjectCol>
                 <Grid container spacing={2}>
                   <Grid item xs="auto" sm="auto" md="auto" lg="auto" xl="auto">
                     <UserthumbImg>
@@ -1405,7 +1409,7 @@ const QuoteModal = ({ open, handleClose }) => {
                     onProductIdsChange={handleSelectedProductIds}
                   />
                 </OverviewCol>
-              </SubjectCol> */}
+              </SubjectCol>
 
               <TabsData>
                 <Box sx={{ height: "38px" }}>
@@ -1418,15 +1422,15 @@ const QuoteModal = ({ open, handleClose }) => {
                   >
                     <Tab
                       iconPosition="start"
-                      label="Prepare your Order"
+                      label="Prepare your Quotation"
                       disableRipple
                     />
-                    {/* <Tab
+                    <Tab
                       iconPosition="end"
                       label="More Information"
                       disableRipple
                     />
-                    <Tab
+                    {/* <Tab
                       iconPosition="end"
                       label="Related Products"
                       disableRipple
@@ -1689,7 +1693,7 @@ const QuoteModal = ({ open, handleClose }) => {
                     visible={true}
                   />
                 ) : (
-                  "Add to Cart"
+                  "Get a Quote"
                 )}
               </Button>
             </FooterBtn>

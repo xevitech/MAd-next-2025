@@ -1615,10 +1615,9 @@ const ContactSupplier = ({ marginTop = "0px", paddingBottom = "20px" }) => {
                       }
                     }}
                   >
-                    {"Proceed To Buy"}
-                    {/* {quote_button_type == "contact"
+                    {quote_button_type == "contact"
                       ? "Contact Us Now"
-                      : "Get Quote Now vcv"} */}
+                      : "Get Quote Now"}
                   </GetQuoteMobile>
                 </Box>
                 

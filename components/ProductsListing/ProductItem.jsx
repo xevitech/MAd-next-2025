@@ -1133,19 +1133,10 @@ const ProductItem = ({ data }) => {
                         visible={true}
                       />
                     ) : (
-                      "Proceed To Buy"
+                      "Get a Quote"
                     )}
                   </Typography>
                 </ProductHeadePriceButton>
-
-                
-
-
-
-
-
-
-
 
                 {/* /* add buy now and add to cart button here */}
 
@@ -1160,7 +1151,7 @@ const ProductItem = ({ data }) => {
                   }}
                   onClick={() => handleAddToCart()}
                 >
-                 Proceed To Buy
+                 Get a Quote
                 </Button> */}
 
                 {/* Buy Now */}

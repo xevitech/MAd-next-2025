@@ -1177,87 +1177,11 @@ let bussiness='';
                         visible={true}
                       />
                     ) : (
-                      "Get Quote"
+                      "Get a Quote"
                     )}
                   </Typography>
                 </ProductHeadePriceButton>
-                <LightTooltip
-                  disableInteractive
-                  title={"Chat with Seller"}
-                  aria-label="Chat with Seller"
-                  placement="top"
-                  arrow
-                >
-                  <Box
-                    inputProps={{
-                      "aria-label": "Chat with Seller",
-                    }}
-                    sx={{
-                      border: "1px solid #d7282f",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "4px",
-                      padding: "6px 10px",
-                      minHeight: "29px",
-                      cursor: "pointer",
-                      "&:hover": {
-                        borderColor: "#d82e34",
-                        backgroundColor: "#ffedee",
-                      },
-                      "& .icon-livechat": {
-                        fontSize: "16px",
-                        "& .path1": {
-                          "&::before": {
-                            color: "#d82e34",
-                          },
-                        },
-                      },
-                    }}
-                    onClick={() => {
-                      let id = localStorage?.userData
-                        ? JSON.parse(localStorage?.userData).id
-                        : "";
-                      document.body.classList.add("chat-bodyadd");
-                      if (id === data?.user_id) {
-                        const swalWithBootstrapButtons = Swal.mixin({
-                          customClass: {
-                            confirmButton: "custom-btn cancel-button",
-                            cancelButton: "custom-btn remove-btn",
-                          },
-                          buttonsStyling: false,
-                        });
-                        swalWithBootstrapButtons.fire({
-                          title: "",
-                          html: `<span style="color: #231f20; font-size:18px;font-weight:500;margin:-10px 0px 30px 0px">You can’t send messages to yourself ! <br> This view simulates how others see your store.</span>`,
-                          icon: undefined,
-                          showCancelButton: false,
-                          reverseButtons: true,
-                          imageUrl: "/assets/minisiteimages/blockmessage.svg",
-                          imageWidth: 80,
-                          imageAlt: "alt",
-                        });
-                        document.body.classList.remove("chat-bodyadd");
-                        return;
-                      } else if (id) {
-                        handleChatButtonClick();
-                      } else {
-                        setShowSignPopup(true);
-                      }
-                    }}
-                  >
-                    <i class="icon-livechat">
-                      <span
-                        className="path1"
-                        aria-label="Chat with Seller"
-                      ></span>
-                      <span
-                        className="path2"
-                        aria-label="Chat with Seller"
-                      ></span>
-                    </i>
-                  </Box>
-                </LightTooltip>
+                
               </Box>
             </Stack>
             <Stack

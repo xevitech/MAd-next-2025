@@ -121,16 +121,16 @@ export default function VerticalTabs() {
             sx={{ justifyContent: "start" }}
             icon={<img src="/assets/inquiry_pref.svg" alt="" />}
             iconPosition="start"
-            label="Inquiry Settings"
+            label="RFQ Settings"
             {...a11yProps(0)}
           />
-          <CustomeTab
+          {/* <CustomeTab
             sx={{ justifyContent: "start" }}
             icon={<img src="/assets/trade_pref.svg" alt="" />}
             iconPosition="start"
             label="Trade Alerts"
             {...a11yProps(1)}
-          />
+          /> */}
           <CustomeTab
             sx={{ justifyContent: "start" }}
             icon={<img src="/assets/profile_setting.svg" alt="" />}
@@ -170,23 +170,23 @@ export default function VerticalTabs() {
           <Inquirycontent />
         </Box>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      {/* <TabPanel value={value} index={1}>
         <Box>
           {" "}
           <Tradecontent />{" "}
         </Box>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
+      </TabPanel> */}
+      <TabPanel value={value} index={1}>
         <Box>
           <Profilecontent />
         </Box>
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel value={value} index={2}>
         <Box>
           <Compantcontent />
         </Box>
       </TabPanel>
-      <TabPanel value={value} index={4}>
+      <TabPanel value={value} index={3}>
         <Box>
           <Contactcontent />
         </Box>

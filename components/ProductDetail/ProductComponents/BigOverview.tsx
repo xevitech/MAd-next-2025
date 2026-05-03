@@ -2558,10 +2558,10 @@ const BigOverview = ({ marginTop = "0px" }) => {
                 // }
               }}
             >
-              {"Proceed To Buy"}
-              {/* {quote_button_type == "contact"
+              {/* {"Get a Quote"} */}
+              {quote_button_type == "contact"
                 ? "Contact Us Now"
-                : "Proceed To Buy"} */}
+                : "Get a Quote"}
             </Button>
 
             {openSupplier && (
@@ -4331,10 +4331,9 @@ const BigOverview = ({ marginTop = "0px" }) => {
                 }
               }}
             >
-              {"Proceed To Buy"}
-              {/* {quote_button_type == "contact"
+              {quote_button_type == "contact"
                 ? "Contact Us Now"
-                : "Proceed To Buy"} */}
+                : "Get a Quote"}
             </Button>
 
             {openSupplier && (

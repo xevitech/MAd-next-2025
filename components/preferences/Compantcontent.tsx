@@ -83,7 +83,7 @@ export default function Compantcontent() {
                     marginTop: "-10px",
                   },
                 }}
-                value="power_cozmo_verified_users"
+                value="merchant_ad_verified_users"
                 control={
                   <Radio
                     sx={{
@@ -129,7 +129,7 @@ export default function Compantcontent() {
               onChange={handleChange}
             >
               <MyComp
-                value="power_cozmo_verified_users"
+                value="merchant_ad_verified_users"
                 control={
                   <Radio
                     sx={{
@@ -164,7 +164,7 @@ export default function Compantcontent() {
           <Divider />
         </Grid>
 
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Question>Select who can view your company contact Details</Question>
 
           <FormControl>
@@ -175,7 +175,7 @@ export default function Compantcontent() {
               onChange={handleChange}
             >
               <MyComp
-                value="power_cozmo_verified_users"
+                value="merchant_ad_verified_users"
                 control={
                   <Radio
                     sx={{
@@ -208,7 +208,7 @@ export default function Compantcontent() {
             </RadioGroup>
           </FormControl>
           <Divider />
-        </Grid>
+        </Grid> */}
 
         <Grid item xs={12}>
           <Question>Select who can view your company details</Question>
@@ -221,7 +221,7 @@ export default function Compantcontent() {
               onChange={handleChange}
             >
               <MyComp
-                value="power_cozmo_verified_users"
+                value="merchant_ad_verified_users"
                 control={
                   <Radio
                     sx={{

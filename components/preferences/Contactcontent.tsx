@@ -87,7 +87,7 @@ export default function Contactcontent() {
                     marginTop: "-10px",
                   },
                 }}
-                value="power_cozmo_verified_users"
+                value="merchant_ad_verified_users"
                 control={
                   <Radio
                     sx={{
@@ -150,7 +150,7 @@ export default function Contactcontent() {
                     marginTop: "-10px",
                   },
                 }}
-                value="power_cozmo_verified_users"
+                value="merchant_ad_verified_users"
                 control={
                   <Radio
                     sx={{

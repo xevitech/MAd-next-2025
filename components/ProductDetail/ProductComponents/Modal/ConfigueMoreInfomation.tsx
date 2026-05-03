@@ -122,11 +122,11 @@ function ConfigueMoreInformation({sendDataToParent,totalPrice,tabData} ) {
           },
         }}
       >
-        <Alert severity="info">
+        {/* <Alert severity="info">
           The more information you provide, the better we can understand your
           needs and requirements. This will help us provide you with a more
           accurate and tailored quote.
-        </Alert>
+        </Alert> */}
       </Stack>
 
       <Grid container spacing={2} sx={{ marginTop: "0px" }}>
@@ -163,10 +163,10 @@ function ConfigueMoreInformation({sendDataToParent,totalPrice,tabData} ) {
           <Box>
             <LableValue>
               <Typography variant="h3">Project Information</Typography>
-              <Typography variant="body1" sx={{ marginBottom: "6px" }}>
+              {/* <Typography variant="body1" sx={{ marginBottom: "6px" }}>
                 If you are submitting a proposal for a specific project, please
                 provide the following information.
-              </Typography>
+              </Typography> */}
             </LableValue>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6} md={6}>
@@ -198,7 +198,7 @@ function ConfigueMoreInformation({sendDataToParent,totalPrice,tabData} ) {
             </Grid>
           </Box>
         </Grid>
-        <Grid item md={12}>
+        {/* <Grid item md={12}>
           <LableValue sx={{ marginBottom: '16px' }}>
             <Typography variant="h3">Competitor Information</Typography>
             <Typography variant="body1">
@@ -425,7 +425,7 @@ function ConfigueMoreInformation({sendDataToParent,totalPrice,tabData} ) {
               label={statementTwo?.statement}
             />
           </FormGroup>
-        </Grid>
+        </Grid> */}
         <ConfigSummaryOuter>
           <ConfigSummaryInn>
             <Typography variant="h5">Product Summary</Typography>
