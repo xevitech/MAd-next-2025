@@ -197,10 +197,10 @@ export default function Inquirycontent() {
                 />
               </RadioGroup>
             </FormControl>
-            <Para>Additional charges applicable.</Para>
+            {/* <Para>Additional charges applicable.</Para> */}
             <Divider />
           </Grid>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Question>
               Would you like to opt for reminder for your inquiries?
             </Question>
@@ -289,7 +289,7 @@ export default function Inquirycontent() {
                 />
               </RadioGroup>
             </FormControl>
-          </Grid>
+          </Grid> */}
         </Grid>
       )}
       {(role === "seller" ||

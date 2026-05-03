@@ -708,9 +708,9 @@ export const UserSidebar = () => {
                         className="menu-expanded-menu-item"
                         onClick={(e) => NavigateHandler("/rfq")}
                       >
-                        Create RFQ
+                        RFQ List
                       </MenuItem>
-                      <MenuItem
+                      {/* <MenuItem
                         className="menu-expanded-menu-item"
                         onClick={(e) => NavigateHandler("/rfq")}
                       >
@@ -718,7 +718,7 @@ export const UserSidebar = () => {
                       </MenuItem>
                       <MenuItem className="menu-expanded-menu-item">
                         RFQ Settings
-                      </MenuItem>
+                      </MenuItem> */}
                     </SubMenu>
                   )}
 
@@ -848,7 +848,7 @@ export const UserSidebar = () => {
                           Seller Sub Account
                         </MenuItem>
                       )}
-                      {checkPermissions === "seller" && (
+                      {/* {checkPermissions === "seller" && (
                         <MenuItem
                           className={`menu-expanded-menu-item ${
                             routesArray[0] == "ads" ? "selectedMenuItem" : ""
@@ -857,10 +857,10 @@ export const UserSidebar = () => {
                         >
                           My Ads
                         </MenuItem>
-                      )}
+                      )} */}
                     </SubMenu>
                   )}
-                  {checkPermissions === "seller" && (
+                  {/* {checkPermissions === "seller" && (
                     <SubMenu
                       style={{
                         fontWeight: 400,
@@ -889,7 +889,7 @@ export const UserSidebar = () => {
                         Rules
                       </MenuItem>
                     </SubMenu>
-                  )}
+                  )} */}
                 </>
                 {/* {(checkPermissions === "seller" ||
                   (checkPermissions === "subuser" &&
@@ -1215,7 +1215,7 @@ export const UserSidebar = () => {
                       )
                     }
                   >
-                    {(checkPermissions === "seller" ||
+                    {/* {(checkPermissions === "seller" ||
                       (checkPermissions === "subuser" &&
                         permissions?.notifications?.view)) && (
                       <MenuItem
@@ -1228,7 +1228,7 @@ export const UserSidebar = () => {
                       >
                         Notifications
                       </MenuItem>
-                    )}
+                    )} */}
 
                     {(checkPermissions === "seller" ||
                       (checkPermissions === "subuser" &&

@@ -143,7 +143,7 @@ export default function Accountsetting() {
                               iconPosition="start"
                               label="Account Preferences"
                             />
-                            <Fonts
+                            {/* <Fonts
                               icon={
                                 <NotificationsActiveOutlinedIcon
                                   sx={{ width: "20px", height: "20px" }}
@@ -169,13 +169,13 @@ export default function Accountsetting() {
                               }
                               iconPosition="start"
                               label="Privacy Settings"
-                            />
+                            /> */}
                           </Tabs>
                         </AccountBox>
                         <TabPanel value={value} index={0}>
                           <VerticalTabs />
                         </TabPanel>
-                        <TabPanel value={value} index={1}>
+                        {/* <TabPanel value={value} index={1}>
                           <NoDataFound />
                         </TabPanel>
                         <TabPanel value={value} index={2}>
@@ -183,7 +183,7 @@ export default function Accountsetting() {
                         </TabPanel>
                         <TabPanel value={value} index={3}>
                           <NoDataFound />
-                        </TabPanel>
+                        </TabPanel> */}
                       </Box>
                     </Box>
                   </InnerContainer>

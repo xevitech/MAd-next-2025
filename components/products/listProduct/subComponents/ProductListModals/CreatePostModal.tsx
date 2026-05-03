@@ -335,7 +335,8 @@ export const CreatePostModal = (props) => {
         ? currencies.find((v) => v.value == router?.query?.currency)?.value
         : 1,
       availability: router?.query?.availability ?? "in_stock",
-      type: router?.query?.type ?? "simple",
+      // type: router?.query?.type ?? "simple",
+      type: "simple",
     },
     onSubmit: (values) => {
       createQuickProduct(values);
@@ -521,7 +522,7 @@ export const CreatePostModal = (props) => {
           open={open}
         >
           <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-            Create Post
+            Add Product
           </DialogTitle>
           <IconButton
             aria-label="close"
@@ -570,7 +571,7 @@ export const CreatePostModal = (props) => {
                     />
                   </FormControl>
                 </div>
-                <div>
+                {/* <div>
                   <ButtonGroupHeader>Product Type </ButtonGroupHeader>
                   <TButtonGroup
                     color="primary"
@@ -626,7 +627,7 @@ export const CreatePostModal = (props) => {
                       Configure Product
                     </ToggleButton>
                   </TButtonGroup>
-                </div>
+                </div> */}
                 <div>
                   <ButtonGroupHeader>Product Availability </ButtonGroupHeader>
 
@@ -704,7 +705,7 @@ export const CreatePostModal = (props) => {
                     required={true}
                   />
                 </FormControl>
-                <EditProductSwitchSection>
+                {/* <EditProductSwitchSection>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <LightTooltip
                       arrow
@@ -725,7 +726,7 @@ export const CreatePostModal = (props) => {
                     </LightTooltip>
                     <Typography>Placeholder Product</Typography>
                   </Stack>
-                </EditProductSwitchSection>
+                </EditProductSwitchSection> */}
               </div>
             </DialogContent>
             <DialogActions>

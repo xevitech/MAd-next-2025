@@ -345,7 +345,7 @@ export const ListRfq = () => {
         <TabContext value={value}>
           <RfQTabBox sx={{ borderColor: "divider" }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab
+              {/* <Tab
                 label={
                   <Labeldata>
                     <i className="icon-main-task"></i>
@@ -355,7 +355,7 @@ export const ListRfq = () => {
                 }
                 value="2"
               />
-              <Divider orientation="vertical" variant="middle" flexItem />
+              <Divider orientation="vertical" variant="middle" flexItem /> */}
 
               <Tab
                 label={
@@ -367,8 +367,8 @@ export const ListRfq = () => {
                 }
                 value="1"
               />
-              <Divider orientation="vertical" variant="middle" flexItem />
-              <Tab
+              {/* <Divider orientation="vertical" variant="middle" flexItem /> */}
+              {/* <Tab
                 label={
                   <Labeldata>
                     <i className="icon-icon-quote"></i>
@@ -400,12 +400,12 @@ export const ListRfq = () => {
                 }
                 value="5"
               />
-              <Divider orientation="vertical" variant="middle" flexItem />
+              <Divider orientation="vertical" variant="middle" flexItem /> */}
             </TabList>
           </RfQTabBox>
           <TabPanel value="1">
             <RfqGridContent>
-              <ButtonContainer>
+              {/* <ButtonContainer>
                 <RfqButtonContainerLeft>
                   <OutLinedButton
                     variant="outlined"
@@ -418,9 +418,9 @@ export const ListRfq = () => {
                     Filter
                   </OutLinedButton>
                 </RfqButtonContainerLeft>
-              </ButtonContainer>
+              </ButtonContainer> */}
               <Grid container spacing={1}>
-                {!filterHideShow && (
+                {/* {!filterHideShow && (
                   <Grid item xs={12} sm={12} md={3} xl={2.2}>
                     <RfqFilterCoulm>
                       <div>
@@ -532,13 +532,15 @@ export const ListRfq = () => {
                       </div>
                     </RfqFilterCoulm>
                   </Grid>
-                )}
+                )} */}
                 <Grid
                   item
                   xs={12}
                   sm={9}
-                  md={!filterHideShow ? 9 : 12}
-                  xl={!filterHideShow ? 9.8 : 12}
+                  // md={!filterHideShow ? 9 : 12}
+                  md={!filterHideShow ? 12 : 12}
+                  xl={!filterHideShow ? 12 : 12}
+                  // xl={!filterHideShow ? 9.8 : 12}
                 >
                   <RfqTableCoulmn sx={{ height: 520, width: "100%" }}>
                     <DataGridPro
@@ -553,11 +555,11 @@ export const ListRfq = () => {
                     />
                   </RfqTableCoulmn>
                 </Grid>
-                :
+                {/* : */}
               </Grid>
             </RfqGridContent>
           </TabPanel>
-          <TabPanel value="2">
+          {/* <TabPanel value="2">
             <RfqGridContent>
               <ButtonContainer>
                 <RfqButtonContainerLeft>
@@ -710,7 +712,7 @@ export const ListRfq = () => {
                 :
               </Grid>
             </RfqGridContent>
-          </TabPanel>
+          </TabPanel> */}
         </TabContext>
       </Box>
       <div>

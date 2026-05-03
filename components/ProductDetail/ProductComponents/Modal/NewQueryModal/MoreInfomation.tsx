@@ -88,7 +88,7 @@ function MoreInfomation({ formik }) {
 
   return (
     <div>
-      <Stack
+      {/* <Stack
         sx={{
           width: "100%",
           "& .MuiPaper-root": {
@@ -113,7 +113,7 @@ function MoreInfomation({ formik }) {
           needs and requirements. This will help us provide you with a more
           accurate and tailored quote.
         </Alert>
-      </Stack>
+      </Stack> */}
 
       <Grid container spacing={2} sx={{ marginTop: "0px" }}>
         <Grid item xs={12}>
@@ -149,10 +149,10 @@ function MoreInfomation({ formik }) {
           <Box>
             <LableValue>
               <Typography variant="h3">Project Information</Typography>
-              <Typography variant="body1" sx={{marginBottom:"6px"}}>
+              {/* <Typography variant="body1" sx={{marginBottom:"6px"}}>
                 If you are submitting a proposal for a specific project, please
                 provide the following information.
-              </Typography>
+              </Typography> */}
             </LableValue>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={12} md={6}>
@@ -184,7 +184,7 @@ function MoreInfomation({ formik }) {
             </Grid>
           </Box>
         </Grid>
-        <Grid item md={12}>
+        {/* <Grid item md={12}>
           <LableValue sx={{marginBottom:'16px'}}>
             <Typography variant="h3">Competitor Information</Typography>
             <Typography variant="body1">
@@ -281,8 +281,8 @@ function MoreInfomation({ formik }) {
               )}
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item md={12}>
+        </Grid> */}
+        {/* <Grid item md={12}>
           <LableValue>
             <Typography variant="h3" sx={{ margin: "0!important" }}>
               Product Application
@@ -323,8 +323,8 @@ function MoreInfomation({ formik }) {
               onChange={(e) => setProductApplications(e.target.value)}
             />
           </Box>
-        </Grid>
-        <Grid item md={12}>
+        </Grid> */}
+        {/* <Grid item md={12}>
           <FormGroup
             sx={{
               marginTop: "-12px",
@@ -413,7 +413,7 @@ function MoreInfomation({ formik }) {
               label={statementTwo?.statement}
             />
           </FormGroup>
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   );

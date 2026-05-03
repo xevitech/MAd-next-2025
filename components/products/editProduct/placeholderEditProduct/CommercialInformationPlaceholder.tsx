@@ -5555,7 +5555,7 @@ can be relevant for import/export regulations and buyer preferences."
                       inputProps={{ "aria-label": "A" }}
                     />
                     <strong style={{ marginRight: "8px" }}>
-                      Proceed To Buy
+                      Get a Quote
                     </strong>{" "}
                   </span>
                   <Box

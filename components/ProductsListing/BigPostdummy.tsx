@@ -889,7 +889,7 @@ export default function BigPostdummy(props) {
                         visible={true}
                       />
                     ) : (
-                      "Proceed To Buy"
+                      "Get a Quote"
                     )}
                   </Button>
                   

@@ -22,7 +22,7 @@ const productList = () => {
   return (
     <>
     <Head>
-       <title>Product List | Powercozmo</title>
+       <title>Product List | Merchant AD</title>
      </Head>
     <InnerLayout>
     {/* <VerifyMobile
